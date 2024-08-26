@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/domain/models/onboarding_model.dart';
+import 'package:food_delivery/presentation/resources/assets.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -28,22 +29,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     final List<OnboardingModel> onboardList = [
       OnboardingModel(
-        image: 'assets/images/onboarding1.png',
+        image: AssetData.onboarding1,
         title: 'Delicious Food',
         description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit.',
       ),
       OnboardingModel(
-        image: 'assets/images/onboarding2.png',
+        image: AssetData.onboarding2,
         title: 'Fast Shipping',
         description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
       ),
       OnboardingModel(
-        image: 'assets/images/onboarding3.png',
+        image:AssetData.onboarding3,
         title: 'Certificate Food',
         description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
       ),
       OnboardingModel(
-        image: 'assets/images/onboarding4.png',
+        image: AssetData.onboarding4,
         title: 'Payment Online',
         description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
       ),
@@ -70,11 +71,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     SizedBox(
                       width: 190,
                       height: 120,
-                      child: Image.asset(onboardList[index].image!),
+                      child: Image.asset(onboardList[index].image),
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      onboardList[index].title!,
+                      onboardList[index].title,
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -83,7 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      onboardList[index].description!,
+                      onboardList[index].description,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 14,
