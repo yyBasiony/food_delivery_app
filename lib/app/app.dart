@@ -7,7 +7,7 @@ class FoodDelivery extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      home: SplashScreen(),
     );
   }
 }
