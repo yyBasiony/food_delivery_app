@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/onboarding/page_onboarding.dart';
+import 'package:food_delivery/presentation/onboarding/page_view.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -15,9 +15,10 @@ class _SplashBodyState extends State<SplashBody> {
      Future.delayed( const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-         MaterialPageRoute(builder: (context) => const PageOnboarding()),
+         MaterialPageRoute(builder: (context) => const POnboardingView()),
       );
     });
+
   }
 
   @override
