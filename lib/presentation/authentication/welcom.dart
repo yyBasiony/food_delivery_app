@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/constants.dart';
 import 'package:food_delivery/domain/widgets/custom_widget_bottom.dart';
+import 'package:food_delivery/presentation/authentication/login/login.dart';
+import 'package:food_delivery/presentation/authentication/singup/singup.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
 
 class Welcome extends StatelessWidget {
@@ -13,7 +15,7 @@ class Welcome extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 15),
+         const  SizedBox(height: 15),
           Center(
             child: Container(
               height: 220,
@@ -27,19 +29,31 @@ class Welcome extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10),
+         const  SizedBox(height: 10),
           customButton(
             text: 'Sign In',
             backgroundColor: AppColor.backgronboarding,
             textColor: Colors.white,
             borderColor: Colors.orange,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
+              );
+            },
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           customButton(
             text: 'Sign Up',
             backgroundColor: Colors.white,
             textColor: Colors.black,
             borderColor: AppColor.inactiveColor,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUp()),
+              );
+            },
           ),
         ],
       ),

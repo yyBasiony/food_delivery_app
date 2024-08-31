@@ -6,12 +6,13 @@ Widget customButton({
   required Color backgroundColor,
   required Color textColor,
   required Color borderColor,
+  required VoidCallback onPressed,
 }) {
   return Container(
     width: 280,
     height: 50,
     child: ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
@@ -26,4 +27,3 @@ Widget customButton({
     ),
   );
 }
-
