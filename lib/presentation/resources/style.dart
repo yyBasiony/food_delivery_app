@@ -14,6 +14,5 @@ class AppTextStyle {
     fontSize: 17,
     color: Colors.white,
   );
-
-
+  static const TextStyle textStylecustombottom= TextStyle( fontSize: 18);
 }

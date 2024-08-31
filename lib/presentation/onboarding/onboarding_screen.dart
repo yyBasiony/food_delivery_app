@@ -66,7 +66,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 1 ,right: 8),
+            padding: EdgeInsets.only(top: 30,right: 12),
             child: Align(
               alignment: Alignment.topRight,
               child: TextButton(
@@ -102,7 +102,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       height: 120,
                       child: Image.asset(onboardList[index].image),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     Text(
                       onboardList[index].title,
                       style: AppTextStyle.textStyleTitle,
@@ -135,7 +135,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               );
             }),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 30),
         ],
       ),
     );
