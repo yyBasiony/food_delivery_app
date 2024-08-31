@@ -10,5 +10,10 @@ class AppTextStyle {
   fontSize: 14,
   color: Colors.white,
   );
+  static const TextStyle textStyleskip=TextStyle(
+    fontSize: 17,
+    color: Colors.white,
+  );
+
 
 }

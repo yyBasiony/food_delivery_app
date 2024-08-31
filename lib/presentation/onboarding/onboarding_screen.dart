@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/constants.dart';
 import 'package:food_delivery/domain/models/onboarding_model.dart';
+import 'package:food_delivery/presentation/authentication/welcom.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
 import 'package:food_delivery/presentation/resources/style.dart';
 
@@ -27,36 +28,62 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
+  // void navigateToWelcome() {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => const Welcome()),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     final List<OnboardingModel> onboardList = [
       OnboardingModel(
         image: AssetData.onboarding1,
         title: 'Delicious Food',
-        description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit.',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       ),
       OnboardingModel(
         image: AssetData.onboarding2,
         title: 'Fast Shipping',
-        description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
       ),
       OnboardingModel(
-        image:AssetData.onboarding3,
+        image: AssetData.onboarding3,
         title: 'Certificate Food',
-        description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
       ),
       OnboardingModel(
         image: AssetData.onboarding4,
         title: 'Payment Online',
-        description: 'Lorem ipusm dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
       ),
     ];
 
     return Scaffold(
-      backgroundColor:AppColor.backgronboarding,
+      backgroundColor: AppColor.backgronboarding,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Padding(
+            padding: EdgeInsets.only(top: 1 ,right: 8),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const Welcome()),
+                  );
+                },
+                child: Text(
+                  'Skip',
+                  style: AppTextStyle.textStyleskip,
+                ),
+              ),
+            ),
+          ),
+
           Expanded(
             child: PageView.builder(
               controller: pageController,
@@ -78,13 +105,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const SizedBox(height: 20),
                     Text(
                       onboardList[index].title,
-                      style:AppTextStyle.textStyleTitle,
+                      style: AppTextStyle.textStyleTitle,
                     ),
                     const SizedBox(height: 10),
                     Text(
                       onboardList[index].description,
                       textAlign: TextAlign.center,
-                      style:AppTextStyle.textStyledescrip,
+                      style: AppTextStyle.textStyledescrip,
                     ),
                   ],
                 );
@@ -95,12 +122,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(onboardList.length, (index) {
               return AnimatedContainer(
-                duration: AppColor.duration,
+                duration: AppColor.durationnavi,
                 margin: const EdgeInsets.symmetric(horizontal: 4.0),
                 height: 10,
                 width: 10,
                 decoration: BoxDecoration(
-                  color: pageIndex == index ? AppColor.activeColor: AppColor.inactiveColor,
+                  color: pageIndex == index
+                      ? AppColor.activeColor
+                      : AppColor.inactiveColor,
                   borderRadius: BorderRadius.circular(5),
                 ),
               );
