@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/constants.dart';
 import 'package:food_delivery/domain/models/onboarding_model.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
+import 'package:food_delivery/presentation/resources/style.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -51,7 +53,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xffD35400),
+      backgroundColor:AppColor.backgronboarding,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -76,20 +78,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const SizedBox(height: 20),
                     Text(
                       onboardList[index].title,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                      style:AppTextStyle.textStyleTitle,
                     ),
                     const SizedBox(height: 10),
                     Text(
                       onboardList[index].description,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
+                      style:AppTextStyle.textStyledescrip,
                     ),
                   ],
                 );
@@ -100,12 +95,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(onboardList.length, (index) {
               return AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
+                duration: AppColor.duration,
                 margin: const EdgeInsets.symmetric(horizontal: 4.0),
                 height: 10,
                 width: 10,
                 decoration: BoxDecoration(
-                  color: pageIndex == index ? Colors.white : const Color(0xfff0c3a6),
+                  color: pageIndex == index ? AppColor.activeColor: AppColor.inactiveColor,
                   borderRadius: BorderRadius.circular(5),
                 ),
               );

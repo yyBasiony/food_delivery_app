@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+
+class AppColor {
+  static const duration = Duration(seconds: 3);
+  static const Color backgronboarding = Color(0xffD35400);
+  static const Color activeColor = Colors.white;
+  static const Color inactiveColor = Color(0xfff0c3a6);
+  static const Color backgrsplah= Color(0xffe6dcc1);
+
+
+}
+

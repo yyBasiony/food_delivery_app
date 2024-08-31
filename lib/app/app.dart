@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/splash/splash_view.dart';
+import 'package:food_delivery/presentation/splash/splash_screen.dart';
 class FoodDelivery extends StatelessWidget {
   const FoodDelivery({super.key});
 
