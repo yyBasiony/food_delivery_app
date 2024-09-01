@@ -15,21 +15,21 @@ class Welcome extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-         const  SizedBox(height: 15),
+         //const  SizedBox(height: 15),
           Center(
             child: Container(
               height: 220,
               width: 220,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(4.0),
                 child: Image.asset(AssetData.burger),
               ),
             ),
           ),
-         const  SizedBox(height: 10),
+         const  SizedBox(height: 20),
           customButton(
             text: 'Sign In',
             backgroundColor: AppColor.backgronboarding,
@@ -54,6 +54,28 @@ class Welcome extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => SignUp()),
               );
             },
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Divider(
+                    color: AppColor.dividercolor,
+                    thickness: 1,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text('Or connect with'),
+              ),
+
+
+            ],
           ),
         ],
       ),

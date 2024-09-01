@@ -14,5 +14,12 @@ class AppTextStyle {
     fontSize: 17,
     color: Colors.white,
   );
-  static const TextStyle textStylecustombottom= TextStyle( fontSize: 18);
+  static const TextStyle textStylecustombottom= TextStyle(
+      fontSize: 18
+  );
+  static const TextStyle conettext= TextStyle(
+      fontSize: 14
+
+  );
+
 }
