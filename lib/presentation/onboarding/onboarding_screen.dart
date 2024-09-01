@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/constants.dart';
 import 'package:food_delivery/domain/models/onboarding_model.dart';
-import 'package:food_delivery/presentation/authentication/welcom.dart';
+import 'package:food_delivery/presentation/authentication/welcome.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
 import 'package:food_delivery/presentation/resources/style.dart';
 

@@ -18,7 +18,8 @@ class AppTextStyle {
       fontSize: 18
   );
   static const TextStyle conettext= TextStyle(
-      fontSize: 14
+      fontSize: 14,
+    color:Color(0xff34495E),
 
   );
 

@@ -4,10 +4,9 @@ import 'package:food_delivery/domain/widgets/custom_widget_bottom.dart';
 import 'package:food_delivery/presentation/authentication/login/login.dart';
 import 'package:food_delivery/presentation/authentication/singup/singup.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
-
+import 'package:food_delivery/presentation/resources/style.dart';
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +14,7 @@ class Welcome extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-         //const  SizedBox(height: 15),
+         const  SizedBox(height: 100),
           Center(
             child: Container(
               height: 220,
@@ -42,7 +41,7 @@ class Welcome extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           customButton(
             text: 'Sign Up',
             backgroundColor: Colors.white,
@@ -55,14 +54,14 @@ class Welcome extends StatelessWidget {
               );
             },
           ),
-          SizedBox(
-            height: 20,
+          const SizedBox(
+            height: 28
           ),
-          Row(
+          const Row(
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:  EdgeInsets.all(8.0),
                   child: Divider(
                     color: AppColor.dividercolor,
                     thickness: 1,
@@ -70,13 +69,36 @@ class Welcome extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text('Or connect with'),
+                padding:  EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text('Or connect with',style: AppTextStyle.conettext,),
               ),
+            ],
+          ),
+
+          Row(
+           // crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+               Container(
+                  height: 80,
+                  width: 120,
+
+                  child: Image.asset(AssetData.pngltem)),
+              const SizedBox(width: 60,),
+              Container(
+                height: 40,
+                  width: 40,
+                  child: Image.asset(AssetData.facebook)),
+              const SizedBox(width: 20,),
+
+              Container(
+                  height: 40,
+                  width: 40,
+
+                  child: Image.asset(AssetData.google)),
 
 
             ],
-          ),
+          )
         ],
       ),
     );
