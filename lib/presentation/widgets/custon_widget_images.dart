@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
-class custom_widget_images extends StatelessWidget {
-  const custom_widget_images({
+class CustomWidgetImages extends StatelessWidget {
+  const CustomWidgetImages({
     super.key,
   });
 

@@ -58,9 +58,9 @@ class Welcome extends StatelessWidget {
           const SizedBox(
             height: 28
           ),
-           custom_widget_divider(),
+          const CustomWidgetDivider(),
 
-          custom_widget_images()
+          const CustomWidgetImages()
         ],
       ),
     );
