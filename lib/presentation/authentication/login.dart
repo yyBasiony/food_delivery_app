@@ -67,14 +67,12 @@ class _LoginState extends State<Login> {
                     onPressed: () {
                       // Handle forgot password
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          'Forgot Password?',
-                          style: TextStyle(fontSize: 14, color: Color(0xff34495E)),
-                        ),
-                      ],
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(fontSize: 14, color: Color(0xff34495E)),
+                      ),
                     ),
                   ),
                 ],
