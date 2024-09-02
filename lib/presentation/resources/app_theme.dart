@@ -22,6 +22,13 @@ class AppTheme {
     color:Color(0xff34495E),
 
   );
+  static const TextStyle singsingupstyle= TextStyle(
+    fontSize: 24,
+    color:Color(0xff000000),
+    fontWeight: FontWeight.bold,
+
+  );
+
 
 }
 

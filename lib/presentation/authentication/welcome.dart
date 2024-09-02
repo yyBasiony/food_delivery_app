@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/presentation/authentication/login.dart';
-import 'package:food_delivery/presentation/authentication/singup.dart';
+import 'package:food_delivery/presentation/authentication/register.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
 import 'package:food_delivery/presentation/resources/constants.dart';
 import 'package:food_delivery/presentation/widgets/custom_widget_bottom.dart';
