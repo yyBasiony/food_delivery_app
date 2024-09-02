@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppTextStyle {
+class AppTheme {
   static const TextStyle textStyleTitle = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
@@ -24,3 +24,4 @@ class AppTextStyle {
   );
 
 }
+

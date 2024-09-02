@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/constants.dart';
-import 'package:food_delivery/domain/widgets/custom_widget_bottom.dart';
-import 'package:food_delivery/presentation/authentication/login/login.dart';
-import 'package:food_delivery/presentation/authentication/singup/singup.dart';
+import 'package:food_delivery/presentation/authentication/login.dart';
+import 'package:food_delivery/presentation/authentication/singup.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
-import 'package:food_delivery/presentation/resources/style.dart';
+import 'package:food_delivery/presentation/resources/constants.dart';
+import 'package:food_delivery/presentation/widgets/custom_widget_bottom.dart';
+import 'package:food_delivery/presentation/widgets/custom_widget_divider.dart';
+import 'package:food_delivery/presentation/widgets/custon_widget_images.dart';
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
   @override
@@ -57,50 +58,12 @@ class Welcome extends StatelessWidget {
           const SizedBox(
             height: 28
           ),
-          const Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding:  EdgeInsets.all(8.0),
-                  child: Divider(
-                    color: AppColor.dividercolor,
-                    thickness: 1,
-                  ),
-                ),
-              ),
-              Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text('Or connect with',style: AppTextStyle.conettext,),
-              ),
-            ],
-          ),
+           custom_widget_divider(),
 
-          Row(
-           // crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-               Container(
-                  height: 80,
-                  width: 120,
-
-                  child: Image.asset(AssetData.pngltem)),
-              const SizedBox(width: 60,),
-              Container(
-                height: 40,
-                  width: 40,
-                  child: Image.asset(AssetData.facebook)),
-              const SizedBox(width: 20,),
-
-              Container(
-                  height: 40,
-                  width: 40,
-
-                  child: Image.asset(AssetData.google)),
-
-
-            ],
-          )
+          custom_widget_images()
         ],
       ),
     );
   }
 }
+

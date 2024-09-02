@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/constants.dart';
 import 'package:food_delivery/domain/models/onboarding_model.dart';
 import 'package:food_delivery/presentation/authentication/welcome.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
-import 'package:food_delivery/presentation/resources/style.dart';
+import 'package:food_delivery/presentation/resources/app_theme.dart';
+import 'package:food_delivery/presentation/resources/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -78,7 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 },
                 child: Text(
                   'Skip',
-                  style: AppTextStyle.textStyleskip,
+                  style: AppTheme.textStyleskip,
                 ),
               ),
             ),
@@ -105,13 +105,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const SizedBox(height: 10),
                     Text(
                       onboardList[index].title,
-                      style: AppTextStyle.textStyleTitle,
+                      style: AppTheme.textStyleTitle,
                     ),
                     const SizedBox(height: 10),
                     Text(
                       onboardList[index].description,
                       textAlign: TextAlign.center,
-                      style: AppTextStyle.textStyledescrip,
+                      style: AppTheme.textStyledescrip,
                     ),
                   ],
                 );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/style.dart';
+import 'package:food_delivery/presentation/resources/app_theme.dart';
 
 Widget customButton({
   required String text,
@@ -22,7 +22,7 @@ Widget customButton({
       ),
       child: Text(
         text,
-        style: AppTextStyle.textStylecustombottom.copyWith(color: textColor),
+        style: AppTheme.textStylecustombottom.copyWith(color: textColor),
       ),
     ),
   );
