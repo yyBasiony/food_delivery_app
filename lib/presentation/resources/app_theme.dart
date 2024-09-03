@@ -28,6 +28,13 @@ class AppTheme {
     fontWeight: FontWeight.bold,
 
   );
+  static const TextStyle forgetstyle= TextStyle(
+    fontSize: 30,
+    color:Color(0xff000000),
+    fontWeight: FontWeight.w700,
+
+  );
+
 
 
 }

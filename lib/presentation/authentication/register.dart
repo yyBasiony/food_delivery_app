@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/authentication/forget_password.dart';
 import 'package:food_delivery/presentation/resources/app_theme.dart';
 import 'package:food_delivery/presentation/resources/constants.dart';
 import 'package:food_delivery/presentation/widgets/custom_icon_bottom_back.dart';
@@ -38,7 +39,6 @@ class _RegisterState extends State<Register> {
                 children: [
                   CustomTextFormField(
                     controller: _usernameController,
-                    //labelText: 'Username',
                     hintText: 'Enter Username',
                     hintStyle: TextStyle(fontSize: 14, color: Colors.black),
                   ),
@@ -53,7 +53,6 @@ class _RegisterState extends State<Register> {
                   SizedBox(height: 16),
                   CustomTextFormField(
                     controller: _passwordController,
-                    //labelText: 'Password',
                     hintText: 're-enter Password',
                     hintStyle: TextStyle(fontSize: 14, color: Colors.black),
                     obscureText: true,
@@ -74,7 +73,9 @@ class _RegisterState extends State<Register> {
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
-                      // Handle forgot password
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return ForgetPassword();
+                      }));
                     },
                     child: Align(
                       alignment: Alignment.centerRight,

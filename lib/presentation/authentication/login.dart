@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/authentication/forget_password.dart';
 import 'package:food_delivery/presentation/resources/app_theme.dart';
 import 'package:food_delivery/presentation/resources/constants.dart';
 import 'package:food_delivery/presentation/widgets/custom_icon_bottom_back.dart';
@@ -38,14 +39,12 @@ class _LoginState extends State<Login> {
                 children: [
                   CustomTextFormField(
                     controller: _usernameController,
-                    //labelText: 'Username',
                     hintText: 'Username',
                     hintStyle: TextStyle(fontSize: 14, color: Colors.black),
                   ),
                   SizedBox(height: 16),
                   CustomTextFormField(
                     controller: _passwordController,
-                    //labelText: 'Password',
                     hintText: 'Password',
                     hintStyle: TextStyle(fontSize: 14, color: Colors.black),
                     obscureText: true,
@@ -65,7 +64,9 @@ class _LoginState extends State<Login> {
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
-                      // Handle forgot password
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return ForgetPassword();
+                      }));
                     },
                     child: Align(
                       alignment: Alignment.centerRight,
