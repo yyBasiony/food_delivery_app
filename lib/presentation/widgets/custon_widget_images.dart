@@ -26,10 +26,10 @@ class CustomWidgetImages extends StatelessWidget {
             height: 40,
             width: 40,
 
+
             child: Image.asset(AssetData.google)),
 
 
       ],
     );
   }
-}
