@@ -15,12 +15,12 @@ class CustomWidgetImages extends StatelessWidget {
             width: 120,
 
             child: Image.asset(AssetData.pngltem)),
-        const SizedBox(width: 60,),
+        const SizedBox(width: 50,),
         Container(
             height: 40,
             width: 40,
             child: Image.asset(AssetData.facebook)),
-        const SizedBox(width: 20,),
+        const SizedBox(width: 10,),
 
         Container(
             height: 40,

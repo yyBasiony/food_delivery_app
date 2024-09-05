@@ -11,52 +11,49 @@ class ForgetPassword extends StatefulWidget {
 }
 class _ForgetPasswordState extends State<ForgetPassword> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CustomIconBottomback(),
+        leading: const CustomIconBottomback(),
       ),
-      body: Column(
-        children: [
-          Text(
-            'Forget ',
-            style: AppTheme.forgetstyle,
-          ),
-          Text(
-            ' Password',
-            style: AppTheme.forgetstyle,
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+           const  Text(
+              'Forget ',
+              style: AppTheme.forgetstyle,
+            ),
+            const Text(
+              ' Password',
+              style: AppTheme.forgetstyle,
+            ),
 
-          SizedBox(height: 20),
-          CustomTextFormField(
-            controller: _emailController,
-            hintText: 'Enter email',
-            hintStyle: TextStyle(fontSize: 14, color: Colors.black),
-          ),
-          SizedBox(height: 20),
-
-          CustomTextFormField(
-            controller: _phoneController,
-            hintText: 'Enter phone numnber',
-            hintStyle: TextStyle(fontSize: 14, color: Colors.black),
-          ),
-
-          SizedBox(height: 20),
-          customButton(
-            text: 'Reset password',
-            backgroundColor: AppColor.backgronboarding,
-            textColor: Colors.white,
-            borderColor: Colors.orange,
-            onPressed: () {
-            },
-          ),
+            const SizedBox(height: 20),
+            CustomTextFormField(
+              controller: _emailController,
+              hintText: 'Enter email',
+              hintStyle: const TextStyle(fontSize: 14, color: Colors.black),
+            ),
+            const SizedBox(height: 20),
 
 
-        ],
+            const SizedBox(height: 20),
+            customButton(
+              text: 'Reset password',
+              backgroundColor: AppColor.backgronboarding,
+              textColor: Colors.white,
+              borderColor: Colors.orange,
+              onPressed: () {
+              },
+            ),
+
+
+          ],
+        ),
       ),
     );
   }

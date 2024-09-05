@@ -16,47 +16,55 @@ class Welcome extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
          const  SizedBox(height: 100),
-          Center(
-            child: Container(
-              height: 220,
-              width: 220,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Image.asset(AssetData.burger),
-              ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              children: [
+                Center(
+                  child: Container(
+                    height: 200,
+                    width: 220,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Image.asset(AssetData.burger),
+                    ),
+                  ),
+                ),
+                const  SizedBox(height: 20),
+                customButton(
+                  text: 'Sign In',
+                  backgroundColor: AppColor.backgronboarding,
+                  textColor: Colors.white,
+                  borderColor: Colors.orange,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Login()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                customButton(
+                  text: 'Sign Up',
+                  backgroundColor: Colors.white,
+                  textColor: Colors.black,
+                  borderColor: AppColor.inactiveColor,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Register()),
+                    );
+                  },
+                ),
+
+              ],
             ),
           ),
-         const  SizedBox(height: 20),
-          customButton(
-            text: 'Sign In',
-            backgroundColor: AppColor.backgronboarding,
-            textColor: Colors.white,
-            borderColor: Colors.orange,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-              );
-            },
-          ),
-          const SizedBox(height: 20),
-          customButton(
-            text: 'Sign Up',
-            backgroundColor: Colors.white,
-            textColor: Colors.black,
-            borderColor: AppColor.inactiveColor,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Register()),
-              );
-            },
-          ),
           const SizedBox(
-            height: 28
+            height: 20
           ),
           const CustomWidgetDivider(),
 

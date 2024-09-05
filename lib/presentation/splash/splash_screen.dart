@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/onboarding/onboarding_screen.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
 import 'package:food_delivery/presentation/resources/constants.dart';
+import 'package:food_delivery/presentation/resources/routes.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
+
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(AppColor. durationspl, () {
-      Navigator.pushReplacement(
+    Future.delayed(AppColor.durationspl, () {
+      Navigator.pushReplacementNamed(
         context,
-        MaterialPageRoute(builder: (context) => const OnboardingScreen()),
+        Routes.onboardingRoute,
       );
     });
-
   }
 
   @override

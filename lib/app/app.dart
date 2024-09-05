@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/splash/splash_screen.dart';
+import 'package:food_delivery/presentation/resources/routes.dart';
 class FoodDelivery extends StatelessWidget {
   const FoodDelivery({super.key});
 
@@ -7,7 +7,8 @@ class FoodDelivery extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      initialRoute: Routes.splashRoute,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }

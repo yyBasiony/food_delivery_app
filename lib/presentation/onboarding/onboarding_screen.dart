@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/domain/models/onboarding_model.dart';
-import 'package:food_delivery/presentation/authentication/welcome.dart';
 import 'package:food_delivery/presentation/resources/assets.dart';
 import 'package:food_delivery/presentation/resources/app_theme.dart';
 import 'package:food_delivery/presentation/resources/constants.dart';
+import 'package:food_delivery/presentation/resources/routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -71,9 +71,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               alignment: Alignment.topRight,
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacementNamed(
                     context,
-                    MaterialPageRoute(builder: (_) => const Welcome()),
+                    Routes.welcome,
                   );
                 },
                 child: Text(
