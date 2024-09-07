@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/routes.dart';
+
+import '../presentation/resources/app_theme.dart';
+import '../presentation/resources/routes.dart';
+
 class FoodDelivery extends StatelessWidget {
   const FoodDelivery({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.splashRoute,
+      //
+      theme: AppTheme.getLightTheme(),
+      //
+      initialRoute: Routes.splashScreen,
       onGenerateRoute: Routes.generateRoute,
     );
   }

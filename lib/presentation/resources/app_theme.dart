@@ -1,41 +1,36 @@
 import 'package:flutter/material.dart';
 
+import 'app_constants.dart';
+
 class AppTheme {
-  static const TextStyle textStyleTitle = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
-    color: Colors.white,
-  );
-  static const TextStyle textStyledescrip=TextStyle(
-  fontSize: 14,
-  color: Colors.white,
-  );
-  static const TextStyle textStyleskip=TextStyle(
-    fontSize: 17,
-    color: Colors.white,
-  );
-  static const TextStyle textStylecustombottom= TextStyle(
-      fontSize: 18
-  );
-  static const TextStyle conettext= TextStyle(
-      fontSize: 14,
-    color:Color(0xff34495E),
+  static ThemeData getLightTheme() {
+    return ThemeData(
+      // TextTheme
+      textTheme: const TextTheme(
+        headlineLarge: TextStyle(fontWeight: FontWeight.w600),
+      ),
 
-  );
-  static const TextStyle singsingupstyle= TextStyle(
-    fontSize: 24,
-    color:Color(0xff000000),
-    fontWeight: FontWeight.bold,
+      // ElevatedButton
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          foregroundColor: Colors.white,
+          minimumSize: const Size.fromHeight(48),
+          surfaceTintColor: Colors.transparent,
+          backgroundColor: AppConstants.primaryColor,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        ),
+      ),
 
-  );
-  static const TextStyle forgetstyle= TextStyle(
-    fontSize: 30,
-    color:Color(0xff000000),
-    fontWeight: FontWeight.w700,
-
-  );
-
-
-
+      // TextFormField
+      inputDecorationTheme: const InputDecorationTheme(
+        filled: true,
+        fillColor: Color(0xFFF6F4F4),
+        prefixIconColor: Color(0xFFC2C2C2),
+        contentPadding: EdgeInsets.symmetric(vertical: 15),
+        hintStyle: TextStyle(color: Color(0xFFC2C2C2), fontWeight: FontWeight.normal),
+        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide.none),
+      ),
+    );
+  }
 }
-

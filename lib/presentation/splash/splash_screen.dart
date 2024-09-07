@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/assets.dart';
-import 'package:food_delivery/presentation/resources/constants.dart';
-import 'package:food_delivery/presentation/resources/routes.dart';
+
+import '../resources/app_constants.dart';
+import '../resources/assets_data.dart';
+import '../resources/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,22 +14,15 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    Future.delayed(AppConstants.splashDuration, () => Navigator.pushReplacementNamed(context, Routes.onboardingScreen));
     super.initState();
-    Future.delayed(AppColor.durationspl, () {
-      Navigator.pushReplacementNamed(
-        context,
-        Routes.onboardingRoute,
-      );
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffe6dcc1),
-      body: Center(
-        child: Image.asset(AssetData.splash),
-      ),
+      backgroundColor: AppConstants.splashBackground,
+      body: Center(child: Image.asset(AssetData.splash)),
     );
   }
 }

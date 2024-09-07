@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/domain/models/onboarding_model.dart';
-import 'package:food_delivery/presentation/resources/assets.dart';
-import 'package:food_delivery/presentation/resources/app_theme.dart';
-import 'package:food_delivery/presentation/resources/constants.dart';
-import 'package:food_delivery/presentation/resources/routes.dart';
+
+import '../../domain/models/onboarding_model.dart';
+import '../resources/app_constants.dart';
+import '../resources/assets_data.dart';
+import '../resources/routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -13,20 +13,14 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  late PageController pageController;
   int pageIndex = 0;
+  late PageController pageController;
 
   @override
-  void initState() {
-    pageController = PageController(initialPage: 0);
-    super.initState();
-  }
+  void initState() => {pageController = PageController(), super.initState()};
 
   @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
+  void dispose() => {pageController.dispose(), super.dispose()};
 
   // void navigateToWelcome() {
   //   Navigator.push(
@@ -35,108 +29,79 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   //   );
   // }
 
+  final List<OnboardingModel> onboardList = [
+    OnboardingModel(
+      title: 'Delicious Food',
+      image: AssetData.onboarding1,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    ),
+    OnboardingModel(
+      title: 'Fast Shipping',
+      image: AssetData.onboarding2,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
+    ),
+    OnboardingModel(
+      title: 'Certificate Food',
+      image: AssetData.onboarding3,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
+    ),
+    OnboardingModel(
+      title: 'Payment Online',
+      image: AssetData.onboarding4,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final List<OnboardingModel> onboardList = [
-      OnboardingModel(
-        image: AssetData.onboarding1,
-        title: 'Delicious Food',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      ),
-      OnboardingModel(
-        image: AssetData.onboarding2,
-        title: 'Fast Shipping',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
-      ),
-      OnboardingModel(
-        image: AssetData.onboarding3,
-        title: 'Certificate Food',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
-      ),
-      OnboardingModel(
-        image: AssetData.onboarding4,
-        title: 'Payment Online',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
-      ),
-    ];
-
     return Scaffold(
-      backgroundColor: AppColor.backgronboarding,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 30,right: 12),
-            child: Align(
-              alignment: Alignment.topRight,
+      backgroundColor: AppConstants.primaryColor,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Align(
+              alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(
-                    context,
-                    Routes.welcome,
+                child: const Text('Skip'),
+                onPressed: () => Navigator.pushReplacementNamed(context, Routes.welcomeScreen),
+              ),
+            ),
+            Expanded(
+              child: PageView.builder(
+                controller: pageController,
+                itemCount: onboardList.length,
+                onPageChanged: (index) => setState(() => pageIndex = index),
+                itemBuilder: (_, index) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(onboardList[index].image, width: 190, height: 120),
+                      const SizedBox(height: 50),
+                      Text(onboardList[index].title),
+                      const SizedBox(height: 10),
+                      Text(onboardList[index].description, textAlign: TextAlign.center),
+                    ],
                   );
                 },
-                child: Text(
-                  'Skip',
-                  style: AppTheme.textStyleskip,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                onboardList.length,
+                (index) => AnimatedContainer(
+                  width: 10,
+                  height: 10,
+                  duration: AppConstants.navigationDuration,
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  decoration: BoxDecoration(shape: BoxShape.circle, color: pageIndex == index ? AppConstants.active : AppConstants.inactive),
                 ),
               ),
             ),
-          ),
-
-          Expanded(
-            child: PageView.builder(
-              controller: pageController,
-              onPageChanged: (int index) {
-                setState(() {
-                  pageIndex = index;
-                });
-              },
-              itemCount: onboardList.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 190,
-                      height: 120,
-                      child: Image.asset(onboardList[index].image),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      onboardList[index].title,
-                      style: AppTheme.textStyleTitle,
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      onboardList[index].description,
-                      textAlign: TextAlign.center,
-                      style: AppTheme.textStyledescrip,
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(onboardList.length, (index) {
-              return AnimatedContainer(
-                duration: AppColor.durationnavi,
-                margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                height: 10,
-                width: 10,
-                decoration: BoxDecoration(
-                  color: pageIndex == index
-                      ? AppColor.activeColor
-                      : AppColor.inactiveColor,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              );
-            }),
-          ),
-          const SizedBox(height: 30),
-        ],
+          ],
+        ),
       ),
     );
   }

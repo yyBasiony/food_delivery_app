@@ -1,39 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/authentication/forget_password.dart';
-import 'package:food_delivery/presentation/authentication/login.dart';
-import 'package:food_delivery/presentation/authentication/register.dart';
-import 'package:food_delivery/presentation/authentication/welcome.dart';
-import 'package:food_delivery/presentation/onboarding/onboarding_screen.dart';
-import 'package:food_delivery/presentation/splash/splash_screen.dart';
+
+import '../authentication/forgot_password_screen.dart';
+import '../authentication/login_screen.dart';
+import '../authentication/register_screen.dart';
+import '../authentication/welcome_screen.dart';
+import '../onboarding/onboarding_screen.dart';
+import '../splash/splash_screen.dart';
+
 class Routes {
-  static const String splashRoute = "/";
-  static const String onboardingRoute = "/onboarding";
-  static const String loginRoute = "/login";
-  static const String registerRoute = "/register";
-  static const String forgetPasswordRoute = "/forgetpassword";
-  static const String welcome = "/welcome";
+  static const String splashScreen = "/";
+  static const String loginScreen = "/loginScreen";
+  static const String welcomeScreen = "/welcomeScreen";
+  static const String registerScreen = "/registerScreen";
+  static const String onboardingScreen = "/onboardingScreen";
+  static const String forgotPasswordScreen = "/forgotPasswordScreen";
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case splashRoute:
+      case splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
-      case onboardingRoute:
+      case onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
-      case loginRoute:
-        return MaterialPageRoute(builder: (_) => const Login());
-      case registerRoute:
-        return MaterialPageRoute(builder: (_) => const Register());
-      case forgetPasswordRoute:
-        return MaterialPageRoute(builder: (_) => const ForgetPassword());
-      case welcome:
-        return MaterialPageRoute(builder: (_) => const Welcome());
+      case loginScreen:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case registerScreen:
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case welcomeScreen:
+        return MaterialPageRoute(builder: (_) => const WelcomeScreen());
+      case forgotPasswordScreen:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
 
       default:
-        return MaterialPageRoute(
-            builder: (_) => Scaffold(
-              body: Center(
-                child: Text('No route defined for ${settings.name}'),
-              ),
-            ));
+        return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
     }
   }
 }
