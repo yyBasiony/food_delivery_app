@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/app_theme.dart';
 
 import 'widget/custom_icon_bottom_back.dart';
 
@@ -20,11 +21,15 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            const Text('Forgot\nPassword'),
+            Text('Forgot\nPassword',
+                style: AppTheme.getLightTheme().textTheme.headlineMedium),
             const SizedBox(height: 20),
-            TextFormField(controller: _emailController, decoration: const InputDecoration(hintText: 'Enter email')),
+            TextFormField(
+                controller: _emailController,
+                decoration: const InputDecoration(hintText: 'Enter email')),
             const SizedBox(height: 20),
-            ElevatedButton(onPressed: () {}, child: const Text('Reset password'))
+            ElevatedButton(
+                onPressed: () {}, child: const Text('Reset password'))
           ],
         ),
       ),

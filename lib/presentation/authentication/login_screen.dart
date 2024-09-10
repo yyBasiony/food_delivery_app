@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/app_theme.dart';
 
 import '../resources/routes.dart';
 import 'widget/custom_icon_bottom_back.dart';
@@ -31,16 +32,21 @@ class _LoginState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Login', style: Theme.of(context).textTheme.headlineLarge),
+                  Text('Login',
+                      style: AppTheme.getLightTheme().textTheme.headlineMedium),
                   const SizedBox(height: 40),
                   TextFormField(
                     controller: _usernameController,
-                    decoration: const InputDecoration(hintText: 'Username', prefixIcon: Icon(Icons.person_outline)),
+                    decoration: const InputDecoration(
+                        hintText: 'Username',
+                        prefixIcon: Icon(Icons.person_outline)),
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
                     controller: _passwordController,
-                    decoration: const InputDecoration(hintText: 'Password', prefixIcon: Icon(Icons.lock_outline)),
+                    decoration: const InputDecoration(
+                        hintText: 'Password',
+                        prefixIcon: Icon(Icons.lock_outline)),
                   ),
                   const SizedBox(height: 30),
                   ElevatedButton(
@@ -53,8 +59,11 @@ class _LoginState extends State<LoginScreen> {
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                      onPressed: () => Navigator.pushNamed(context, Routes.forgotPasswordScreen),
-                      child: const Text('Forgot Password?', style: TextStyle(fontSize: 14, color: Color(0xff34495E))),
+                      onPressed: () => Navigator.pushNamed(
+                          context, Routes.forgotPasswordScreen),
+                      child: const Text('Forgot Password?',
+                          style: TextStyle(
+                              fontSize: 14, color: Color(0xff34495E))),
                     ),
                   ),
                 ],

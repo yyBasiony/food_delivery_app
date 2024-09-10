@@ -7,19 +7,22 @@ class CustomDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Divider(thickness: 1, color: AppConstants.divider),
+    return const SizedBox(
+      height: 50,
+      child: Row(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(8),
+              child: Divider(thickness: 1, color: AppConstants.divider),
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
-          child: Text('Or connect with'),
-        ),
-      ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: Text('Or connect with'),
+          ),
+        ],
+      ),
     );
   }
 }

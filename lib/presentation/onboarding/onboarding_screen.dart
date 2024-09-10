@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/app_theme.dart';
 
 import '../../domain/models/onboarding_model.dart';
 import '../resources/app_constants.dart';
@@ -38,17 +39,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingModel(
       title: 'Fast Shipping',
       image: AssetData.onboarding2,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
     ),
     OnboardingModel(
       title: 'Certificate Food',
       image: AssetData.onboarding3,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
     ),
     OnboardingModel(
       title: 'Payment Online',
       image: AssetData.onboarding4,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
     ),
   ];
 
@@ -64,8 +68,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                child: const Text('Skip'),
-                onPressed: () => Navigator.pushReplacementNamed(context, Routes.welcomeScreen),
+                child: Text('Skip',
+                    style: AppTheme.getLightTheme().textTheme.headlineLarge),
+                onPressed: () => Navigator.pushReplacementNamed(
+                    context, Routes.welcomeScreen),
               ),
             ),
             Expanded(
@@ -77,11 +83,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(onboardList[index].image, width: 190, height: 120),
+                      Image.asset(onboardList[index].image,
+                          width: 190, height: 120),
                       const SizedBox(height: 50),
-                      Text(onboardList[index].title),
+                      Text(onboardList[index].title,
+                          style:
+                              AppTheme.getLightTheme().textTheme.headlineLarge),
                       const SizedBox(height: 10),
-                      Text(onboardList[index].description, textAlign: TextAlign.center),
+                      Text(onboardList[index].description,
+                          style:
+                              AppTheme.getLightTheme().textTheme.headlineSmall,
+                          textAlign: TextAlign.center),
                     ],
                   );
                 },
@@ -96,7 +108,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   height: 10,
                   duration: AppConstants.navigationDuration,
                   margin: const EdgeInsets.symmetric(horizontal: 4),
-                  decoration: BoxDecoration(shape: BoxShape.circle, color: pageIndex == index ? AppConstants.active : AppConstants.inactive),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: pageIndex == index
+                          ? AppConstants.active
+                          : AppConstants.inactive),
                 ),
               ),
             ),
