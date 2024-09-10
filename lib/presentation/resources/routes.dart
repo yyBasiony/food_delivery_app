@@ -4,6 +4,7 @@ import '../authentication/forgot_password_screen.dart';
 import '../authentication/login_screen.dart';
 import '../authentication/register_screen.dart';
 import '../authentication/welcome_screen.dart';
+import '../main_view/home/home_page.dart';
 import '../onboarding/onboarding_screen.dart';
 import '../splash/splash_screen.dart';
 
@@ -14,6 +15,7 @@ class Routes {
   static const String registerScreen = "/registerScreen";
   static const String onboardingScreen = "/onboardingScreen";
   static const String forgotPasswordScreen = "/forgotPasswordScreen";
+  static const String homePage = "/homePage";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -29,9 +31,14 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const WelcomeScreen());
       case forgotPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
+      case homePage:
+        return MaterialPageRoute(builder: (_) => const HomePage());
 
       default:
-        return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
+        return MaterialPageRoute(
+            builder: (_) => Scaffold(
+                body: Center(
+                    child: Text('No route defined for ${settings.name}'))));
     }
   }
 }

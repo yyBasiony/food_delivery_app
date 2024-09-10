@@ -52,6 +52,8 @@ class _LoginState extends State<LoginScreen> {
                   ElevatedButton(
                     child: const Text('Login'),
                     onPressed: () {
+                      Navigator.pushNamed(context, Routes.homePage);
+
                       if (_formKey.currentState!.validate()) {}
                     },
                   ),
