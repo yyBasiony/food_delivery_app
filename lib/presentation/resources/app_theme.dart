@@ -6,15 +6,15 @@ class AppTheme {
   static ThemeData getLightTheme() {
     return ThemeData(
       // TextTheme
-      textTheme: TextTheme(
-        headlineLarge: const TextStyle(
+      textTheme: const TextTheme(
+        headlineLarge: TextStyle(
             fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
-        headlineSmall: const TextStyle(
+        headlineSmall: TextStyle(
             fontWeight: FontWeight.w500, fontSize: 14, color: Colors.white),
-        headlineMedium: const TextStyle(
+        headlineMedium: TextStyle(
             fontWeight: FontWeight.bold, fontSize: 24, color: Colors.black),
-        headline1: const TextStyle(
-            fontWeight: FontWeight.w500, fontSize: 14, color: Colors.black),
+        /* headline1: const TextStyle(
+            fontWeight: FontWeight.w500, fontSize: 14, color: Colors.black),*/
       ),
 
       // ElevatedButton

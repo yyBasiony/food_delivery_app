@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Text(
                   '9 West 46 Th Street, New York City',
-                  style: AppTheme.getLightTheme().textTheme.headline1,
+                  // style: AppTheme.getLightTheme().textTheme.headline1,
                 )
               ],
             ),
