@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/presentation/resources/app_theme.dart';
 
+import '../resources/routes.dart';
 import 'widget/custom_divider.dart';
 import 'widget/custom_icon_bottom_back.dart';
 import 'widget/custom_images.dart';
@@ -61,6 +62,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ElevatedButton(
                     child: const Text('Register'),
                     onPressed: () {
+                      Navigator.pushNamed(context, Routes.locationScreen);
+
                       if (_formKey.currentState!.validate()) {}
                     },
                   ),

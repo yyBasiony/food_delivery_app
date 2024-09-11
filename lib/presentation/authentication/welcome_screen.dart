@@ -24,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                     child: Image.asset(AssetData.burger,
-                        width: 300, height: 300, fit: BoxFit.cover),
+                        width: 280, height: 280, fit: BoxFit.cover),
                   ),
                 ),
                 ElevatedButton(

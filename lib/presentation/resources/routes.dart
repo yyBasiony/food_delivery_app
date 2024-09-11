@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:food_delivery/presentation/main_view/home/location_screen.dart';
 import '../authentication/forgot_password_screen.dart';
 import '../authentication/login_screen.dart';
 import '../authentication/register_screen.dart';
@@ -16,6 +16,7 @@ class Routes {
   static const String onboardingScreen = "/onboardingScreen";
   static const String forgotPasswordScreen = "/forgotPasswordScreen";
   static const String homePage = "/homePage";
+  static const String locationScreen = "/locationScreen";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -33,6 +34,8 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
+      case locationScreen:
+        return MaterialPageRoute(builder: (_) => const LocationScreen());
 
       default:
         return MaterialPageRoute(

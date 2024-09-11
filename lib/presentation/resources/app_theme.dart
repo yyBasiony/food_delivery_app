@@ -6,14 +6,14 @@ class AppTheme {
   static ThemeData getLightTheme() {
     return ThemeData(
       // TextTheme
-      textTheme: const TextTheme(
-        headlineLarge: TextStyle(
+      textTheme: TextTheme(
+        headlineLarge: const TextStyle(
             fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
-        headlineSmall: TextStyle(
+        headlineSmall: const TextStyle(
             fontWeight: FontWeight.w500, fontSize: 14, color: Colors.white),
-        headlineMedium: TextStyle(
+        headlineMedium: const TextStyle(
             fontWeight: FontWeight.bold, fontSize: 24, color: Colors.black),
-        /* headline1: const TextStyle(
+        /*headline1: const TextStyle(
             fontWeight: FontWeight.w500, fontSize: 14, color: Colors.black),*/
       ),
 

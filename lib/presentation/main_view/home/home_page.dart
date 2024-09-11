@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
               decoration: const InputDecoration(
                   hintText: 'Search', prefixIcon: Icon(Icons.search)),
             ),
-            Row(
+           const Row(
               children: [
                 Icon(
                   Icons.pin_drop,

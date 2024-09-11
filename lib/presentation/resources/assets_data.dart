@@ -6,6 +6,7 @@ class AssetData {
   static String onboarding4 = 'assets/images/onboarding4.png';
   static String google = 'assets/images/google.jpeg';
   static String facebook = 'assets/images/facebook.png';
-  static String burger = 'assets/images/burger.png';
+  static String burger = 'assets/images/burgerr.jpeg';
   static String pngltem = 'assets/images/PngItem.png';
+  static String map = 'assets/images/map.jpeg';
 }
