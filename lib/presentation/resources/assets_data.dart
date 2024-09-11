@@ -9,4 +9,8 @@ class AssetData {
   static String burger = 'assets/images/burgerr.jpeg';
   static String pngltem = 'assets/images/PngItem.png';
   static String map = 'assets/images/map.jpeg';
+  static String coffeecup = 'assets/images/coffee-cup 1.png';
+  static String food = 'assets/images/burger (1) 1.png';
+  static String cake = 'assets/images/piece-of-cake 1 (1).png';
+  static String snack = 'assets/images/potato-chips 1.png';
 }

@@ -35,7 +35,7 @@ class LocationScreen extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
                   backgroundColor: const Color(0xFFF6F4F4)),
-              child: const Text('Register'),
+              child: const Text('No,i do it later'),
             ),
           ],
         ),
