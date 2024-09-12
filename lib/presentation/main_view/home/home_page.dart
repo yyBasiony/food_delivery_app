@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/assets_data.dart';
 
+import '../../authentication/widget/custom_bottom_navigation.dart';
 import '../../authentication/widget/custom_food_item.dart';
 import '../../authentication/widget/custom_food_menu.dart';
 
@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }

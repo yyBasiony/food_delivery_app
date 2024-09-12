@@ -20,9 +20,9 @@ class Routes {
   static const String forgotPasswordScreen = "/forgotPasswordScreen";
   static const String homePage = "/homePage";
   static const String locationScreen = "/locationScreen";
-  static const String orderScreen = "/orderScreen"; // Added Order route
-  static const String myListScreen = "/myListScreen"; // Added My List route
-  static const String profileScreen = "/profileScreen"; // Added Profile route
+  static const String orderScreen = "/orderScreen";
+  static const String myListScreen = "/myListScreen";
+  static const String profileScreen = "/profileScreen";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -43,14 +43,11 @@ class Routes {
       case locationScreen:
         return MaterialPageRoute(builder: (_) => const LocationScreen());
       case orderScreen:
-        return MaterialPageRoute(
-            builder: (_) => const OrderScreen()); // Order Screen
+        return MaterialPageRoute(builder: (_) => const OrderScreen());
       case myListScreen:
-        return MaterialPageRoute(
-            builder: (_) => const MyListScreen()); // My List Screen
+        return MaterialPageRoute(builder: (_) => const MyListScreen());
       case profileScreen:
-        return MaterialPageRoute(
-            builder: (_) => const ProfileScreen()); // Profile Screen
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
 
       default:
         return MaterialPageRoute(
