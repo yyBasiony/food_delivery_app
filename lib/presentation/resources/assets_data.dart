@@ -13,4 +13,10 @@ class AssetData {
   static String food = 'assets/images/burger (1) 1.png';
   static String cake = 'assets/images/piece-of-cake 1 (1).png';
   static String snack = 'assets/images/potato-chips 1.png';
+  static String sushi = 'assets/images/image (3).png';
+  static String noodle = 'assets/images/image (4).png';
+  static String BBQ = 'assets/images/image 2.png';
+  static String burgers = 'assets/images/image 2.png';
+  static String fruit = 'assets/images/image 3.png';
+  static String pizza = 'assets/images/image (1).png';
 }
