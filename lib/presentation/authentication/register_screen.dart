@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/app_theme.dart';
 
 import '../resources/routes.dart';
-import 'widget/custom_divider.dart';
 import 'widget/custom_icon_bottom_back.dart';
-import 'widget/custom_images.dart';
-import 'forgot_password_screen.dart';
+import 'widget/divider_with_image.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -16,8 +13,12 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _rePasswordController = TextEditingController();
+
+  @override
+  void dispose() => {_usernameController.dispose(), _passwordController.dispose(), _rePasswordController.dispose(), super.dispose()};
 
   @override
   Widget build(BuildContext context) {
@@ -33,60 +34,39 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Sign up',
-                      style: AppTheme.getLightTheme().textTheme.headlineMedium),
+                  Text('Register', style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: 40),
                   TextFormField(
                     controller: _usernameController,
-                    decoration: const InputDecoration(
-                        hintText: 'Enter Username',
-                        prefixIcon: Icon(Icons.person_outline)),
+                    decoration: const InputDecoration(hintText: 'Enter Username', prefixIcon: Icon(Icons.person_outline)),
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
                     obscureText: true,
                     controller: _passwordController,
-                    decoration: const InputDecoration(
-                        hintText: 'Enter Password',
-                        prefixIcon: Icon(Icons.lock_outline)),
+                    decoration: const InputDecoration(hintText: 'Enter Password', prefixIcon: Icon(Icons.lock_outline)),
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
                     obscureText: true,
-                    controller: _passwordController,
-                    decoration: const InputDecoration(
-                        hintText: 'Re-enter Password',
-                        prefixIcon: Icon(Icons.lock_outline)),
+                    controller: _rePasswordController,
+                    decoration: const InputDecoration(hintText: 'Re-enter Password', prefixIcon: Icon(Icons.lock_outline)),
                   ),
                   const SizedBox(height: 30),
-                  ElevatedButton(
-                    child: const Text('Register'),
-                    onPressed: () {
-                      Navigator.pushNamed(context, Routes.locationScreen);
-
-                      if (_formKey.currentState!.validate()) {}
-                    },
-                  ),
+                  // ToDo: Validation
+                  ElevatedButton(child: const Text('Register'), onPressed: () => Navigator.pushNamed(context, Routes.locationScreen)),
                   const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const ForgotPasswordScreen())),
-                      child: const Text('Forgot Password?',
-                          style: TextStyle(
-                              fontSize: 14, color: Color(0xff34495E))),
-                    ),
+                    child:
+                        TextButton(child: const Text('Forgot Password?'), onPressed: () => Navigator.pushNamed(context, Routes.forgotPasswordScreen)),
                   ),
                 ],
               ),
             ),
           ),
           const SizedBox(height: 30),
-          const CustomDivider(),
-          const CustomImages()
+          const DividerWithImage()
         ],
       ),
     );

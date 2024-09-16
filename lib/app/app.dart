@@ -9,10 +9,8 @@ class FoodDelivery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      //
       theme: AppTheme.getLightTheme(),
-      //
+      debugShowCheckedModeBanner: false,
       initialRoute: Routes.splashScreen,
       onGenerateRoute: Routes.generateRoute,
     );

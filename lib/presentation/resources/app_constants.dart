@@ -1,13 +1,29 @@
-import 'package:flutter/material.dart';
+import '../../domain/models/onboarding_model.dart';
+import 'assets_data.dart';
 
 class AppConstants {
-  static const Color active = Colors.white;
-  static const Color divider = Color(0xff34495E);
-  static const Color inactive = Color(0xfff0c3a6);
-  static const Color welcomeBackground = Colors.white;
-  static const Color primaryColor = Color(0xffF55B02);
-  static const Color splashBackground = Color(0xffe6dcc1);
+  AppConstants._();
 
-  static const Duration splashDuration = Duration(seconds: 3);
-  static const Duration navigationDuration = Duration(seconds: 1);
+  static const List<OnboardingModel> onboardingData = [
+    OnboardingModel(
+      title: 'Delicious Food',
+      image: AssetData.onboarding1,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    ),
+    OnboardingModel(
+      title: 'Fast Shipping',
+      image: AssetData.onboarding2,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
+    ),
+    OnboardingModel(
+      title: 'Certificate Food',
+      image: AssetData.onboarding3,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
+    ),
+    OnboardingModel(
+      title: 'Payment Online',
+      image: AssetData.onboarding4,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+    ),
+  ];
 }

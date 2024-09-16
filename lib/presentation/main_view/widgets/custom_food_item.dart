@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import '../../resources/assets_data.dart';
 
 class CustomFoodItems extends StatelessWidget {
-  const CustomFoodItems({
-    super.key,
-  });
+  const CustomFoodItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,45 +12,45 @@ class CustomFoodItems extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: Container(
-            height: 60,
             width: 55,
+            height: 60,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xffECF0F1),
-                image: DecorationImage(image: AssetImage(AssetData.coffeecup))),
+                color: const Color(0xffECF0F1),
+                image: const DecorationImage(image: AssetImage(AssetData.coffeeCup))),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Container(
-            height: 60,
             width: 55,
+            height: 60,
             decoration: BoxDecoration(
+                color: const Color(0xffD35400),
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xffD35400),
-                image: DecorationImage(image: AssetImage(AssetData.food))),
+                image: const DecorationImage(image: AssetImage(AssetData.food))),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Container(
-            height: 60,
             width: 55,
+            height: 60,
             decoration: BoxDecoration(
+                color: const Color(0xffECF0F1),
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xffECF0F1),
-                image: DecorationImage(image: AssetImage(AssetData.cake))),
+                image: const DecorationImage(image: AssetImage(AssetData.cake))),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Container(
-            height: 60,
             width: 55,
+            height: 60,
             decoration: BoxDecoration(
+                color: const Color(0xffECF0F1),
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xffECF0F1),
-                image: DecorationImage(image: AssetImage(AssetData.snack))),
+                image: const DecorationImage(image: AssetImage(AssetData.snack))),
           ),
         ),
       ],

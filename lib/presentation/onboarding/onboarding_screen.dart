@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/app_theme.dart';
 
-import '../../domain/models/onboarding_model.dart';
+import '../resources/app_colors.dart';
 import '../resources/app_constants.dart';
-import '../resources/assets_data.dart';
 import '../resources/routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -18,48 +16,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   late PageController pageController;
 
   @override
-  void initState() => {pageController = PageController(), super.initState()};
-
-  @override
   void dispose() => {pageController.dispose(), super.dispose()};
 
-  // void navigateToWelcome() {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => const Welcome()),
-  //   );
-  // }
-
-  final List<OnboardingModel> onboardList = [
-    OnboardingModel(
-      title: 'Delicious Food',
-      image: AssetData.onboarding1,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    ),
-    OnboardingModel(
-      title: 'Fast Shipping',
-      image: AssetData.onboarding2,
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
-    ),
-    OnboardingModel(
-      title: 'Certificate Food',
-      image: AssetData.onboarding3,
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
-    ),
-    OnboardingModel(
-      title: 'Payment Online',
-      image: AssetData.onboarding4,
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
-    ),
-  ];
+  @override
+  void initState() => {pageController = PageController(), super.initState()};
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppConstants.primaryColor,
+      backgroundColor: AppColors.primaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 30),
         child: Column(
@@ -68,32 +33,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                child: Text('Skip',
-                    style: AppTheme.getLightTheme().textTheme.headlineLarge),
-                onPressed: () => Navigator.pushReplacementNamed(
-                    context, Routes.welcomeScreen),
+                child: Text('Skip', style: Theme.of(context).textTheme.headlineLarge),
+                onPressed: () => Navigator.pushReplacementNamed(context, Routes.welcomeScreen),
               ),
             ),
             Expanded(
               child: PageView.builder(
                 controller: pageController,
-                itemCount: onboardList.length,
-                onPageChanged: (index) => setState(() => pageIndex = index),
+                onPageChanged: (index) => pageIndex = index,
+                itemCount: AppConstants.onboardingData.length,
                 itemBuilder: (_, index) {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(onboardList[index].image,
-                          width: 190, height: 120),
+                      Image.asset(AppConstants.onboardingData[index].image, width: 190, height: 120),
                       const SizedBox(height: 50),
-                      Text(onboardList[index].title,
-                          style:
-                              AppTheme.getLightTheme().textTheme.headlineLarge),
+                      Text(AppConstants.onboardingData[index].title, style: Theme.of(context).textTheme.headlineLarge),
                       const SizedBox(height: 10),
-                      Text(onboardList[index].description,
-                          style:
-                              AppTheme.getLightTheme().textTheme.headlineSmall,
-                          textAlign: TextAlign.center),
+                      Text(AppConstants.onboardingData[index].description,
+                          style: Theme.of(context).textTheme.headlineSmall, textAlign: TextAlign.center),
                     ],
                   );
                 },
@@ -102,17 +60,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
-                onboardList.length,
+                AppConstants.onboardingData.length,
                 (index) => AnimatedContainer(
                   width: 10,
                   height: 10,
-                  duration: AppConstants.navigationDuration,
+                  duration: const Duration(seconds: 1),
                   margin: const EdgeInsets.symmetric(horizontal: 4),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: pageIndex == index
-                          ? AppConstants.active
-                          : AppConstants.inactive),
+                  decoration: BoxDecoration(shape: BoxShape.circle, color: pageIndex == index ? Colors.white : AppColors.inactive),
                 ),
               ),
             ),

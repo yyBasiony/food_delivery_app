@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/app_theme.dart';
 
 import 'widget/custom_icon_bottom_back.dart';
 
@@ -11,25 +10,24 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final TextEditingController _emailController = TextEditingController();
+  final _emailController = TextEditingController();
+
+  @override
+  void dispose() => {_emailController.dispose(), super.dispose()};
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(leading: const CustomIconButtonBack()),
       body: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(30),
         child: Column(
           children: [
-            Text('Forgot\nPassword',
-                style: AppTheme.getLightTheme().textTheme.headlineMedium),
+            Text('Forgot\nPassword', style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center),
             const SizedBox(height: 20),
-            TextFormField(
-                controller: _emailController,
-                decoration: const InputDecoration(hintText: 'Enter email')),
+            TextFormField(controller: _emailController, decoration: const InputDecoration(hintText: 'Enter email')),
             const SizedBox(height: 20),
-            ElevatedButton(
-                onPressed: () {}, child: const Text('Reset password'))
+            ElevatedButton(onPressed: () {}, child: const Text('Reset password'))
           ],
         ),
       ),
