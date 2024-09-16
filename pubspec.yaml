@@ -24,7 +24,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-
 flutter_gen:
   l10n:
     arb-dir: lib/l10n
