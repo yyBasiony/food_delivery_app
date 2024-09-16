@@ -8,8 +8,17 @@ class PaymentSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(child: Text('This is the Payment Settings screen')),
-      appBar: AppBar(leading: const CustomAppBar(), title: const Text('Payment Settings')),
+      body: Center(
+          child: Text(
+        'This is the Payment Settings screen',
+        style: Theme.of(context).textTheme.titleMedium,
+      )),
+      appBar: AppBar(
+          leading: const CustomAppBar(),
+          title: Text(
+            'Payment Settings',
+            style: Theme.of(context).textTheme.titleMedium,
+          )),
     );
   }
 }

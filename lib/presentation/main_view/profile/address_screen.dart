@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/app_colors.dart';
 
 import '../../resources/assets_data.dart';
 import '../widgets/custom_app_bar.dart';
@@ -23,23 +24,37 @@ class AddressScreen extends StatelessWidget {
                 labelText: 'Search Address',
                 fillColor: Colors.grey[200],
                 prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(10)),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10)),
               ),
             ),
             const SizedBox(height: 16),
-            const Row(
+            Row(
               children: [
-                Icon(Icons.location_on, color: Colors.orange),
-                SizedBox(width: 8),
+                const Icon(Icons.location_on, color: AppColors.primaryColor),
+                const SizedBox(width: 8),
                 Expanded(
-                  child: Text('9 West 46th Street, New York City', style: TextStyle(fontSize: 16)),
+                  child: Text(
+                    '9 West 46th Street, New York City',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: 24),
-            Center(child: SizedBox(height: 300, width: 300, child: Image.asset(AssetData.map))),
+            Center(
+                child: SizedBox(
+                    height: 300,
+                    width: 300,
+                    child: Image.asset(AssetData.map))),
             const SizedBox(height: 16),
-            ElevatedButton(onPressed: () {}, child: const Text('start')),
+            ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'start',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                )),
           ],
         ),
       ),

@@ -11,16 +11,19 @@ class DetailedProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: const CustomAppBar(), title: const Text("My Profile")),
+      appBar: AppBar(
+          leading: const CustomAppBar(), title: const Text("My Profile")),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CircleAvatar(radius: 50, backgroundImage: AssetImage(AssetData.sushi)),
+              const CircleAvatar(
+                  radius: 50, backgroundImage: AssetImage(AssetData.sushi)),
               const SizedBox(height: 8),
-              const Text('Jack Sparrow', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              const Text('Jack Sparrow',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               const Text('0123456789', style: TextStyle(color: Colors.grey)),
               const SizedBox(height: 16),
               ListTile(
@@ -48,7 +51,12 @@ class DetailedProfileScreen extends StatelessWidget {
                 onTap: () => Navigator.pushNamed(context, Routes.addressScreen),
               ),
               const SizedBox(height: 20),
-              ElevatedButton(onPressed: () {}, child: const Text('save')),
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'save',
+                    style: Theme.of(context).textTheme.headlineLarge,
+                  )),
             ],
           ),
         ),
