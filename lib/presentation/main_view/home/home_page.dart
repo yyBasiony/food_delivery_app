@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_bottom_navigation.dart';
 import '../widgets/custom_food_item.dart';
 import '../widgets/custom_food_menu.dart';
 
@@ -46,7 +45,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }

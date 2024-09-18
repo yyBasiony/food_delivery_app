@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/main_view/my_list/food_list.dart';
-import '../widgets/custom_bottom_navigation.dart';
+
 import '../widgets/custom_food_item.dart';
+import 'food_list.dart';
 import 'horizontal_food_list.dart';
 
 class MyListScreen extends StatelessWidget {
@@ -16,8 +16,7 @@ class MyListScreen extends StatelessWidget {
             TextFormField(
               obscureText: true,
               // controller: ,
-              decoration: const InputDecoration(
-                  hintText: 'search..', prefixIcon: Icon(Icons.search)),
+              decoration: const InputDecoration(hintText: 'search..', prefixIcon: Icon(Icons.search)),
             ),
             const CustomFoodItems(),
             const HorizontalFoodList(),
@@ -25,7 +24,6 @@ class MyListScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }

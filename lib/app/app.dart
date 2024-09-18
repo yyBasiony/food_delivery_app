@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
 import '../presentation/resources/app_theme.dart';
 import '../presentation/resources/routes.dart';
 
@@ -11,18 +12,15 @@ class FoodDelivery extends StatelessWidget {
     return MaterialApp(
       theme: AppTheme.getLightTheme(),
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.splashScreen,
+      initialRoute: Routes.mainView,
       onGenerateRoute: Routes.generateRoute,
       localizationsDelegates: const [
         // S.delegate,
-        GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('ar', ''),
-      ],
+      supportedLocales: const [Locale('en', ''), Locale('ar', '')],
     );
   }
 }

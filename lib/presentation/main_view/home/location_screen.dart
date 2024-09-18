@@ -22,7 +22,7 @@ class LocationScreen extends StatelessWidget {
             ElevatedButton(onPressed: () {}, child: const Text('Enable Location')),
             const SizedBox(height: 40),
             ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, Routes.homePage),
+              onPressed: () => Navigator.pushNamed(context, Routes.mainView),
               style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColors.secondary),
               child: const Text('No, I do it later'),
             ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/assets_data.dart';
-import '../widgets/custom_bottom_navigation.dart';
 import 'change_password_screen.dart';
 import 'detailed_profile_screen.dart';
 import 'payment_settings_screen.dart';
@@ -86,7 +85,6 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }

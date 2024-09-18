@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../resources/assets_data.dart';
 import '../../resources/routes.dart';
 import '../widgets/custom_app_bar.dart';
-import '../widgets/custom_bottom_navigation.dart';
 
 class DetailedProfileScreen extends StatelessWidget {
   const DetailedProfileScreen({super.key});
@@ -11,19 +10,16 @@ class DetailedProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          leading: const CustomAppBar(), title: const Text("My Profile")),
+      appBar: AppBar(leading: const CustomAppBar(), title: const Text("My Profile")),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CircleAvatar(
-                  radius: 50, backgroundImage: AssetImage(AssetData.sushi)),
+              const CircleAvatar(radius: 50, backgroundImage: AssetImage(AssetData.sushi)),
               const SizedBox(height: 8),
-              const Text('Jack Sparrow',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              const Text('Jack Sparrow', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               const Text('0123456789', style: TextStyle(color: Colors.grey)),
               const SizedBox(height: 16),
               ListTile(
@@ -61,7 +57,6 @@ class DetailedProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }
