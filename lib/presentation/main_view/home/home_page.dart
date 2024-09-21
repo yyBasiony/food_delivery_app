@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../resources/app_colors.dart';
 import '../widgets/custom_food_item.dart';
 import '../widgets/custom_food_menu.dart';
 
@@ -14,35 +14,66 @@ class _HomePageState extends State<HomePage> {
   final _searchController = TextEditingController();
 
   @override
-  void dispose() => {_searchController.dispose(), super.dispose()};
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextFormField(
-                controller: _searchController,
-                decoration: const InputDecoration(hintText: 'Search', prefixIcon: Icon(Icons.search)),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: TextFormField(
+                  controller: _searchController,
+                  decoration: const InputDecoration(
+                      hintText: 'Search', prefixIcon: Icon(Icons.search)),
+                ),
               ),
-            ),
-            const Row(
-              children: [
-                Icon(Icons.pin_drop, size: 20, color: Colors.black),
-                Padding(padding: EdgeInsets.all(10), child: Text('9 West 46 Th Street, New York City')),
-                SizedBox(height: 20),
-              ],
-            ),
-            const CustomFoodItems(),
-            const SizedBox(height: 20),
-            const Text(textAlign: TextAlign.start, 'Food Menu'),
-            const CustomFoodMenu(),
-            const Text('Near Me'),
-          ],
+              Row(
+                children: [
+                  const Icon(Icons.pin_drop, size: 30, color: AppColors.Bblack),
+                  Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        '9 West 46 Th Street,\n New York City',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: AppColors.Bblack),
+                      )),
+                  const SizedBox(height: 20),
+                ],
+              ),
+              const CustomFoodItems(),
+              const SizedBox(height: 6),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Food Menu',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const CustomFoodMenu(),
+              const SizedBox(height: 10),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Near Me',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

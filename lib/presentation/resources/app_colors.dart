@@ -13,5 +13,6 @@ class AppColors {
   static const Color BackgroundItem2 = Color.fromARGB(255, 219, 210, 176);
   static const Color BackgroundItem3 = Color.fromARGB(255, 198, 196, 219);
   static const Color BackgroundItem = Color.fromARGB(255, 149, 182, 197);
-
+  static const Color Bblack = Colors.black;
+  static const Color Ggry = Color(0xff807A7A);
 }

@@ -36,7 +36,7 @@ class AddressScreen extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    '9 West 46th Street, New York City',
+                    '9 West 46th Street,\n New York City',
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                 ),
@@ -49,12 +49,7 @@ class AddressScreen extends StatelessWidget {
                     width: 300,
                     child: Image.asset(AssetData.map))),
             const SizedBox(height: 16),
-            ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  'start',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                )),
+            ElevatedButton(child: const Text('Start'), onPressed: () {}),
           ],
         ),
       ),

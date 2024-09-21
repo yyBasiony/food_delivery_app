@@ -10,19 +10,25 @@ class DividerWithImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 50,
+        SizedBox(
+          height: 200,
           child: Row(
             children: [
-              Expanded(
+              const Expanded(
                 child: Padding(
                   padding: EdgeInsets.all(8),
                   child: Divider(thickness: 1, color: AppColors.divider),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8),
-                child: Text('Or connect with'),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  'Or connect with',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(color: AppColors.divider),
+                ),
               ),
             ],
           ),
@@ -30,17 +36,21 @@ class DividerWithImage extends StatelessWidget {
         Row(
           // crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            SizedBox(height: 80, width: 120, child: Image.asset(AssetData.pngItem)),
+            SizedBox(
+                height: 100, width: 140, child: Image.asset(AssetData.pngItem)),
             const SizedBox(width: 90),
-            SizedBox(height: 40, width: 40, child: Image.asset(AssetData.facebook)),
+            SizedBox(
+                height: 50, width: 50, child: Image.asset(AssetData.facebook)),
             const SizedBox(width: 20),
             SizedBox(
-              width: 40,
-              height: 40,
+              width: 50,
+              height: 50,
               child: CircleAvatar(
-                radius: 20,
+                radius: 50,
                 backgroundColor: Colors.white,
-                child: ClipOval(child: Image.asset(AssetData.google, fit: BoxFit.cover, width: 40, height: 40)),
+                child: ClipOval(
+                    child: Image.asset(AssetData.google,
+                        fit: BoxFit.cover, width: 50, height: 50)),
               ),
             ),
           ],

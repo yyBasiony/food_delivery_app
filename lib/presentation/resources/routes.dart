@@ -6,6 +6,7 @@ import '../authentication/register_screen.dart';
 import '../authentication/welcome_screen.dart';
 import '../main_view/home/location_screen.dart';
 import '../main_view/main_view.dart';
+import '../main_view/order/review_screen.dart';
 import '../main_view/profile/address_screen.dart';
 import '../onboarding/onboarding_screen.dart';
 import '../splash/splash_screen.dart';
@@ -24,6 +25,7 @@ class Routes {
   static const String mainView = "/mainView";
   static const String addressScreen = "/addressScreen";
   static const String locationScreen = "/locationScreen";
+  static const String ReviewScreen = "/ReviewScreen";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -45,9 +47,14 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const LocationScreen());
       case addressScreen:
         return MaterialPageRoute(builder: (_) => const AddressScreen());
+      case ReviewScreen:
+        return MaterialPageRoute(builder: (_) => const ReviewScreenOrder());
 
       default:
-        return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
+        return MaterialPageRoute(
+            builder: (_) => Scaffold(
+                body: Center(
+                    child: Text('No route defined for ${settings.name}'))));
     }
   }
 }

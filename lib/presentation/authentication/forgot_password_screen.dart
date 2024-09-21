@@ -23,11 +23,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         padding: const EdgeInsets.all(30),
         child: Column(
           children: [
-            Text('Forgot\nPassword', style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center),
-            const SizedBox(height: 20),
-            TextFormField(controller: _emailController, decoration: const InputDecoration(hintText: 'Enter email')),
-            const SizedBox(height: 20),
-            ElevatedButton(onPressed: () {}, child: const Text('Reset password'))
+            Text('Forgot\nPassword',
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.center),
+            const SizedBox(height: 40),
+            TextFormField(
+                controller: _emailController,
+                decoration: const InputDecoration(hintText: 'Enter email')),
+            const SizedBox(height: 40),
+            ElevatedButton(
+                onPressed: () {}, child: const Text('Reset password'))
           ],
         ),
       ),

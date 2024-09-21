@@ -40,12 +40,7 @@ class ChangePasswordScreen extends StatelessWidget {
             ),
             const SizedBox(height: 22),
             const SizedBox(height: 16),
-            ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  'save',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                )),
+            ElevatedButton(child: const Text('Save'), onPressed: () {}),
           ],
         ),
       ),

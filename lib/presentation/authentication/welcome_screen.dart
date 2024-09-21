@@ -22,14 +22,21 @@ class WelcomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 40),
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
-                    child: Image.asset(AssetData.burger, width: 280, height: 280, fit: BoxFit.cover),
+                    child: Image.asset(AssetData.burger,
+                        width: 285, height: 285, fit: BoxFit.cover),
                   ),
                 ),
-                ElevatedButton(child: const Text('Login'), onPressed: () => Navigator.pushNamed(context, Routes.loginScreen)),
-                const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, Routes.registerScreen),
-                  style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColors.secondary),
+                    child: const Text('Login'),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, Routes.loginScreen)),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () =>
+                      Navigator.pushNamed(context, Routes.registerScreen),
+                  style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.secondary),
                   child: const Text('Register'),
                 ),
               ],

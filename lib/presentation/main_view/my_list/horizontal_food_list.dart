@@ -12,28 +12,31 @@ class HorizontalFoodItem extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Image.asset(
-            imageUrl,
-            width: 70,
-            height: 70,
-            fit: BoxFit.cover,
+    return SizedBox(
+      height: 240,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.asset(
+              imageUrl,
+              width: 70,
+              height: 70,
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          name,
-          style: Theme.of(context).textTheme.titleSmall,
-        ),
-        Text(
-          '\$${price.toStringAsFixed(2)}',
-          style: Theme.of(context).textTheme.labelSmall,
-        ),
-      ],
+          const SizedBox(height: 8),
+          Text(
+            name,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          Text(
+            '\$${price.toStringAsFixed(2)}',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -66,7 +69,7 @@ class HorizontalFoodList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: 150,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: foodItems.length,

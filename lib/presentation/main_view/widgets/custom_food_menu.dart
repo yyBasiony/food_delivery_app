@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:food_delivery/presentation/resources/app_colors.dart';
 import '../../resources/assets_data.dart';
 
 class CustomFoodMenu extends StatelessWidget {
@@ -14,38 +14,68 @@ class CustomFoodMenu extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4),
               child: Container(
-                width: 90,
-                height: 127,
+                width: 110,
+                height: 110,
                 decoration: BoxDecoration(
-                  color: const Color(0xff3498DB),
+                  color: AppColors.BackgroundItem1,
                   borderRadius: BorderRadius.circular(10),
-                  image: const DecorationImage(image: AssetImage(AssetData.burgers)),
+                  image:
+                      const DecorationImage(image: AssetImage(AssetData.pizza)),
                 ),
-                child: const Text('Burgers'),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Burgers',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(4),
               child: Container(
-                width: 90,
-                height: 127,
+                width: 110,
+                height: 110,
                 decoration: BoxDecoration(
-                    color: const Color(0xff9B59B6),
+                    color: AppColors.BackgroundItem2,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.pizza))),
-                child: const Text('Pizza'),
+                    image: const DecorationImage(
+                        image: AssetImage(AssetData.pizza))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Pizza',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(4),
               child: Container(
-                width: 90,
-                height: 127,
+                width: 110,
+                height: 110,
                 decoration: BoxDecoration(
-                    color: const Color(0xff3498DB),
+                    color: AppColors.BackgroundItem3,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.bbq))),
-                child: const Text('bbq'),
+                    image: const DecorationImage(
+                        image: AssetImage(AssetData.pizza))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'bbq',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ),
               ),
             ),
           ],
@@ -55,37 +85,67 @@ class CustomFoodMenu extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4),
               child: Container(
-                width: 90,
-                height: 127,
+                width: 110,
+                height: 110,
                 decoration: BoxDecoration(
-                    color: const Color(0xff9B59B6),
+                    color: AppColors.BackgroundItem,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.fruit))),
-                child: const Text('Fruit'),
+                    image: const DecorationImage(
+                        image: AssetImage(AssetData.fruit))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Fruit',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(4),
               child: Container(
-                width: 90,
-                height: 127,
+                width: 110,
+                height: 110,
                 decoration: BoxDecoration(
-                    color: const Color(0xff3498DB),
+                    color: AppColors.BackgroundItem3,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.sushi))),
-                child: const Text('Sushi'),
+                    image: const DecorationImage(
+                        image: AssetImage(AssetData.fruit))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Sushi',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(4),
               child: Container(
-                width: 90,
-                height: 127,
+                width: 110,
+                height: 110,
                 decoration: BoxDecoration(
-                    color: const Color(0xff9B59B6),
+                    color: AppColors.BackgroundItem1,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.noodle))),
-                child: const Text('Noodle'),
+                    image: const DecorationImage(
+                        image: AssetImage(AssetData.fruit))),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Text(
+                    'Noodle',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ),
               ),
             ),
           ],
