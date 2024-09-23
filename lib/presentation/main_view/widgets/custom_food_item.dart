@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../resources/assets_data.dart';
+
+import '../../resources/app_constants.dart';
 
 class CustomFoodItems extends StatefulWidget {
   const CustomFoodItems({super.key});
@@ -11,33 +12,21 @@ class CustomFoodItems extends StatefulWidget {
 class _CustomFoodItemsState extends State<CustomFoodItems> {
   int? selectedIndex;
 
-  void onItemTap(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  void onItemTap(int index) => setState(() => selectedIndex = index);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        buildFoodItem(0, AssetData.coffeeCup, const Color(0xffECF0F1), "Drink"),
-        buildFoodItem(1, AssetData.food, const Color(0xffECF0F1), "Food"),
-        buildFoodItem(2, AssetData.cake, const Color(0xffECF0F1), "Cake"),
-        buildFoodItem(3, AssetData.snack, const Color(0xffECF0F1), "Snack"),
-      ],
+      children: [for (int i = 0; i < 4; ++i) buildFoodItem(i)],
     );
   }
 
-  Widget buildFoodItem(
-      int index, String imagePath, Color defaultColor, String label) {
+  Widget buildFoodItem(int index) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10),
       child: InkWell(
-        onTap: () {
-          onItemTap(index);
-        },
+        onTap: () => onItemTap(index),
         child: Column(
           children: [
             Container(
@@ -45,26 +34,15 @@ class _CustomFoodItemsState extends State<CustomFoodItems> {
               height: 70,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: selectedIndex == index
-                    ? const Color(0xffD35400)
-                    : defaultColor,
+                color: selectedIndex == index ? const Color(0xffD35400) : const Color(0xffECF0F1),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Image.asset(
-                  imagePath,
-                  fit: BoxFit.contain,
-                ),
+                padding: const EdgeInsets.all(18),
+                child: Image.asset(AppConstants.foodItems[index].image, fit: BoxFit.contain),
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              label,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(color: Colors.black),
-            ),
+            Text(AppConstants.foodItems[index].label, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.black)),
           ],
         ),
       ),

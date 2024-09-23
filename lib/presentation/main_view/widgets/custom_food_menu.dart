@@ -17,20 +17,13 @@ class CustomFoodMenu extends StatelessWidget {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                  color: AppColors.BackgroundItem1,
+                  color: AppColors.backgroundItem1,
                   borderRadius: BorderRadius.circular(10),
-                  image:
-                      const DecorationImage(image: AssetImage(AssetData.pizza)),
+                  image: const DecorationImage(image: AssetImage(AssetData.pizza)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Burgers',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(color: Colors.white),
-                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Text('Burgers', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
                 ),
               ),
             ),
@@ -40,19 +33,12 @@ class CustomFoodMenu extends StatelessWidget {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                    color: AppColors.BackgroundItem2,
+                    color: AppColors.backgroundItem2,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetData.pizza))),
+                    image: const DecorationImage(image: AssetImage(AssetData.pizza))),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Pizza',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(color: Colors.white),
-                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Text('Pizza', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
                 ),
               ),
             ),
@@ -62,19 +48,12 @@ class CustomFoodMenu extends StatelessWidget {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                    color: AppColors.BackgroundItem3,
+                    color: AppColors.backgroundItem3,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetData.pizza))),
+                    image: const DecorationImage(image: AssetImage(AssetData.pizza))),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'bbq',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(color: Colors.white),
-                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Text('bbq', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
                 ),
               ),
             ),
@@ -88,19 +67,12 @@ class CustomFoodMenu extends StatelessWidget {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                    color: AppColors.BackgroundItem,
+                    color: AppColors.backgroundItem,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetData.fruit))),
+                    image: const DecorationImage(image: AssetImage(AssetData.fruit))),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Fruit',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(color: Colors.white),
-                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Text('Fruit', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
                 ),
               ),
             ),
@@ -110,19 +82,12 @@ class CustomFoodMenu extends StatelessWidget {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                    color: AppColors.BackgroundItem3,
+                    color: AppColors.backgroundItem3,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetData.fruit))),
+                    image: const DecorationImage(image: AssetImage(AssetData.fruit))),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Sushi',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(color: Colors.white),
-                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Text('Sushi', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
                 ),
               ),
             ),
@@ -132,18 +97,14 @@ class CustomFoodMenu extends StatelessWidget {
                 width: 110,
                 height: 110,
                 decoration: BoxDecoration(
-                    color: AppColors.BackgroundItem1,
+                    color: AppColors.backgroundItem1,
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetData.fruit))),
+                    image: const DecorationImage(image: AssetImage(AssetData.fruit))),
                 child: Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(
                     'Noodle',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white),
                   ),
                 ),
               ),

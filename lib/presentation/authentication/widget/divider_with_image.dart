@@ -24,10 +24,7 @@ class DividerWithImage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
                   'Or connect with',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(color: AppColors.divider),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColors.divider),
                 ),
               ),
             ],
@@ -36,11 +33,9 @@ class DividerWithImage extends StatelessWidget {
         Row(
           // crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            SizedBox(
-                height: 100, width: 140, child: Image.asset(AssetData.pngItem)),
+            SizedBox(height: 75, width: 140, child: Image.asset(AssetData.pngItem)),
             const SizedBox(width: 90),
-            SizedBox(
-                height: 50, width: 50, child: Image.asset(AssetData.facebook)),
+            SizedBox(height: 50, width: 50, child: Image.asset(AssetData.facebook)),
             const SizedBox(width: 20),
             SizedBox(
               width: 50,
@@ -48,9 +43,7 @@ class DividerWithImage extends StatelessWidget {
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.white,
-                child: ClipOval(
-                    child: Image.asset(AssetData.google,
-                        fit: BoxFit.cover, width: 50, height: 50)),
+                child: ClipOval(child: Image.asset(AssetData.google, fit: BoxFit.cover, width: 50, height: 50)),
               ),
             ),
           ],

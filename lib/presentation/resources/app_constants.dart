@@ -37,7 +37,14 @@ class AppConstants {
     (label: 'Profile', icon: Icons.person)
   ];
 
-  static final List<FoodItem> foodItems = [
+  static final List<({String image, String label})> foodItems = [
+    (image: AssetData.coffeeCup, label: "Drink"),
+    (image: AssetData.food, label: "Food"),
+    (image: AssetData.cake, label: "Cake"),
+    (image: AssetData.snack, label: "Snack")
+  ];
+
+  static final List<FoodItem> foodMenu = [
     FoodItem(
       imageUrl: AssetData.burger,
       name: 'Hamburger',

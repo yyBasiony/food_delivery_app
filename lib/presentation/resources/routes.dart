@@ -23,9 +23,9 @@ class Routes {
 
   //
   static const String mainView = "/mainView";
+  static const String reviewScreen = "/reviewScreen";
   static const String addressScreen = "/addressScreen";
   static const String locationScreen = "/locationScreen";
-  static const String ReviewScreen = "/ReviewScreen";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -47,14 +47,11 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const LocationScreen());
       case addressScreen:
         return MaterialPageRoute(builder: (_) => const AddressScreen());
-      case ReviewScreen:
+      case reviewScreen:
         return MaterialPageRoute(builder: (_) => const ReviewScreenOrder());
 
       default:
-        return MaterialPageRoute(
-            builder: (_) => Scaffold(
-                body: Center(
-                    child: Text('No route defined for ${settings.name}'))));
+        return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
     }
   }
 }

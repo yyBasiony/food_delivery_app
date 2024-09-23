@@ -14,10 +14,7 @@ class _HomePageState extends State<HomePage> {
   final _searchController = TextEditingController();
 
   @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
+  void dispose() => {_searchController.dispose(), super.dispose()};
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +30,17 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(12),
                 child: TextFormField(
                   controller: _searchController,
-                  decoration: const InputDecoration(
-                      hintText: 'Search', prefixIcon: Icon(Icons.search)),
+                  decoration: const InputDecoration(hintText: 'Search', prefixIcon: Icon(Icons.search)),
                 ),
               ),
               Row(
                 children: [
-                  const Icon(Icons.pin_drop, size: 30, color: AppColors.Bblack),
+                  const Icon(Icons.pin_drop, size: 30, color: AppColors.black),
                   Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        '9 West 46 Th Street,\n New York City',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: AppColors.Bblack),
-                      )),
+                    padding: const EdgeInsets.all(10),
+                    child:
+                        Text('9 West 46 Th Street,\n New York City', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.black)),
+                  ),
                   const SizedBox(height: 20),
                 ],
               ),
@@ -56,21 +48,13 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 6),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  'Food Menu',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                child: Text('Food Menu', textAlign: TextAlign.start, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               ),
               const CustomFoodMenu(),
               const SizedBox(height: 10),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  'Near Me',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                child: Text('Near Me', textAlign: TextAlign.start, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               ),
             ],
           ),

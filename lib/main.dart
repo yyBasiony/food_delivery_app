@@ -6,21 +6,17 @@ import 'app/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky,
-      overlays: [SystemUiOverlay.top]);
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-
-  WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: [SystemUiOverlay.top]);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),
+      supportedLocales: const [Locale('en'), Locale('ar')],
       child: const FoodDelivery(),
     ),
   );

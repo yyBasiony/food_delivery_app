@@ -1,5 +1,4 @@
 {
-  "مرحبًا": "welcome",
-  "تسجيل الدخول "  : " login    "
-
+  "login": "login",
+  "welcome": "welcome"
 }

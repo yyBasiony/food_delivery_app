@@ -22,27 +22,18 @@ class _LocationScreenState extends State<LocationScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(AssetData.map)),
+            ClipRRect(borderRadius: BorderRadius.circular(12), child: Image.asset(AssetData.map)),
             const SizedBox(height: 40),
             Text(
-              textAlign: TextAlign.center,
-              'Set your location to start exploring restaurants around you',
-              style: Theme.of(context)
-                  .textTheme
-                  .labelSmall
-                  ?.copyWith(color: AppColors.Bblack),
-            ),
+                textAlign: TextAlign.center,
+                'Set your location to start exploring restaurants around you',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.black)),
             const SizedBox(height: 40),
-            ElevatedButton(
-                onPressed: () {}, child: const Text('Enable Location')),
+            ElevatedButton(onPressed: () {}, child: const Text('Enable Location')),
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, Routes.mainView),
-              style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: AppColors.secondary),
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColors.secondary),
               child: const Text('No, I do it later'),
             ),
           ],
@@ -50,11 +41,7 @@ class _LocationScreenState extends State<LocationScreen> {
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onTap: (index) => setState(() => _currentIndex = index),
       ),
     );
   }
