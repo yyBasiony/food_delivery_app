@@ -5,11 +5,18 @@ import 'food_item_card.dart';
 
 class FoodList extends StatelessWidget {
   const FoodList({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final itemCount =
+        AppConstants.foodItems.length < AppConstants.foodMenu.length
+            ? AppConstants.foodItems.length
+            : AppConstants.foodMenu.length;
+
     return ListView.builder(
-      itemCount: AppConstants.foodItems.length,
-      itemBuilder: (context, index) => FoodItemCard(AppConstants.foodMenu[index]),
+      itemCount: itemCount,
+      itemBuilder: (context, index) =>
+          FoodItemCard(AppConstants.foodMenu[index]),
     );
   }
 }
