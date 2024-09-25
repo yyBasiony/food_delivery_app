@@ -18,11 +18,33 @@ class _LoginState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
 
   @override
-  void dispose() => {
-        _usernameController.dispose(),
-        _passwordController.dispose(),
-        super.dispose()
-      };
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  String? _validateUsername(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your username';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    } else if (value.length < 6) {
+      return 'Password must be at least 6 characters long';
+    }
+    return null;
+  }
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      Navigator.pushReplacementNamed(context, Routes.locationScreen);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,27 +62,29 @@ class _LoginState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Login',
-                        style: Theme.of(context).textTheme.headlineMedium),
+                        style: Theme.of(context).textTheme.titleLarge),
                     const SizedBox(height: 40),
                     TextFormField(
                       controller: _usernameController,
                       decoration: const InputDecoration(
                           hintText: 'Username',
                           prefixIcon: Icon(Icons.person_outline)),
+                      validator: _validateUsername,
                     ),
                     const SizedBox(height: 30),
                     TextFormField(
                       controller: _passwordController,
+                      obscureText: true,
                       decoration: const InputDecoration(
                           hintText: 'Password',
                           prefixIcon: Icon(Icons.lock_outline)),
+                      validator: _validatePassword,
                     ),
                     const SizedBox(height: 40),
-                    // ToDO: Validation
                     ElevatedButton(
-                        child: const Text('Login'),
-                        onPressed: () => Navigator.pushReplacementNamed(
-                            context, Routes.locationScreen)),
+                      child: Text('Login'),
+                      onPressed: _submitForm,
+                    ),
                     const SizedBox(height: 35),
                     Align(
                       alignment: Alignment.centerRight,

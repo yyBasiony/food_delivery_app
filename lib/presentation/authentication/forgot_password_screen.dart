@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'widget/custom_icon_bottom_back.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -10,10 +9,27 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
 
   @override
-  void dispose() => {_emailController.dispose(), super.dispose()};
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    }
+    return null;
+  }
+
+  void _resetPassword() {
+    if (_formKey.currentState!.validate()) {
+      print("Password reset link sent to ${_emailController.text}");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +37,28 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       appBar: AppBar(leading: const CustomIconButtonBack()),
       body: Padding(
         padding: const EdgeInsets.all(30),
-        child: Column(
-          children: [
-            Text('Forgot\nPassword',
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.center),
-            const SizedBox(height: 40),
-            TextFormField(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Text(
+                'Forgot\nPassword',
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 40),
+              TextFormField(
                 controller: _emailController,
-                decoration: const InputDecoration(hintText: 'Enter email')),
-            const SizedBox(height: 40),
-            ElevatedButton(
-                onPressed: () {}, child: const Text('Reset password'))
-          ],
+                decoration: const InputDecoration(hintText: 'Enter email'),
+                validator: _validateEmail,
+              ),
+              const SizedBox(height: 40),
+              ElevatedButton(
+                onPressed: _resetPassword,
+                child: const Text('Reset password'),
+              ),
+            ],
+          ),
         ),
       ),
     );

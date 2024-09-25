@@ -5,7 +5,6 @@ import '../resources/routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
-
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
@@ -16,10 +15,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   void dispose() => {pageController.dispose(), super.dispose()};
-
   @override
   void initState() => {pageController = PageController(), super.initState()};
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +30,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () => Navigator.pushReplacementNamed(context, Routes.welcomeScreen),
-                child: Text('Skip', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
+                onPressed: () => Navigator.pushReplacementNamed(
+                    context, Routes.welcomeScreen),
+                child: Text('Skip',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(color: Colors.white)),
               ),
             ),
             Expanded(
@@ -46,17 +48,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(AppConstants.onboardingData[index].image, width: 190, height: 160),
+                      Image.asset(AppConstants.onboardingData[index].image,
+                          width: 190, height: 160),
                       const SizedBox(height: 60),
                       Text(
                         AppConstants.onboardingData[index].title,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.white),
                       ),
                       const SizedBox(height: 10),
                       Text(
                         textAlign: TextAlign.center,
                         AppConstants.onboardingData[index].description,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall
+                            ?.copyWith(color: Colors.white),
                       ),
                     ],
                   );
@@ -65,14 +74,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             const SizedBox(height: 50),
             InkWell(
-              onTap: () => pageIndex == AppConstants.onboardingData.length - 1
-                  ? Navigator.pushReplacementNamed(context, Routes.welcomeScreen)
-                  : pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeIn),
+              onTap: () =>
+                  Navigator.pushReplacementNamed(context, Routes.welcomeScreen),
               child: Container(
                   width: 320,
                   height: 60,
-                  decoration: BoxDecoration(color: AppColors.secondary, borderRadius: BorderRadius.circular(12)),
-                  child: Center(child: Text("Continue", style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.primaryColor)))),
+                  decoration: BoxDecoration(
+                      color: AppColors.secondary,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Center(
+                      child: Text("Continue",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: AppColors.primaryColor)))),
             ),
             const SizedBox(height: 50),
             Row(
@@ -84,7 +99,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   height: 14,
                   duration: const Duration(milliseconds: 500),
                   margin: const EdgeInsets.symmetric(horizontal: 4),
-                  decoration: BoxDecoration(shape: BoxShape.circle, color: pageIndex == index ? Colors.white : AppColors.inactive),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: pageIndex == index
+                          ? Colors.white
+                          : AppColors.inactive),
                 ),
               ),
             ),

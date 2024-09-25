@@ -7,6 +7,7 @@ class DividerWithImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
           height: 200,
@@ -32,22 +33,33 @@ class DividerWithImage extends StatelessWidget {
           ),
         ),
         Row(
-          // crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
                 height: 75, width: 140, child: Image.asset(AssetData.pngItem)),
-            const SizedBox(width: 90),
+            const SizedBox(width: 50),
             SizedBox(
-                height: 50, width: 50, child: Image.asset(AssetData.facebook)),
-            const SizedBox(width: 20),
+                height: 50, width: 60, child: Image.asset(AssetData.facebook)),
+            //const SizedBox(width: 20),
             SizedBox(
-              width: 50,
+              width: 60,
               height: 50,
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.white,
                 child: ClipOval(
                     child: Image.asset(AssetData.google,
+                        fit: BoxFit.cover, width: 50, height: 50)),
+              ),
+            ),
+            SizedBox(
+              width: 60,
+              height: 50,
+              child: CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.white,
+                child: ClipOval(
+                    child: Image.asset(AssetData.twitter,
                         fit: BoxFit.cover, width: 50, height: 50)),
               ),
             ),

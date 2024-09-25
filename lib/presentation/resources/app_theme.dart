@@ -48,8 +48,10 @@ class AppTheme {
         fillColor: AppColors.secondary,
         contentPadding: EdgeInsets.all(15),
         prefixIconColor: Color(0xFFC2C2C2),
-        hintStyle:
-            TextStyle(color: Color(0xFFC2C2C2), fontWeight: FontWeight.normal),
+        hintStyle: TextStyle(
+            color: Color(0xFFC2C2C2),
+            fontWeight: FontWeight.normal,
+            fontSize: 10),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             borderSide: BorderSide.none),

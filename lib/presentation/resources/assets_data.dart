@@ -20,6 +20,7 @@ class AssetData {
   static const String fruit = '$_images/image 3.png';
   static const String pizza = '$_images/image (1).png';
   static const String testImage = '$_images/testimage.png';
+  static const String twitter = '$_images/twitter.jpeg';
 
   // Food Items
   static const String food = '$_images/food.png';
