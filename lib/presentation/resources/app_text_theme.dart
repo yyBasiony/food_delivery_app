@@ -80,4 +80,14 @@ class AppTextTheme {
       color: Color(0xffE74C3C),
     ),
   );
+  static const TextStyle label1 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 11,
+    color: Colors.black,
+  );
+  static const TextStyle label11 = TextStyle(
+    fontWeight: FontWeight.w300,
+    fontSize: 8,
+    color: Colors.black,
+  );
 }
