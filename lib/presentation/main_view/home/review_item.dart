@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../resources/app_text_theme.dart';
+
 class ReviewItem extends StatelessWidget {
   final String name;
   final String review;
@@ -20,16 +22,16 @@ class ReviewItem extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundImage: AssetImage(image),
-            radius: 24,
+            radius: 25,
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(height: 4),
-                Text(review),
+                Text(name, style: AppTextTheme.label1),
+                const SizedBox(height: 4),
+                Text(review, style: AppTextTheme.label11),
               ],
             ),
           ),

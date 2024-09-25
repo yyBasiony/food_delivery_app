@@ -14,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CustomIconButtonBack(),
+        leading: const CustomIconButtonBack(),
         title: const Text("My Profile"),
       ),
       body: SingleChildScrollView(

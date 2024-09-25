@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../authentication/widget/custom_icon_bottom_back.dart';
 import 'info_screen.dart';
 import 'order_item.dart';
 import 'review_item.dart';
@@ -44,18 +45,40 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.name),
-        actions: [
-          IconButton(icon: const Icon(Icons.favorite_border), onPressed: () {}),
-          IconButton(icon: const Icon(Icons.search), onPressed: () {}),
-          IconButton(icon: const Icon(Icons.share), onPressed: () {}),
-        ],
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(widget.imageUrl, fit: BoxFit.cover),
+          Stack(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                height: 300,
+                child: Image.asset(widget.imageUrl, fit: BoxFit.cover),
+              ),
+              const CustomIconButtonBack(),
+              Positioned(
+                top: 40,
+                right: 16,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.favorite_border,
+                          color: Colors.white),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.search, color: Colors.white),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.share, color: Colors.white),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -93,27 +116,21 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
               controller: _tabController,
               children: [
                 ListView(
-                  children: [
+                  children: const [
                     OrderItem(
                       imageUrl: 'assets/images/burger.png',
                       title: 'Hamburger Lover',
                       price: '15.39',
-                      quantity: 1,
-                      onAdd: () => print('Added'),
                     ),
                     OrderItem(
-                      title: 'Tuna Salad',
-                      price: '9.99',
-                      imageUrl: 'assets/images/tunasalad.png',
-                      quantity: 1,
-                      onAdd: () => print('Added'),
+                      imageUrl: 'assets/images/burger.png',
+                      title: 'Hamburger Lover',
+                      price: '15.39',
                     ),
                     OrderItem(
-                      title: 'Mushroom Pizza',
-                      price: '13.99',
-                      imageUrl: 'assets/images/mushroompizza.png',
-                      quantity: 1,
-                      onAdd: () => print('Added'),
+                      imageUrl: 'assets/images/burger.png',
+                      title: 'Hamburger Lover',
+                      price: '15.39',
                     ),
                   ],
                 ),
@@ -124,12 +141,12 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
                         name: 'Garrett Bina',
                         review:
                             'I enjoyed the food of the restaurant. The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service. I will be back in the future.',
-                        image: 'assets/images/avatar1.png'),
+                        image: 'assets/images/burger.png'),
                     ReviewItem(
                         name: 'Sarina Kika',
                         review:
                             'The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service.',
-                        image: 'assets/images/avatar2.png'),
+                        image: 'assets/images/burger.png'),
                   ],
                 ),
               ],

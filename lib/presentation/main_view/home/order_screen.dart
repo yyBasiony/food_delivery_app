@@ -15,25 +15,21 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Food Order Restaurant")),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
             const RestaurantDetails(
-              imageUrl: 'assets/images/burger.png',
-              name: 'Food Order Restaurant',
-              address: '123 Main St',
-              rating: '4.5',
-              reviews: '200',
-              openStatus: 'Open Now',
-            ),
+                imageUrl: 'assets/images/burger.png',
+                name: 'Food Order Restaurant',
+                address: '123 Main St',
+                rating: '4.5',
+                reviews: '200',
+                openStatus: 'Open Now'),
             const SizedBox(height: 10),
             OrderItem(
-              imageUrl: 'assets/images/burger.png',
-              title: 'Hamburger Lover',
-              price: '15.39',
-              quantity: 2,
-              onAdd: () => print('Added'),
-            ),
+                imageUrl: 'assets/images/burger.png',
+                title: 'Hamburger Lover',
+                price: '15.39'),
           ],
         ),
       ),

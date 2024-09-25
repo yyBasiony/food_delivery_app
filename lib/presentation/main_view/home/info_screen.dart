@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
 
+import '../../resources/app_text_theme.dart';
+
 class RestaurantInfo extends StatelessWidget {
-  const RestaurantInfo();
+  const RestaurantInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           ListTile(
             leading: Icon(Icons.phone),
-            title: Text('+1 123 987 765'),
+            title: Text('+1 123 987 765', style: AppTextTheme.label1),
           ),
           ListTile(
             leading: Icon(Icons.email),
-            title: Text('foodorder@gmail.com'),
+            title: Text('foodorder@gmail.com', style: AppTextTheme.label1),
           ),
           ListTile(
             leading: Icon(Icons.location_on),
-            title: Text('Custom Address'),
+            title: Text('Custom Address', style: AppTextTheme.label1),
           ),
           ListTile(
             leading: Icon(Icons.attach_money),
-            title: Text('Average Cost: \$10-50'),
+            title: Text('Average Cost: \$10-50', style: AppTextTheme.label1),
           ),
         ],
       ),
