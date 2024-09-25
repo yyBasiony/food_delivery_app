@@ -16,17 +16,20 @@ class AppConstants {
     OnboardingModel(
       title: 'Fast Shipping',
       image: AssetData.onboarding2,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
     ),
     OnboardingModel(
       title: 'Certificate Food',
       image: AssetData.onboarding3,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
     ),
     OnboardingModel(
       title: 'Payment Online',
       image: AssetData.onboarding4,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
     ),
   ];
 

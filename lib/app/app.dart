@@ -13,7 +13,7 @@ class FoodDelivery extends StatelessWidget {
       locale: context.locale,
       theme: AppTheme.getLightTheme(),
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.mainView,
+      initialRoute: Routes.splashScreen,
       onGenerateRoute: Routes.generateRoute,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
