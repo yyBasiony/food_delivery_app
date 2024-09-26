@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../authentication/widget/custom_icon_bottom_back.dart';
 import 'checkout_screen.dart';
 
 class DiscountScreen extends StatelessWidget {
@@ -35,6 +36,7 @@ class DiscountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const CustomIconButtonBack(),
         title: Text("Discount"),
         centerTitle: true,
       ),

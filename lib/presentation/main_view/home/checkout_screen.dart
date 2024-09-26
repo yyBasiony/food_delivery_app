@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../authentication/widget/custom_icon_bottom_back.dart';
+import '../../resources/app_colors.dart';
+
 class CheckoutScreen extends StatelessWidget {
   final double total;
 
@@ -9,8 +12,9 @@ class CheckoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const CustomIconButtonBack(),
         title: const Text('Checkout'),
-        backgroundColor: Colors.orange,
+        backgroundColor: AppColors.primaryColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -63,7 +67,7 @@ class CheckoutScreen extends StatelessWidget {
               onPressed: () {},
               child: Text('Place Order'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
+                backgroundColor: AppColors.primaryColor,
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 textStyle: TextStyle(fontSize: 18),
               ),
