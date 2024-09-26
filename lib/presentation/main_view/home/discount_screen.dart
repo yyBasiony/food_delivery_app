@@ -37,7 +37,7 @@ class DiscountScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const CustomIconButtonBack(),
-        title: Text("Discount"),
+        title: const Text("Discount"),
         centerTitle: true,
       ),
       body: ListView.builder(
@@ -57,26 +57,26 @@ class DiscountScreen extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  leading: CircleAvatar(
+                  leading: const CircleAvatar(
                     radius: 30,
                     backgroundImage:
                         AssetImage("assets/images/download (6).jpeg"),
                   ),
                   title: Text(
                     discounts[index]['title']!,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   subtitle: Row(
                     children: [
                       Text(discounts[index]['days']!),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text("\$${discounts[index]['discount'].toString()}"),
                     ],
                   ),
                 ),
-                Divider(thickness: 1),
+                const Divider(thickness: 1),
               ],
             ),
           );
