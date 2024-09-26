@@ -1,117 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/app_colors.dart';
+
+import '../../resources/app_colors.dart';
 import '../../resources/assets_data.dart';
 
 class CustomFoodMenu extends StatelessWidget {
+  static final _foodMenuData = [
+    (label: 'Burgers', color: AppColors.greenItem, image: AssetData.burger),
+    (label: 'Fruit', color: AppColors.redItem, image: AssetData.fruit),
+    (label: 'Pizza', color: AppColors.yellowItem, image: AssetData.pizza),
+    (label: 'Sushi', color: AppColors.blueItem, image: AssetData.sushi),
+    (label: 'Barbecue', color: AppColors.purpleItem, image: AssetData.barbecue),
+    (label: 'Noodle', color: AppColors.lightGreenItem, image: AssetData.noodle),
+  ];
   const CustomFoodMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: AppColors.backgroundItem1,
-                  borderRadius: BorderRadius.circular(10),
-                  image: const DecorationImage(image: AssetImage(AssetData.pizza)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text('Burgers', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                    color: AppColors.backgroundItem2,
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.pizza))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text('Pizza', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                    color: AppColors.backgroundItem3,
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.pizza))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text('bbq', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
-                ),
-              ),
-            ),
-          ],
+    return SizedBox.fromSize(
+      size: const Size.fromHeight(250),
+      child: GridView.builder(
+        itemCount: _foodMenuData.length,
+        scrollDirection: Axis.horizontal,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
+        itemBuilder: (_, index) => Container(
+          width: 110,
+          height: 110,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: _foodMenuData[index].color,
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            image: DecorationImage(alignment: AlignmentDirectional.bottomEnd, image: AssetImage(_foodMenuData[index].image)),
+          ),
+          child: Text(_foodMenuData[index].label, style: Theme.of(context).textTheme.bodySmall),
         ),
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                    color: AppColors.backgroundItem,
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.fruit))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text('Fruit', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                    color: AppColors.backgroundItem3,
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.fruit))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text('Sushi', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                    color: AppColors.backgroundItem1,
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage(AssetData.fruit))),
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Text(
-                    'Noodle',
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
+      ),
     );
   }
 }

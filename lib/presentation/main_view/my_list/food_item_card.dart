@@ -5,7 +5,7 @@ import '../../../domain/models/model_food_item.dart';
 class FoodItemCard extends StatelessWidget {
   final FoodItem foodItem;
 
-  const FoodItemCard(this.foodItem);
+  const FoodItemCard(this.foodItem, {super.key});
 
   @override
   Widget build(BuildContext context) {

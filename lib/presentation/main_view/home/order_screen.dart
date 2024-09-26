@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import '../custom_bottom_navigation_bar.dart';
+
+import '../../resources/assets_data.dart';
 import 'order_item.dart';
-import 'restraurnt_detils.dart';
+import 'restaurant_details.dart';
 
 class OrderScreen extends StatefulWidget {
+  const OrderScreen({super.key});
+
   @override
-  _OrderScreenState createState() => _OrderScreenState();
+  State<OrderScreen> createState() => _OrderScreenState();
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  int _currentIndex = 1;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,24 +19,17 @@ class _OrderScreenState extends State<OrderScreen> {
       body: const SingleChildScrollView(
         child: Column(
           children: [
-            const RestaurantDetails(
-                imageUrl: 'assets/images/burger.png',
-                name: 'Food Order Restaurant',
-                address: '123 Main St',
+            RestaurantDetails(
                 rating: '4.5',
                 reviews: '200',
-                openStatus: 'Open Now'),
-            const SizedBox(height: 10),
-            OrderItem(
-                imageUrl: 'assets/images/burger.png',
-                title: 'Hamburger Lover',
-                price: '15.39'),
+                address: '123 Main St',
+                openStatus: 'Open Now',
+                name: 'Food Order Restaurant',
+                imageUrl: AssetData.burger),
+            SizedBox(height: 10),
+            OrderItem(imageUrl: AssetData.burger, title: 'Hamburger Lover', price: '15.39'),
           ],
         ),
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) => setState(() => _currentIndex = index),
       ),
     );
   }

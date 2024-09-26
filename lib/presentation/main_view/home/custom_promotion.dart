@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../resources/assets_data.dart';
 import 'discount_screen.dart';
 
 class CustomFoodPromotion extends StatelessWidget {
@@ -8,34 +9,19 @@ class CustomFoodPromotion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) {
-              return DiscountScreen();
-            }));
-          },
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const DiscountScreen())),
           child: Container(
             height: 150,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/burger.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
+            decoration: const BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: AssetImage(AssetData.burger))),
             child: const Padding(
               padding: EdgeInsets.all(16),
               child: Center(
-                child: Text(
-                  'Sale Off\n50% For Breakfast',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                child: Text('Sale Off\n50% For Breakfast',
+                    textAlign: TextAlign.center, style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold)),
               ),
             ),
           ),
@@ -45,23 +31,8 @@ class CustomFoodPromotion extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'For Breakfast',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'See all',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.orange,
-                  ),
-                ),
-              ),
+              const Text('For Breakfast', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              GestureDetector(onTap: () {}, child: const Text('See all', style: TextStyle(fontSize: 12, color: Colors.orange))),
             ],
           ),
         ),
@@ -71,11 +42,11 @@ class CustomFoodPromotion extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             children: [
-              _buildFoodItem('Hamburger', 'assets/images/burger.png'),
-              _buildFoodItem('Tuna Salad', 'assets/images/burger.png'),
-              _buildFoodItem('Chicken Fried', 'assets/images/burger.png'),
-              _buildFoodItem('Spaghetti', 'assets/images/burger.png'),
-              _buildFoodItem('Lamb Chops', 'assets/images/burger.png'),
+              _buildFoodItem('Hamburger', AssetData.burger),
+              _buildFoodItem('Tuna Salad', AssetData.burger),
+              _buildFoodItem('Chicken Fried', AssetData.burger),
+              _buildFoodItem('Spaghetti', AssetData.burger),
+              _buildFoodItem('Lamb Chops', AssetData.burger),
             ],
           ),
         ),
@@ -85,28 +56,16 @@ class CustomFoodPromotion extends StatelessWidget {
 
   Widget _buildFoodItem(String title, String imagePath) {
     return Container(
-      margin: const EdgeInsets.only(right: 10),
       width: 80,
+      margin: const EdgeInsets.only(right: 10),
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-              width: 80,
-              height: 60,
-            ),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            child: Image.asset(imagePath, width: 80, height: 60, fit: BoxFit.cover),
           ),
           const SizedBox(height: 5),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 10, // زيادة حجم الخط
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          Text(title, textAlign: TextAlign.center, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500)),
         ],
       ),
     );

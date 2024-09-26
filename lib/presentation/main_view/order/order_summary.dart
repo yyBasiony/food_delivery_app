@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../resources/app_colors.dart';
 
 class OrderSummary extends StatelessWidget {
-  const OrderSummary({Key? key}) : super(key: key);
+  const OrderSummary({super.key});
 
   @override
   Widget build(BuildContext context) {

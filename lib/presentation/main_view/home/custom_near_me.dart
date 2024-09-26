@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/app_text_theme.dart';
-import 'restraurnt_detils.dart';
+
+import '../../resources/app_text_theme.dart';
+import '../../resources/assets_data.dart';
+import 'restaurant_details.dart';
 
 class CustomNearMe extends StatelessWidget {
   const CustomNearMe({super.key});
@@ -9,7 +11,7 @@ class CustomNearMe extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, String>> restaurants = [
       {
-        'image': 'assets/images/burger.png',
+        'image': AssetData.burger,
         'name': 'Awesome Fast Restaurant',
         'subtitle': '★ 4.5 • 2 km away',
         'imageUrl': 'assets/images/testimage.png',
@@ -19,50 +21,46 @@ class CustomNearMe extends StatelessWidget {
         'openStatus': 'Open Now',
       },
       {
-        'image': 'assets/images/burger.png',
+        'image': AssetData.burger,
         'name': 'Pizza Lover Company',
         'subtitle': '★ 4.2 • 3.5 km away',
-        'imageUrl': 'assets/images/burger.png',
+        'imageUrl': AssetData.burger,
         'address': '123 Main St, New York City',
         'rating': '4.2',
         'reviews': '98',
         'openStatus': 'Closed Now',
       },
       {
-        'image': 'assets/images/burger.png',
+        'image': AssetData.burger,
         'name': 'Chicken Fried Restaurant',
         'subtitle': '★ 4.7 • 1.8 km away',
-        'imageUrl': 'assets/images/burger.png',
-        'address': '456 Park Ave, New York City',
+        'imageUrl': AssetData.burger,
         'rating': '4.7',
         'reviews': '220',
         'openStatus': 'Open Now',
+        'address': '456 Park Ave, New York City',
       },
     ];
 
     return Column(
-      children: List.generate(8, (index) {
+      children: List.generate(3, (index) {
         final restaurant = restaurants[index % restaurants.length];
+
         return ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(restaurant['name']!, style: AppTextTheme.label1),
           leading: Image.asset(restaurant['image']!, width: 50, height: 50),
-          title: Text(
-            restaurant['name']!,
-            style: AppTextTheme.label1,
-          ),
-          subtitle: Text(
-            restaurant['subtitle']!,
-            style: AppTextTheme.label11,
-          ),
+          subtitle: Text(restaurant['subtitle']!, style: AppTextTheme.label11),
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => RestaurantDetails(
-                  imageUrl: restaurant['imageUrl']!,
                   name: restaurant['name']!,
-                  address: restaurant['address']!,
                   rating: restaurant['rating']!,
+                  address: restaurant['address']!,
                   reviews: restaurant['reviews']!,
+                  imageUrl: restaurant['imageUrl']!,
                   openStatus: restaurant['openStatus']!,
                 ),
               ),

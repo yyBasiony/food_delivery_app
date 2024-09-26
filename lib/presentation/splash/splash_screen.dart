@@ -16,14 +16,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void dispose() => {_timer.cancel(), super.dispose()};
 
-  @override
-  void initState() => {_startTimer(), super.initState()};
+  // @override
+  // void initState() => {_startTimer(), super.initState()};
 
-  void _startTimer() =>
-      _timer = Timer(const Duration(seconds: 3), () => _goNextScreen());
+  void _startTimer() => _timer = Timer(const Duration(seconds: 3), () => _goNextScreen());
 
-  void _goNextScreen() =>
-      Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
+  void _goNextScreen() => Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
 
   @override
   Widget build(BuildContext context) {

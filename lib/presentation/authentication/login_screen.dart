@@ -13,16 +13,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginState extends State<LoginScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
-  void dispose() {
-    _usernameController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+  void dispose() => {_usernameController.dispose(), _passwordController.dispose(), super.dispose()};
 
   String? _validateUsername(String? value) {
     if (value == null || value.isEmpty) {
@@ -50,64 +46,48 @@ class _LoginState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(leading: const CustomIconButtonBack()),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+      body: Column(
+        children: [
+          Flexible(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Form(
                 key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Login',
-                        style: Theme.of(context).textTheme.titleLarge),
-                    const SizedBox(height: 40),
+                    const Spacer(flex: 8),
+                    Text('Login', style: Theme.of(context).textTheme.titleLarge),
+                    const Spacer(flex: 2),
                     TextFormField(
-                      controller: _usernameController,
-                      decoration: const InputDecoration(
-                          hintText: 'Username',
-                          prefixIcon: Icon(Icons.person_outline)),
                       validator: _validateUsername,
+                      controller: _usernameController,
+                      decoration: const InputDecoration(hintText: 'Username', prefixIcon: Icon(Icons.person_outline)),
                     ),
-                    const SizedBox(height: 30),
+                    const Spacer(),
                     TextFormField(
-                      controller: _passwordController,
                       obscureText: true,
-                      decoration: const InputDecoration(
-                          hintText: 'Password',
-                          prefixIcon: Icon(Icons.lock_outline)),
                       validator: _validatePassword,
+                      controller: _passwordController,
+                      decoration: const InputDecoration(hintText: 'Password', prefixIcon: Icon(Icons.lock_outline)),
                     ),
-                    const SizedBox(height: 40),
-                    ElevatedButton(
-                      child: Text('Login'),
-                      onPressed: _submitForm,
-                    ),
-                    const SizedBox(height: 35),
+                    const Spacer(),
+                    ElevatedButton(onPressed: _submitForm, child: const Text('Login')),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        child: Text(
-                          'Forgot Password?',
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelSmall
-                              ?.copyWith(color: AppColors.divider),
-                        ),
-                        onPressed: () => Navigator.pushNamed(
-                            context, Routes.forgotPasswordScreen),
+                        onPressed: () => Navigator.pushNamed(context, Routes.forgotPasswordScreen),
+                        child: Text('Forgot Password?', style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.divider)),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 40),
-            const DividerWithImage()
-          ],
-        ),
+          ),
+          const DividerWithImage()
+        ],
       ),
     );
   }

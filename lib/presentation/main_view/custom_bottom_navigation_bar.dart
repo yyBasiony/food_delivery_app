@@ -5,25 +5,18 @@ class CustomBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  const CustomBottomNavigationBar({
-    Key? key,
-    required this.currentIndex,
-    required this.onTap,
-  }) : super(key: key);
+  const CustomBottomNavigationBar({super.key, required this.onTap, required this.currentIndex});
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: currentIndex,
       onTap: onTap,
+      currentIndex: currentIndex,
       items: List.generate(
         AppConstants.navigationData.length,
         (index) => BottomNavigationBarItem(
           label: AppConstants.navigationData[index].label,
-          icon: Icon(
-            AppConstants.navigationData[index].icon,
-            color: currentIndex == index ? Colors.orange : Colors.grey,
-          ),
+          icon: Icon(AppConstants.navigationData[index].icon, color: currentIndex == index ? Colors.orange : Colors.grey),
         ),
       ),
     );

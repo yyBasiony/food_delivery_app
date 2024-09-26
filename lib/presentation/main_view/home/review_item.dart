@@ -7,7 +7,7 @@ class ReviewItem extends StatelessWidget {
   final String review;
   final String image;
 
-  const ReviewItem({
+  const ReviewItem({super.key, 
     required this.name,
     required this.review,
     required this.image,

@@ -13,22 +13,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _emailController = TextEditingController();
 
   @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
+  void dispose() => {_emailController.dispose(), super.dispose()};
 
   String? _validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your email';
-    }
+    if (value == null || value.isEmpty) return 'Please enter your email';
+
     return null;
   }
 
   void _resetPassword() {
-    if (_formKey.currentState!.validate()) {
-      print("Password reset link sent to ${_emailController.text}");
-    }
+    // if (_formKey.currentState!.validate())
   }
 
   @override
@@ -41,22 +35,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           key: _formKey,
           child: Column(
             children: [
-              Text(
-                'Forgot\nPassword',
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.center,
-              ),
+              Text('Forgot\nPassword', textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 40),
-              TextFormField(
-                controller: _emailController,
-                decoration: const InputDecoration(hintText: 'Enter email'),
-                validator: _validateEmail,
-              ),
+              TextFormField(validator: _validateEmail, controller: _emailController, decoration: const InputDecoration(hintText: 'Enter email')),
               const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: _resetPassword,
-                child: const Text('Reset password'),
-              ),
+              ElevatedButton(onPressed: _resetPassword, child: const Text('Reset password')),
             ],
           ),
         ),

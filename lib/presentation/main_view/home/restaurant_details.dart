@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../authentication/widget/custom_icon_bottom_back.dart';
 import '../../resources/assets_data.dart';
 import 'info_screen.dart';
@@ -14,13 +15,13 @@ class RestaurantDetails extends StatefulWidget {
   final String openStatus;
 
   const RestaurantDetails({
-    required this.imageUrl,
-    required this.name,
-    required this.address,
-    required this.rating,
-    required this.reviews,
-    required this.openStatus,
     super.key,
+    required this.name,
+    required this.rating,
+    required this.address,
+    required this.reviews,
+    required this.imageUrl,
+    required this.openStatus,
   });
 
   @override
@@ -31,10 +32,10 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
   late TabController _tabController;
 
   @override
-  void dispose() => {_tabController.dispose(), super.dispose()};
+  void initState() => {super.initState(), _tabController = TabController(length: 3, vsync: this)};
 
   @override
-  void initState() => {super.initState(), _tabController = TabController(length: 3, vsync: this)};
+  void dispose() => {_tabController.dispose(), super.dispose()};
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +81,8 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
             ),
           ),
           TabBar(
-            controller: _tabController,
             labelColor: Colors.black,
+            controller: _tabController,
             indicatorColor: Colors.orange,
             tabs: const [Tab(text: 'Order'), Tab(text: 'Information'), Tab(text: 'Reviews')],
           ),
@@ -100,14 +101,16 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
                 ListView(
                   children: const [
                     ReviewItem(
-                        name: 'Garrett Bina',
-                        review:
-                            'I enjoyed the food of the restaurant. The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service. I will be back in the future.',
-                        image: AssetData.burger),
+                      name: 'Garrett Bina',
+                      image: AssetData.burger,
+                      review:
+                          'I enjoyed the food of the restaurant. The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service. I will be back in the future.',
+                    ),
                     ReviewItem(
-                        name: 'Sarina Kika',
-                        review: 'The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service.',
-                        image: AssetData.burger),
+                      name: 'Sarina Kika',
+                      image: AssetData.burger,
+                      review: 'The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service.',
+                    ),
                   ],
                 ),
               ],

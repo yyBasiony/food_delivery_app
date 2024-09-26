@@ -14,25 +14,27 @@ class WelcomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: ClipRRect(
+          Flexible(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  const Spacer(flex: 2),
+                  ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                     child: Image.asset(AssetData.burger, width: 285, height: 285, fit: BoxFit.cover),
                   ),
-                ),
-                ElevatedButton(child: const Text('Login'), onPressed: () => Navigator.pushNamed(context, Routes.loginScreen)),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, Routes.registerScreen),
-                  style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColors.secondary),
-                  child: const Text('Register'),
-                ),
-              ],
+                  const Spacer(flex: 2),
+                  ElevatedButton(child: const Text('Login'), onPressed: () => Navigator.pushNamed(context, Routes.loginScreen)),
+                  const Spacer(),
+                  ElevatedButton(
+                    onPressed: () => Navigator.pushNamed(context, Routes.registerScreen),
+                    style: ElevatedButton.styleFrom(foregroundColor: Colors.black, backgroundColor: AppColors.secondary),
+                    child: const Text('Register'),
+                  ),
+                ],
+              ),
             ),
           ),
           const DividerWithImage()

@@ -6,66 +6,43 @@ class DividerWithImage extends StatelessWidget {
   const DividerWithImage({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SizedBox(
-          height: 200,
-          child: Row(
-            children: [
-              const Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Divider(thickness: 1, color: AppColors.divider),
+    return Flexible(
+      child: Column(
+        children: [
+          const Spacer(flex: 2),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Row(
+              children: [
+                const Expanded(child: Divider(color: AppColors.divider)),
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(start: 8),
+                  child: Text('Or connect with', style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColors.divider)),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Text(
-                  'Or connect with',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(color: AppColors.divider),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-                height: 75, width: 140, child: Image.asset(AssetData.pngItem)),
-            const SizedBox(width: 50),
-            SizedBox(
-                height: 50, width: 60, child: Image.asset(AssetData.facebook)),
-            //const SizedBox(width: 20),
-            SizedBox(
-              width: 60,
-              height: 50,
-              child: CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.white,
-                child: ClipOval(
-                    child: Image.asset(AssetData.google,
-                        fit: BoxFit.cover, width: 50, height: 50)),
+          const Spacer(),
+          Row(
+            children: [
+              Image.asset(AssetData.pngItem, height: 75, width: 130, fit: BoxFit.cover),
+              const Spacer(flex: 3),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.facebook),
+                style: const ButtonStyle(
+                  iconSize: WidgetStatePropertyAll(55),
+                  padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                  iconColor: WidgetStatePropertyAll(Color(0xFF0D47A1)),
+                ),
               ),
-            ),
-            SizedBox(
-              width: 60,
-              height: 50,
-              child: CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.white,
-                child: ClipOval(
-                    child: Image.asset(AssetData.twitter,
-                        fit: BoxFit.cover, width: 50, height: 50)),
-              ),
-            ),
-          ],
-        )
-      ],
+              const Spacer(),
+              Image.asset(AssetData.google, fit: BoxFit.cover, width: 50, height: 50),
+              const Spacer(flex: 2),
+            ],
+          )
+        ],
+      ),
     );
   }
 }

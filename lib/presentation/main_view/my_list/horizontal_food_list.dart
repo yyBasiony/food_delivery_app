@@ -5,7 +5,7 @@ class HorizontalFoodItem extends StatelessWidget {
   final String imageUrl;
   final String name;
   final double price;
-  const HorizontalFoodItem({
+  const HorizontalFoodItem({super.key, 
     required this.imageUrl,
     required this.name,
     required this.price,

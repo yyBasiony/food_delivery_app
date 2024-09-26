@@ -16,28 +16,25 @@ class AppConstants {
     OnboardingModel(
       title: 'Fast Shipping',
       image: AssetData.onboarding2,
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
     ),
     OnboardingModel(
       title: 'Certificate Food',
       image: AssetData.onboarding3,
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
     ),
     OnboardingModel(
       title: 'Payment Online',
       image: AssetData.onboarding4,
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
     ),
   ];
 
   static const List<({String label, IconData icon})> navigationData = [
     (label: 'Home', icon: Icons.home),
     (label: 'Order', icon: Icons.list_alt),
-    (label: 'My List', icon: Icons.bookmark),
-    (label: 'Profile', icon: Icons.person)
+    (label: 'My List', icon: Icons.bookmark_border_outlined),
+    (label: 'Profile', icon: Icons.person_outline)
   ];
 
   static final List<({String image, String label})> foodItems = [

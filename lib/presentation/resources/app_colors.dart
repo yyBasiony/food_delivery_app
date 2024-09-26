@@ -12,8 +12,10 @@ class AppColors {
   static const Color payItemColor = Color(0xff324a75);
   static const Color splashBackground = Color(0xffe6dcc1);
 
-  static const Color backgroundItem1 = Color.fromARGB(255, 193, 213, 196);
-  static const Color backgroundItem2 = Color.fromARGB(255, 219, 210, 176);
-  static const Color backgroundItem3 = Color.fromARGB(255, 198, 196, 219);
-  static const Color backgroundItem = Color.fromARGB(255, 149, 182, 197);
+  static const Color redItem = Color(0xFFF6E0D5);
+  static const Color blueItem = Color(0xFFDCEAF3);
+  static const Color greenItem = Color(0xFFE4EFDF);
+  static const Color yellowItem = Color(0xFFFDEBCD);
+  static const Color purpleItem = Color(0xFFE5E3F1);
+  static const Color lightGreenItem = Color(0xFFF6F4F4);
 }

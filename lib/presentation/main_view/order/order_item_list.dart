@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/assets_data.dart';
-import 'order_item.dart';
 
 class OrderItemsList extends StatelessWidget {
-  const OrderItemsList({Key? key}) : super(key: key);
+  const OrderItemsList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,4 +20,18 @@ class OrderItemsList extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget buildOrderItem(String name, String imagePath, double price) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    child: Column(
+      children: [
+        ClipRRect(borderRadius: const BorderRadius.all(Radius.circular(8)), child: Image.asset(imagePath, width: 80, height: 80, fit: BoxFit.cover)),
+        const SizedBox(height: 4),
+        Text(name),
+        Text('\$$price'),
+      ],
+    ),
+  );
 }

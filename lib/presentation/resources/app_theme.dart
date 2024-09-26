@@ -7,17 +7,13 @@ class AppTheme {
   static ThemeData getLightTheme() {
     return ThemeData(
       // AppBar
-      appBarTheme: const AppBarTheme(
-          iconTheme: IconThemeData(size: 20, color: Color(0xff000000))),
+      appBarTheme: const AppBarTheme(iconTheme: IconThemeData(size: 20, color: Color(0xff000000))),
 
       // TextTheme
       textTheme: const TextTheme(
-        headlineLarge: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
-        headlineSmall: TextStyle(
-            fontWeight: FontWeight.w500, fontSize: 14, color: Colors.white),
-        headlineMedium: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 24, color: Colors.black),
+        headlineLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
+        headlineSmall: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: Colors.white),
+        headlineMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.black),
       ),
 
       // ElevatedButton
@@ -28,8 +24,7 @@ class AppTheme {
           minimumSize: const Size.fromHeight(48),
           surfaceTintColor: Colors.transparent,
           backgroundColor: AppColors.primaryColor,
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20))),
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
         ),
       ),
 
@@ -48,13 +43,8 @@ class AppTheme {
         fillColor: AppColors.secondary,
         contentPadding: EdgeInsets.all(15),
         prefixIconColor: Color(0xFFC2C2C2),
-        hintStyle: TextStyle(
-            color: Color(0xFFC2C2C2),
-            fontWeight: FontWeight.normal,
-            fontSize: 10),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            borderSide: BorderSide.none),
+        hintStyle: TextStyle(color: Color(0xFFC2C2C2), fontWeight: FontWeight.normal, fontSize: 10),
+        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide.none),
       ),
 
       // BottomNavigationBar
