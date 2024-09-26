@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'discount_screen.dart';
+
 class CustomFoodPromotion extends StatelessWidget {
   const CustomFoodPromotion({super.key});
 
@@ -8,24 +10,31 @@ class CustomFoodPromotion extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          height: 150,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/burger.png'),
-              fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_) {
+              return DiscountScreen();
+            }));
+          },
+          child: Container(
+            height: 150,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/burger.png'),
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          child: const Padding(
-            padding: EdgeInsets.all(16),
-            child: Center(
-              child: Text(
-                'Sale Off\n50% For Breakfast',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            child: const Padding(
+              padding: EdgeInsets.all(16),
+              child: Center(
+                child: Text(
+                  'Sale Off\n50% For Breakfast',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -48,7 +57,7 @@ class CustomFoodPromotion extends StatelessWidget {
                 child: const Text(
                   'See all',
                   style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 12,
                     color: Colors.orange,
                   ),
                 ),
@@ -94,7 +103,7 @@ class CustomFoodPromotion extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontSize: 6,
+              fontSize: 10, // زيادة حجم الخط
               fontWeight: FontWeight.w500,
             ),
           ),
