@@ -11,7 +11,7 @@ class FoodDelivery extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       locale: context.locale,
-      initialRoute: Routes.mainView,
+      initialRoute: Routes.splashScreen,
       theme: AppTheme.getLightTheme(),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.generateRoute,
