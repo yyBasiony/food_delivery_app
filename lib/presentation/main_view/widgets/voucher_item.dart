@@ -28,7 +28,7 @@ class _VoucherItemState extends State<VoucherItem> {
     return ListTile(
       onTap: () => setState(() => isSelected = !isSelected),
       leading: Image.asset(widget.imageUrl, width: 50, height: 50),
-      subtitle: Text(widget.expiry, style: AppTextTheme.label11.copyWith(color: AppColors.grey)),
+      subtitle: Text(widget.expiry, style: Correctly.label11.copyWith(color: AppColors.grey)),
       title: Text(widget.title, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.black)),
       trailing: Icon(Icons.check_circle, size: 30, color: isSelected ? AppColors.primaryColor : AppColors.grey),
     );

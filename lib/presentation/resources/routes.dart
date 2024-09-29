@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../authentication/cubit/cubit_auth.dart';
 import '../authentication/forgot_password_screen.dart';
 import '../authentication/login_screen.dart';
 import '../authentication/register_screen.dart';
@@ -21,7 +23,6 @@ class Routes {
   static const String onboardingScreen = "/onboardingScreen";
   static const String forgotPasswordScreen = "/forgotPasswordScreen";
 
-  //
   static const String mainView = "/mainView";
   static const String reviewScreen = "/reviewScreen";
   static const String addressScreen = "/addressScreen";
@@ -33,14 +34,16 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
+
       case welcomeScreen:
         return MaterialPageRoute(builder: (_) => const WelcomeScreen());
-      case loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case registerScreen:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case forgotPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
+      case loginScreen:
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (_) => AuthCubit(), child: const LoginScreen()));
+      case registerScreen:
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (_) => AuthCubit(), child: const RegisterScreen()));
+
       case mainView:
         return MaterialPageRoute(builder: (_) => const MainView());
       case locationScreen:

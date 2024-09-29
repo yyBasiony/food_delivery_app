@@ -48,9 +48,9 @@ class CustomNearMe extends StatelessWidget {
 
         return ListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text(restaurant['name']!, style: AppTextTheme.label1),
+          title: Text(restaurant['name']!, style: Correctly.label1),
           leading: Image.asset(restaurant['image']!, width: 50, height: 50),
-          subtitle: Text(restaurant['subtitle']!, style: AppTextTheme.label11),
+          subtitle: Text(restaurant['subtitle']!, style: Correctly.label11),
           onTap: () {
             Navigator.push(
               context,

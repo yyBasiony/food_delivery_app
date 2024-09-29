@@ -25,7 +25,7 @@ class _SnackScreenState extends State<SnackScreen> {
             child: ListTile(
               leading: Image.asset('assets/images/snacks.jpeg'),
               title: Text(item),
-              subtitle: Text('${getPrice(item)} LE', style: AppTextTheme.label11.copyWith(color: AppColors.grey)),
+              subtitle: Text('${getPrice(item)} LE', style: Correctly.label11.copyWith(color: AppColors.grey)),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
+import 'app_text_theme.dart';
 
 class AppTheme {
   AppTheme._();
@@ -11,9 +12,9 @@ class AppTheme {
 
       // TextTheme
       textTheme: const TextTheme(
-        headlineLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
-        headlineSmall: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: Colors.white),
-        headlineMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.black),
+        headlineLarge: Correctly.headlineLarge,
+        headlineSmall: Correctly.headlineSmall,
+        headlineMedium: Correctly.headlineMedium,
       ),
 
       // ElevatedButton

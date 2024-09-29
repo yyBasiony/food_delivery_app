@@ -29,9 +29,9 @@ class ReviewItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: AppTextTheme.label1),
+                Text(name, style: Correctly.label1),
                 const SizedBox(height: 4),
-                Text(review, style: AppTextTheme.label11),
+                Text(review, style: Correctly.label11),
               ],
             ),
           ),

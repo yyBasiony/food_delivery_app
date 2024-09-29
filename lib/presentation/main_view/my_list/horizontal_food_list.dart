@@ -5,7 +5,8 @@ class HorizontalFoodItem extends StatelessWidget {
   final String imageUrl;
   final String name;
   final double price;
-  const HorizontalFoodItem({super.key, 
+  const HorizontalFoodItem({
+    super.key,
     required this.imageUrl,
     required this.name,
     required this.price,
@@ -18,23 +19,12 @@ class HorizontalFoodItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              imageUrl,
-              width: 70,
-              height: 70,
-              fit: BoxFit.cover,
-            ),
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            child: Image.asset(imageUrl, width: 70, height: 70, fit: BoxFit.cover),
           ),
           const SizedBox(height: 8),
-          Text(
-            name,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          Text(
-            '\$${price.toStringAsFixed(2)}',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
+          Text(name, style: Theme.of(context).textTheme.bodySmall),
+          Text('\$${price.toStringAsFixed(2)}', style: Theme.of(context).textTheme.bodySmall),
         ],
       ),
     );
@@ -73,15 +63,11 @@ class HorizontalFoodList extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: foodItems.length,
-        itemBuilder: (context, index) {
+        itemBuilder: (_, index) {
           final foodItem = foodItems[index];
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: HorizontalFoodItem(
-              imageUrl: foodItem['imageUrl'],
-              name: foodItem['name'],
-              price: foodItem['price'],
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: HorizontalFoodItem(name: foodItem['name'], price: foodItem['price'], imageUrl: foodItem['imageUrl']),
           );
         },
       ),

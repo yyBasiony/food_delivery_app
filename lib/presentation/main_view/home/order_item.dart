@@ -25,9 +25,9 @@ class _OrderItemState extends State<OrderItem> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.title, style: AppTextTheme.label1),
+      title: Text(widget.title, style: Correctly.label1),
       leading: Image.asset(widget.imageUrl, width: 50, height: 50),
-      subtitle: Text('\$${widget.price}', style: AppTextTheme.label11),
+      subtitle: Text('\$${widget.price}', style: Correctly.label11),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

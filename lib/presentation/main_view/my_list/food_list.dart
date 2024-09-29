@@ -8,15 +8,11 @@ class FoodList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final itemCount =
-        AppConstants.foodItems.length < AppConstants.foodMenu.length
-            ? AppConstants.foodItems.length
-            : AppConstants.foodMenu.length;
+    final itemCount = AppConstants.foodItems.length < AppConstants.foodMenu.length ? AppConstants.foodItems.length : AppConstants.foodMenu.length;
 
     return ListView.builder(
       itemCount: itemCount,
-      itemBuilder: (context, index) =>
-          FoodItemCard(AppConstants.foodMenu[index]),
+      itemBuilder: (_, index) => FoodItemCard(AppConstants.foodMenu[index]),
     );
   }
 }
