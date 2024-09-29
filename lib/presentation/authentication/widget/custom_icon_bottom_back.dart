@@ -6,10 +6,12 @@ class CustomIconButtonBack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () => Navigator.pop(context),
-        icon: const Icon(
-          Icons.arrow_back_ios,
-          size: 30,
-        ));
+      onPressed: () => Navigator.pop(context),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+        size: 30,
+      ),
+      tooltip: 'Back',
+    );
   }
 }
