@@ -71,14 +71,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    const SizedBox(height: 40),
+                    const Spacer(),
                     TextFormField(
                       validator: _validateEmail,
                       controller: _emailController,
                       decoration:
                           const InputDecoration(hintText: 'Enter email'),
                     ),
-                    const SizedBox(height: 40),
+                    const Spacer(),
                     ElevatedButton(
                       onPressed: () => _resetPassword(context),
                       child: const Text('Reset password'),

@@ -93,7 +93,7 @@ class _LoginState extends State<LoginScreen> {
                               prefixIcon: Icon(Icons.person_outline),
                             ),
                           ),
-                          const SizedBox(height: 16), // استخدم SizedBox للمسافة
+                          const Spacer(),
                           TextFormField(
                             obscureText: true,
                             validator: _validatePassword,
@@ -103,7 +103,7 @@ class _LoginState extends State<LoginScreen> {
                               prefixIcon: Icon(Icons.lock_outline),
                             ),
                           ),
-                          const SizedBox(height: 16), // استخدم SizedBox للمسافة
+                          const Spacer(),
                           ElevatedButton(
                             onPressed: () => _submitForm(context),
                             child: const Text('Login'),
