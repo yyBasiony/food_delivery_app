@@ -17,7 +17,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool _isPasswordVisible = false;
   bool _isRePasswordVisible = false;
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController(); // تغيير الاسم هنا
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _rePasswordController = TextEditingController();
 
@@ -30,8 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   String? _validateEmail(String? value) {
-    final RegExp emailRegExp = RegExp(
-        r'^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+'); // تحقق من صحة البريد الإلكتروني
+    final RegExp emailRegExp = RegExp(r'^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+');
     if (value == null || value.isEmpty) {
       return 'Please enter an email';
     } else if (!emailRegExp.hasMatch(value)) {
@@ -59,7 +58,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void _submitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       BlocProvider.of<AuthCubit>(context).register(
-        _emailController.text, // استبدل _usernameController بـ _emailController
+        _emailController.text,
         _passwordController.text,
       );
     }
@@ -70,10 +69,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          // Navigate to the mainView (home) after successful registration
           Navigator.pushReplacementNamed(context, Routes.mainView);
         } else if (state is AuthFailure) {
-          // Show error message if registration fails
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.message)),
           );
@@ -97,9 +94,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           style: Theme.of(context).textTheme.titleLarge),
                       const Spacer(flex: 2),
                       TextFormField(
-                        validator: _validateEmail, // استخدام _validateEmail هنا
-                        controller:
-                            _emailController, // استخدام _emailController
+                        validator: _validateEmail,
+                        controller: _emailController,
                         decoration: const InputDecoration(
                           hintText: 'Enter Email',
                           prefixIcon: Icon(Icons.email),
