@@ -64,73 +64,74 @@ class _LoginState extends State<LoginScreen> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(leading: const CustomIconButtonBack()),
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            return Column(
-              children: [
-                Flexible(
-                  flex: 2,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: constraints.maxWidth * 0.1,
-                    ),
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Spacer(flex: 2),
-                          Text(
-                            'Login',
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                          const Spacer(flex: 1),
-                          TextFormField(
-                            validator: _validateUsername,
-                            controller: _usernameController,
-                            decoration: const InputDecoration(
-                              hintText: 'Username',
-                              prefixIcon: Icon(Icons.person_outline),
+        body: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: constraints.maxWidth * 0.1,
+                      ),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Spacer(flex: 2),
+                            Text(
+                              'Login',
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
-                          ),
-                          const Spacer(),
-                          TextFormField(
-                            obscureText: true,
-                            validator: _validatePassword,
-                            controller: _passwordController,
-                            decoration: const InputDecoration(
-                              hintText: 'Password',
-                              prefixIcon: Icon(Icons.lock_outline),
-                            ),
-                          ),
-                          const Spacer(),
-                          ElevatedButton(
-                            onPressed: () => _submitForm(context),
-                            child: const Text('Login'),
-                          ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () => Navigator.pushNamed(
-                                  context, Routes.forgotPasswordScreen),
-                              child: Text(
-                                'Forgot Password?',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelSmall
-                                    ?.copyWith(color: AppColors.divider),
+                            const Spacer(flex: 1),
+                            TextFormField(
+                              validator: _validateUsername,
+                              controller: _usernameController,
+                              decoration: const InputDecoration(
+                                hintText: 'Username',
+                                prefixIcon: Icon(Icons.person_outline),
                               ),
                             ),
-                          ),
-                        ],
+                            const Spacer(),
+                            TextFormField(
+                              obscureText: true,
+                              validator: _validatePassword,
+                              controller: _passwordController,
+                              decoration: const InputDecoration(
+                                hintText: 'Password',
+                                prefixIcon: Icon(Icons.lock_outline),
+                              ),
+                            ),
+                            const Spacer(),
+                            ElevatedButton(
+                              onPressed: () => _submitForm(context),
+                              child: const Text('Login'),
+                            ),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: TextButton(
+                                onPressed: () => Navigator.pushNamed(
+                                    context, Routes.forgotPasswordScreen),
+                                child: Text(
+                                  'Forgot Password?',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelSmall
+                                      ?.copyWith(color: AppColors.divider),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const DividerWithImage(),
-              ],
-            );
-          },
+                  const DividerWithImage(),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

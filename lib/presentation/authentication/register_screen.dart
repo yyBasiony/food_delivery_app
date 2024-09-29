@@ -32,7 +32,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? _validateEmail(String? value) {
     final RegExp emailRegExp = RegExp(r'^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+');
     if (value == null || value.isEmpty) {
-      return 'Please enter an email';
+      return 'Please enter an email address';
     } else if (!emailRegExp.hasMatch(value)) {
       return 'Please enter a valid email address';
     }
@@ -77,96 +77,101 @@ class _RegisterScreenState extends State<RegisterScreen> {
         }
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(leading: const CustomIconButtonBack()),
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            return Column(
-              children: [
-                Flexible(
-                  flex: 2,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: constraints.maxWidth * 0.1),
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Spacer(flex: 8),
-                          Text('Register',
-                              style: Theme.of(context).textTheme.titleLarge),
-                          const Spacer(flex: 2),
-                          TextFormField(
-                            validator: _validateEmail,
-                            controller: _emailController,
-                            decoration: const InputDecoration(
-                              hintText: 'Enter Email',
-                              prefixIcon: Icon(Icons.email),
+        body: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: constraints.maxWidth * 0.1,
+                      ),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Spacer(flex: 2),
+                            Text(
+                              'Register',
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
-                          ),
-                          const Spacer(),
-                          TextFormField(
-                            validator: _validatePassword,
-                            controller: _passwordController,
-                            obscureText: !_isPasswordVisible,
-                            decoration: InputDecoration(
-                              hintText: 'Enter Password',
-                              prefixIcon: const Icon(Icons.lock_outline),
-                              suffixIcon: IconButton(
-                                icon: Icon(_isPasswordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off),
-                                onPressed: () => setState(() =>
-                                    _isPasswordVisible = !_isPasswordVisible),
+                            const Spacer(flex: 1),
+                            TextFormField(
+                              validator: _validateEmail,
+                              controller: _emailController,
+                              decoration: const InputDecoration(
+                                hintText: 'Enter Email',
+                                prefixIcon: Icon(Icons.email),
                               ),
                             ),
-                          ),
-                          const Spacer(),
-                          TextFormField(
-                            validator: _validateRePassword,
-                            controller: _rePasswordController,
-                            obscureText: !_isRePasswordVisible,
-                            decoration: InputDecoration(
-                              hintText: 'Re-enter Password',
-                              prefixIcon: const Icon(Icons.lock_outline),
-                              suffixIcon: IconButton(
-                                icon: Icon(_isRePasswordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off),
-                                onPressed: () => setState(() =>
-                                    _isRePasswordVisible =
-                                        !_isRePasswordVisible),
+                            const Spacer(),
+                            TextFormField(
+                              validator: _validatePassword,
+                              controller: _passwordController,
+                              obscureText: !_isPasswordVisible,
+                              decoration: InputDecoration(
+                                hintText: 'Enter Password',
+                                prefixIcon: const Icon(Icons.lock_outline),
+                                suffixIcon: IconButton(
+                                  icon: Icon(_isPasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  onPressed: () => setState(() =>
+                                      _isPasswordVisible = !_isPasswordVisible),
+                                ),
                               ),
                             ),
-                          ),
-                          const Spacer(),
-                          ElevatedButton(
-                            onPressed: () => _submitForm(context),
-                            child: const Text('Register'),
-                          ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () => Navigator.pushNamed(
-                                  context, Routes.forgotPasswordScreen),
-                              child: Text(
-                                'Forgot Password?',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelSmall
-                                    ?.copyWith(color: AppColors.divider),
+                            const Spacer(),
+                            TextFormField(
+                              validator: _validateRePassword,
+                              controller: _rePasswordController,
+                              obscureText: !_isRePasswordVisible,
+                              decoration: InputDecoration(
+                                hintText: 'Re-enter Password',
+                                prefixIcon: const Icon(Icons.lock_outline),
+                                suffixIcon: IconButton(
+                                  icon: Icon(_isRePasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  onPressed: () => setState(() =>
+                                      _isRePasswordVisible =
+                                          !_isRePasswordVisible),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            const Spacer(),
+                            ElevatedButton(
+                              onPressed: () => _submitForm(context),
+                              child: const Text('Register'),
+                            ),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: TextButton(
+                                onPressed: () => Navigator.pushNamed(
+                                    context, Routes.forgotPasswordScreen),
+                                child: Text(
+                                  'Forgot Password?',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelSmall
+                                      ?.copyWith(color: AppColors.divider),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const DividerWithImage(),
-              ],
-            );
-          },
+                  const DividerWithImage(),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
