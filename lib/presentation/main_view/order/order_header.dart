@@ -26,8 +26,10 @@ class OrderHeader extends StatelessWidget {
         ),
         const Row(
           children: [
-            Icon(Icons.location_on),
-            SizedBox(width: 8),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(Icons.location_on),
+            ),
             Expanded(child: Text('9 West 46th Street, New York City'))
           ],
         ),

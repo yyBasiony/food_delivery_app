@@ -61,18 +61,19 @@ class _ReviewScreenOrderState extends State<ReviewScreenOrder> {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
-          ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              child: Image.asset(imagePath,
-                  width: 60, height: 60, fit: BoxFit.cover)),
-          const SizedBox(width: 16),
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                child: Image.asset(imagePath,
+                    width: 60, height: 60, fit: BoxFit.cover)),
+          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(name,
                     style: Correctly.itemName.copyWith(color: AppColors.black)),
-                const SizedBox(height: 4),
                 Text('\$$price',
                     style: Correctly.itemColor
                         .copyWith(color: AppColors.primaryColor)),
@@ -81,7 +82,7 @@ class _ReviewScreenOrderState extends State<ReviewScreenOrder> {
           ),
           IconButton(
             icon: Icon(Icons.thumb_up_alt_outlined,
-                color: liked[index] ? Colors.orange : Colors.grey),
+                color: liked[index] ? AppColors.primaryColor : Colors.grey),
             onPressed: () => setState(() {
               liked[index] = !liked[index];
               if (liked[index]) disliked[index] = false;
@@ -89,7 +90,7 @@ class _ReviewScreenOrderState extends State<ReviewScreenOrder> {
           ),
           IconButton(
             icon: Icon(Icons.thumb_down_alt_outlined,
-                color: disliked[index] ? Colors.orange : Colors.grey),
+                color: disliked[index] ? AppColors.primaryColor : Colors.grey),
             onPressed: () => setState(() {
               disliked[index] = !disliked[index];
               if (disliked[index]) liked[index] = false;
