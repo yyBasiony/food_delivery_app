@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../resources/app_colors.dart';
+import '../../resources/app_text_theme.dart';
 import '../../resources/assets_data.dart';
 
 class OrderItemsList extends StatelessWidget {
@@ -27,10 +29,14 @@ Widget buildOrderItem(String name, String imagePath, double price) {
     padding: const EdgeInsets.symmetric(horizontal: 8.0),
     child: Column(
       children: [
-        ClipRRect(borderRadius: const BorderRadius.all(Radius.circular(8)), child: Image.asset(imagePath, width: 80, height: 80, fit: BoxFit.cover)),
+        ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            child: Image.asset(imagePath,
+                width: 80, height: 80, fit: BoxFit.cover)),
         const SizedBox(height: 4),
-        Text(name),
-        Text('\$$price'),
+        Text(name, style: Correctly.itemName.copyWith(color: AppColors.black)),
+        Text('\$$price',
+            style: Correctly.itemColor.copyWith(color: AppColors.primaryColor)),
       ],
     ),
   );

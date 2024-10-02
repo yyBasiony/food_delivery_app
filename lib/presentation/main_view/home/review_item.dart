@@ -7,7 +7,8 @@ class ReviewItem extends StatelessWidget {
   final String review;
   final String image;
 
-  const ReviewItem({super.key, 
+  const ReviewItem({
+    super.key,
     required this.name,
     required this.review,
     required this.image,
@@ -29,9 +30,9 @@ class ReviewItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: Correctly.label1),
+                Text(name, style: Correctly.itemColor),
                 const SizedBox(height: 4),
-                Text(review, style: Correctly.label11),
+                Text(review, style: Correctly.itemColor),
               ],
             ),
           ),

@@ -7,7 +7,11 @@ class OrderItem extends StatefulWidget {
   final String price;
   final String imageUrl;
 
-  const OrderItem({super.key, required this.title, required this.price, required this.imageUrl});
+  const OrderItem(
+      {super.key,
+      required this.title,
+      required this.price,
+      required this.imageUrl});
 
   @override
   State<OrderItem> createState() => _OrderItemState();
@@ -25,15 +29,20 @@ class _OrderItemState extends State<OrderItem> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.title, style: Correctly.label1),
+      title: Text(widget.title, style: Correctly.itemColor),
       leading: Image.asset(widget.imageUrl, width: 50, height: 50),
-      subtitle: Text('\$${widget.price}', style: Correctly.label11),
+      subtitle: Text('\$${widget.price}', style: Correctly.itemColor),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (quantity > 0) IconButton(icon: const Icon(Icons.remove_circle_outline), onPressed: _decreaseQuantity),
+          if (quantity > 0)
+            IconButton(
+                icon: const Icon(Icons.remove_circle_outline),
+                onPressed: _decreaseQuantity),
           Text('$quantity'),
-          IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: _increaseQuantity),
+          IconButton(
+              icon: const Icon(Icons.add_circle_outline),
+              onPressed: _increaseQuantity),
         ],
       ),
     );

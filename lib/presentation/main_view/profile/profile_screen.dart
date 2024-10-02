@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../authentication/widget/custom_icon_bottom_back.dart';
+import '../../resources/app_colors.dart';
 import '../../resources/assets_data.dart';
 import 'change_password_screen.dart';
 import 'detailed_profile_screen.dart';
@@ -9,13 +9,16 @@ import 'voucher_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: const CustomIconButtonBack(),
-        title: const Text("My Profile"),
+        title: Text(" Profile",
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(color: AppColors.black)),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -24,70 +27,137 @@ class ProfileScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const CircleAvatar(
-                  radius: 50, backgroundImage: AssetImage(AssetData.splash)),
-              const SizedBox(height: 8),
-              const Text('Jack Sparrow',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              const Text('0123456789', style: TextStyle(color: Colors.grey)),
-              const SizedBox(height: 16),
-              ListTile(
-                leading: const Icon(Icons.person),
-                title: const Text('My Profile'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const DetailedProfileScreen(),
+                radius: 50,
+                backgroundImage: AssetImage(AssetData.splash),
+              ),
+              Text('Jack Sparrow',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium
+                      ?.copyWith(color: AppColors.black)),
+              const Text('0123456789', style: TextStyle(color: AppColors.grey)),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ListTile(
+                    leading: const Icon(
+                      Icons.person,
+                      color: AppColors.grey,
                     ),
-                  );
-                },
+                    title: Text('My Profile',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.black)),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const DetailedProfileScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(
+                      Icons.lock,
+                      color: AppColors.grey,
+                    ),
+                    title: Text('Change Password',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.black)),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const ChangePasswordScreen()),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(
+                      Icons.payment,
+                      color: AppColors.grey,
+                    ),
+                    title: Text('Payment Settings',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.black)),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const PaymentSettingsScreen()),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(
+                      Icons.local_offer,
+                      color: AppColors.grey,
+                    ),
+                    title: Text('My Voucher',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.black)),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const VoucherScreen()),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    title: Text('Notification',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.black)),
+                    leading: const Icon(
+                      Icons.notifications,
+                      color: AppColors.grey,
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    title: Text('About Us',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.black)),
+                    leading: const Icon(
+                      Icons.info,
+                      color: AppColors.grey,
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    title: Text('Contact Us',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.black)),
+                    leading: const Icon(
+                      Icons.contact_support,
+                      color: AppColors.grey,
+                    ),
+                  ),
+                ],
               ),
-              ListTile(
-                leading: const Icon(Icons.lock),
-                title: const Text('Change Password'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => const ChangePasswordScreen()),
-                  );
-                },
+              ElevatedButton(
+                child: Text('Sign out',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium
+                        ?.copyWith(color: AppColors.secondary)),
+                onPressed: () {},
               ),
-              ListTile(
-                leading: const Icon(Icons.payment),
-                title: const Text('Payment Settings'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => const PaymentSettingsScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.local_offer),
-                title: const Text('My Voucher'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const VoucherScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                  onTap: () {},
-                  title: const Text('Notification'),
-                  leading: const Icon(Icons.notifications)),
-              ListTile(
-                  onTap: () {},
-                  title: const Text('About Us'),
-                  leading: const Icon(Icons.info)),
-              ListTile(
-                  onTap: () {},
-                  title: const Text('Contact Us'),
-                  leading: const Icon(Icons.contact_support)),
-              const SizedBox(height: 20),
-              ElevatedButton(child: const Text('Sing out'), onPressed: () {}),
             ],
           ),
         ),

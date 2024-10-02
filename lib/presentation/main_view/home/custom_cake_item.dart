@@ -12,7 +12,11 @@ class CakeScreen extends StatefulWidget {
 }
 
 class _CakeScreenState extends State<CakeScreen> {
-  Map<String, int> itemCount = {'Cake': 1, 'Chocolate Cake': 0, 'Fruit Cake': 0};
+  Map<String, int> itemCount = {
+    'Cake': 1,
+    'Chocolate Cake': 0,
+    'Fruit Cake': 0
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,9 @@ class _CakeScreenState extends State<CakeScreen> {
                   child: ListTile(
                     leading: Image.asset('assets/images/download (6).jpeg'),
                     title: Text(item),
-                    subtitle: Text('${getPrice(item)} LE', style: Correctly.label11.copyWith(color: AppColors.grey)),
+                    subtitle: Text('${getPrice(item)} LE',
+                        style: Correctly.itemColor
+                            .copyWith(color: AppColors.grey)),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -37,8 +43,15 @@ class _CakeScreenState extends State<CakeScreen> {
                             }
                           }),
                         ),
-                        Text('${itemCount[item]}', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black)),
-                        IconButton(icon: const Icon(Icons.add), onPressed: () => setState(() => itemCount[item] = itemCount[item]! + 1)),
+                        Text('${itemCount[item]}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(color: Colors.black)),
+                        IconButton(
+                            icon: const Icon(Icons.add),
+                            onPressed: () => setState(
+                                () => itemCount[item] = itemCount[item]! + 1)),
                       ],
                     ),
                   ),
@@ -48,5 +61,10 @@ class _CakeScreenState extends State<CakeScreen> {
     );
   }
 
-  int getPrice(String item) => switch (item) { 'Cake' => 30, 'Chocolate Cake' => 40, 'Fruit Cake' => 50, _ => 0 };
+  int getPrice(String item) => switch (item) {
+        'Cake' => 30,
+        'Chocolate Cake' => 40,
+        'Fruit Cake' => 50,
+        _ => 0
+      };
 }
