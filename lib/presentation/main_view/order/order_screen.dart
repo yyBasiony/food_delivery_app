@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../authentication/widget/custom_icon_bottom_back.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/assets_data.dart';
@@ -10,7 +9,6 @@ import 'order_summary.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,47 +27,53 @@ class OrderScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: OrderHeader(),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: ShipperInfo(),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: OrderItemsList(),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: OrderSummary(),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: ElevatedButton(
-                    child: Text('Order Again',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium
-                            ?.copyWith(color: AppColors.secondary)),
-                    onPressed: () {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: ElevatedButton(
-                    child: Text('Review',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium
-                            ?.copyWith(color: AppColors.secondary)),
-                    onPressed: () =>
-                        Navigator.pushNamed(context, Routes.reviewScreen)),
-              ),
-            ],
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: OrderHeader(),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: ShipperInfo(),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: OrderItemsList(),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: OrderSummary(),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ElevatedButton(
+                      child: Text('Order Again',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(color: AppColors.secondary)),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ElevatedButton(
+                      child: Text('Review',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(color: AppColors.secondary)),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, Routes.reviewScreen),
+                    ),
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

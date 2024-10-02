@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../resources/app_colors.dart';
+import '../../resources/app_text_theme.dart';
 import '../../resources/assets_data.dart';
 
 class HorizontalFoodItem extends StatelessWidget {
@@ -20,11 +22,14 @@ class HorizontalFoodItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(15)),
-            child: Image.asset(imageUrl, width: 70, height: 70, fit: BoxFit.cover),
+            child:
+                Image.asset(imageUrl, width: 70, height: 70, fit: BoxFit.cover),
           ),
-          const SizedBox(height: 8),
-          Text(name, style: Theme.of(context).textTheme.bodySmall),
-          Text('\$${price.toStringAsFixed(2)}', style: Theme.of(context).textTheme.bodySmall),
+          Text(name,
+              style: Correctly.itemName.copyWith(color: AppColors.black)),
+          Text('\$${price.toStringAsFixed(2)}',
+              style:
+                  Correctly.itemColor.copyWith(color: AppColors.primaryColor)),
         ],
       ),
     );
@@ -59,7 +64,7 @@ class HorizontalFoodList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 140,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: foodItems.length,
@@ -67,7 +72,10 @@ class HorizontalFoodList extends StatelessWidget {
           final foodItem = foodItems[index];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: HorizontalFoodItem(name: foodItem['name'], price: foodItem['price'], imageUrl: foodItem['imageUrl']),
+            child: HorizontalFoodItem(
+                name: foodItem['name'],
+                price: foodItem['price'],
+                imageUrl: foodItem['imageUrl']),
           );
         },
       ),

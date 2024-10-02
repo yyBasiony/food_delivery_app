@@ -44,7 +44,7 @@ class Correctly {
 
   // TODO: Should be Named Correctly
   static const itemName =
-      TextStyle(fontSize: 11, color: Colors.black, fontWeight: FontWeight.w500);
+      TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500);
   static const itemColor =
-      TextStyle(fontSize: 8, color: Colors.black, fontWeight: FontWeight.w300);
+      TextStyle(fontSize: 10, color: Colors.black, fontWeight: FontWeight.w300);
 }
