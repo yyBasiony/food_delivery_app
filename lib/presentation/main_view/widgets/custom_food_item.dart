@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/app_constants.dart';
-import '../home/custom_cake_item.dart';
-import '../home/custom_drink_item.dart';
-import '../home/custom_food_item.dart';
-import '../home/custom_snake_item.dart';
+import '../home/publiccategory.dart';
 
 class CustomFoodItems extends StatefulWidget {
   const CustomFoodItems({super.key});
@@ -22,16 +19,32 @@ class _CustomFoodItemsState extends State<CustomFoodItems> {
     switch (index) {
       case 0:
         Navigator.push(
-            context, MaterialPageRoute(builder: (_) => DrinkScreen()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => const CategoryScreen(category: 'Drinks'),
+          ),
+        );
       case 1:
         Navigator.push(
-            context, MaterialPageRoute(builder: (_) => FoodScreen()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => const CategoryScreen(category: 'Food'),
+          ),
+        );
       case 2:
         Navigator.push(
-            context, MaterialPageRoute(builder: (_) => CakeScreen()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => const CategoryScreen(category: 'Cakes'),
+          ),
+        );
       case 3:
         Navigator.push(
-            context, MaterialPageRoute(builder: (_) => SnackScreen()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => const CategoryScreen(category: 'Snacks'),
+          ),
+        );
     }
   }
 
