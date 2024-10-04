@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/assets_data.dart';
 
 import '../../authentication/widget/custom_icon_bottom_back.dart';
 import '../../resources/app_colors.dart';
@@ -61,9 +62,7 @@ class DiscountScreen extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const CircleAvatar(
-                      radius: 30,
-                      backgroundImage:
-                          AssetImage("assets/images/download (6).jpeg")),
+                      radius: 30, backgroundImage: AssetImage(AssetData.cake)),
                   title: Text(discounts[index]['title']!,
                       style: Theme.of(context)
                           .textTheme

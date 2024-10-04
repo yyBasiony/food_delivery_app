@@ -61,7 +61,7 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
                     IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.favorite_border,
-                            color: Colors.white)),
+                            color: Colors.red)),
                     IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.search, color: Colors.white)),
