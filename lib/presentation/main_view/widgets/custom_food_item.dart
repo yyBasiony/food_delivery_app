@@ -21,13 +21,17 @@ class _CustomFoodItemsState extends State<CustomFoodItems> {
 
     switch (index) {
       case 0:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => const DrinkScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => DrinkScreen()));
       case 1:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => const FoodScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => FoodScreen()));
       case 2:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => const CakeScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => CakeScreen()));
       case 3:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => const SnackScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => SnackScreen()));
     }
   }
 
@@ -57,11 +61,19 @@ class _CustomFoodItemsState extends State<CustomFoodItems> {
             padding: const EdgeInsets.all(18),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-              color: selectedIndex == index ? const Color(0xffD35400) : const Color(0xffECF0F1),
+              color: selectedIndex == index
+                  ? const Color(0xffD35400)
+                  : const Color(0xffECF0F1),
             ),
-            child: Image.asset(AppConstants.foodItems[index].image, fit: BoxFit.contain, color: selectedIndex == index ? Colors.white : Colors.black),
+            child: Image.asset(AppConstants.foodItems[index].image,
+                fit: BoxFit.contain,
+                color: selectedIndex == index ? Colors.white : Colors.black),
           ),
-          Text(AppConstants.foodItems[index].label, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.black)),
+          Text(AppConstants.foodItems[index].label,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall
+                  ?.copyWith(color: Colors.black)),
         ],
       ),
     );

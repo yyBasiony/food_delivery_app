@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../authentication/widget/custom_icon_bottom_back.dart';
 import '../../resources/assets_data.dart';
+import '../order/order_item_list.dart';
 import 'info_screen.dart';
-import 'order_item.dart';
 import 'review_item.dart';
 
 class RestaurantDetails extends StatefulWidget {
@@ -27,14 +27,18 @@ class RestaurantDetails extends StatefulWidget {
   State<RestaurantDetails> createState() => _RestaurantDetailsState();
 }
 
-class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTickerProviderStateMixin {
+class _RestaurantDetailsState extends State<RestaurantDetails>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
   void dispose() => {_tabController.dispose(), super.dispose()};
 
   @override
-  void initState() => {super.initState(), _tabController = TabController(length: 3, vsync: this)};
+  void initState() => {
+        super.initState(),
+        _tabController = TabController(length: 3, vsync: this)
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +48,25 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
         children: [
           Stack(
             children: [
-              SizedBox.fromSize(size: const Size.fromHeight(300), child: Image.asset(widget.imageUrl, fit: BoxFit.cover)),
+              SizedBox.fromSize(
+                  size: const Size.fromHeight(300),
+                  child: Image.asset(widget.imageUrl, fit: BoxFit.cover)),
               const CustomIconButtonBack(),
               Positioned(
                 top: 40,
                 right: 16,
                 child: Row(
                   children: [
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border, color: Colors.white)),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: Colors.white)),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: Colors.white)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.favorite_border,
+                            color: Colors.white)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.search, color: Colors.white)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.share, color: Colors.white)),
                   ],
                 ),
               ),
@@ -64,7 +77,8 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.name, style: Theme.of(context).textTheme.headlineSmall),
+                Text(widget.name,
+                    style: Theme.of(context).textTheme.headlineSmall),
                 Text(widget.address),
                 Row(
                   children: [
@@ -75,7 +89,8 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
                     Text('(${widget.reviews} reviews)'),
                   ],
                 ),
-                Text(widget.openStatus, style: const TextStyle(color: Colors.green)),
+                Text(widget.openStatus,
+                    style: const TextStyle(color: Colors.green)),
               ],
             ),
           ),
@@ -83,17 +98,34 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
             controller: _tabController,
             labelColor: Colors.black,
             indicatorColor: Colors.orange,
-            tabs: const [Tab(text: 'Order'), Tab(text: 'Information'), Tab(text: 'Reviews')],
+            tabs: const [
+              Tab(text: 'Order'),
+              Tab(text: 'Information'),
+              Tab(text: 'Reviews')
+            ],
           ),
           Expanded(
             child: TabBarView(
               controller: _tabController,
               children: [
-                ListView(
-                  children: const [
-                    OrderItem(price: '15.39', title: 'Hamburger Lover', imageUrl: AssetData.burger),
-                    OrderItem(price: '15.39', title: 'Hamburger Lover', imageUrl: AssetData.burger),
-                    OrderItem(price: '15.39', title: 'Hamburger Lover', imageUrl: AssetData.burger),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView(
+                        padding: EdgeInsets.zero,
+                        children: [
+                          buildOrderItem(
+                              'Hamburger', AssetData.testImage, 11.99),
+                          buildOrderItem(
+                              'Tuna Salad', AssetData.testImage, 8.99),
+                          buildOrderItem(
+                              'Chicken Fried', AssetData.testImage, 12.99),
+                          buildOrderItem(
+                              'Spaghetti', AssetData.testImage, 7.99),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
                 const RestaurantInfo(),
@@ -106,7 +138,8 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
                         image: AssetData.burger),
                     ReviewItem(
                         name: 'Sarina Kika',
-                        review: 'The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service.',
+                        review:
+                            'The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service.',
                         image: AssetData.burger),
                   ],
                 ),

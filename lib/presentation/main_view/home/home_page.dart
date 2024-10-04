@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../resources/app_colors.dart';
 import '../widgets/custom_food_item.dart';
 import '../widgets/custom_food_menu.dart';
 import '../widgets/custom_icon_text.dart';
@@ -28,12 +29,25 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextFormField(controller: _searchController, decoration: const InputDecoration(hintText: 'Search', prefixIcon: Icon(Icons.search))),
+              TextFormField(
+                  controller: _searchController,
+                  decoration: const InputDecoration(
+                      hintText: 'Search', prefixIcon: Icon(Icons.search))),
               const CustomIconAndText(),
               const CustomFoodItems(),
-              const Text('Food Menu', textAlign: TextAlign.start, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Text('Food Menu',
+                  textAlign: TextAlign.start,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium
+                      ?.copyWith(color: AppColors.black)),
               const CustomFoodMenu(),
-              const Text('Near Me', textAlign: TextAlign.start, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Text('Near Me',
+                  textAlign: TextAlign.start,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium
+                      ?.copyWith(color: AppColors.black)),
               const CustomNearMe(),
               const CustomFoodPromotion(),
             ],

@@ -14,7 +14,7 @@ class CustomNearMe extends StatelessWidget {
         'image': AssetData.burger,
         'name': 'Awesome Fast Restaurant',
         'subtitle': '★ 4.5 • 2 km away',
-        'imageUrl': 'assets/images/testimage.png',
+        'imageUrl': AssetData.testImage,
         'address': '9 West 46th Street, New York City',
         'rating': '4.5',
         'reviews': '120',
