@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/app_constants.dart';
-import '../home/publiccategory.dart';
+import '../../resources/app_theme.dart';
+import '../home/category_screen.dart';
 
 class CustomFoodItems extends StatefulWidget {
   const CustomFoodItems({super.key});
@@ -18,33 +19,13 @@ class _CustomFoodItemsState extends State<CustomFoodItems> {
 
     switch (index) {
       case 0:
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const CategoryScreen(category: 'Drinks'),
-          ),
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CategoryScreen(category: 'Drinks')));
       case 1:
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const CategoryScreen(category: 'Food'),
-          ),
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CategoryScreen(category: 'Food')));
       case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const CategoryScreen(category: 'Cakes'),
-          ),
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CategoryScreen(category: 'Cakes')));
       case 3:
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const CategoryScreen(category: 'Snacks'),
-          ),
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CategoryScreen(category: 'Snacks')));
     }
   }
 
@@ -74,19 +55,11 @@ class _CustomFoodItemsState extends State<CustomFoodItems> {
             padding: const EdgeInsets.all(18),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-              color: selectedIndex == index
-                  ? const Color(0xffD35400)
-                  : const Color(0xffECF0F1),
+              color: selectedIndex == index ? const Color(0xffD35400) : const Color(0xffECF0F1),
             ),
-            child: Image.asset(AppConstants.foodItems[index].image,
-                fit: BoxFit.contain,
-                color: selectedIndex == index ? Colors.white : Colors.black),
+            child: Image.asset(AppConstants.foodItems[index].image, fit: BoxFit.contain, color: selectedIndex == index ? Colors.white : Colors.black),
           ),
-          Text(AppConstants.foodItems[index].label,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(color: Colors.black)),
+          Text(AppConstants.foodItems[index].label, style: context.textTheme.bodySmall?.copyWith(color: Colors.black)),
         ],
       ),
     );

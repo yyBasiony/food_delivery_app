@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/app_colors.dart';
-import '../../resources/assets_data.dart';
+import '../../resources/app_theme.dart';
+import '../../resources/asset_data.dart';
 
 class CustomFoodMenu extends StatelessWidget {
   static final _foodMenuData = [
@@ -31,7 +32,7 @@ class CustomFoodMenu extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(15)),
             image: DecorationImage(alignment: AlignmentDirectional.bottomEnd, image: AssetImage(_foodMenuData[index].image)),
           ),
-          child: Text(_foodMenuData[index].label, style: Theme.of(context).textTheme.bodySmall),
+          child: Text(_foodMenuData[index].label, style: context.textTheme.bodySmall),
         ),
       ),
     );

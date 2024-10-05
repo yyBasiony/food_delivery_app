@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../../resources/app_colors.dart';
 import '../../resources/app_text_theme.dart';
-import '../../resources/assets_data.dart';
+import '../../resources/app_theme.dart';
+import '../../resources/asset_data.dart';
 import '../widgets/custom_food_item.dart';
 import '../widgets/custom_food_menu.dart';
 import '../widgets/custom_icon_text.dart';
@@ -31,21 +33,12 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextFormField(
-                  controller: _searchController,
-                  decoration: const InputDecoration(
-                      hintText: 'Search', prefixIcon: Icon(Icons.search))),
+              TextFormField(controller: _searchController, decoration: const InputDecoration(hintText: 'Search', prefixIcon: Icon(Icons.search))),
               const CustomIconAndText(),
               const CustomFoodItems(),
-              Text('Food Menu',
-                  textAlign: TextAlign.start,
-                  style: context.textTheme.headlineMedium
-                      ?.copyWith(color: AppColors.black)),
+              Text('Food Menu', textAlign: TextAlign.start, style: context.textTheme.headlineMedium?.copyWith(color: AppColors.black)),
               const CustomFoodMenu(),
-              Text('Near Me',
-                  textAlign: TextAlign.start,
-                  style: context.textTheme.headlineMedium
-                      ?.copyWith(color: AppColors.black)),
+              Text('Near Me', textAlign: TextAlign.start, style: context.textTheme.headlineMedium?.copyWith(color: AppColors.black)),
               const CustomNearMe(),
               const CustomFoodPromotion(),
             ],
@@ -66,22 +59,15 @@ class CustomFoodPromotion extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (_) => const DiscountScreen())),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const DiscountScreen())),
           child: Container(
             height: 150,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover, image: AssetImage(AssetData.burger))),
+            decoration: const BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: AssetImage(AssetData.burger))),
             child: const Padding(
               padding: EdgeInsets.all(16),
               child: Center(
                 child: Text('Sale Off\n50% For Breakfast',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold)),
+                    textAlign: TextAlign.center, style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold)),
               ),
             ),
           ),
@@ -91,14 +77,8 @@ class CustomFoodPromotion extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('For Breakfast',
-                  style: context.textTheme.headlineMedium
-                      ?.copyWith(color: AppColors.black)),
-              GestureDetector(
-                  onTap: () {},
-                  child: Text('See all',
-                      style: context.textTheme.labelSmall
-                          ?.copyWith(color: AppColors.primaryColor))),
+              Text('For Breakfast', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.black)),
+              GestureDetector(onTap: () {}, child: Text('See all', style: context.textTheme.labelSmall?.copyWith(color: AppColors.primaryColor))),
             ],
           ),
         ),
@@ -128,11 +108,10 @@ class CustomFoodPromotion extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(8)),
-            child: Image.asset(imagePath,
-                width: 80, height: 60, fit: BoxFit.cover),
+            child: Image.asset(imagePath, width: 80, height: 60, fit: BoxFit.cover),
           ),
           const SizedBox(height: 5),
-          Text(title, textAlign: TextAlign.center, style: Correctly.itemName),
+          Text(title, textAlign: TextAlign.center, style: AppTextTheme.itemName),
         ],
       ),
     );
@@ -183,9 +162,9 @@ class CustomNearMe extends StatelessWidget {
 
         return ListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text(restaurant['name']!, style: Correctly.itemColor),
+          title: Text(restaurant['name']!, style: AppTextTheme.itemColor),
           leading: Image.asset(restaurant['image']!, width: 50, height: 50),
-          subtitle: Text(restaurant['subtitle']!, style: Correctly.itemColor),
+          subtitle: Text(restaurant['subtitle']!, style: AppTextTheme.itemColor),
           onTap: () {
             Navigator.push(
               context,

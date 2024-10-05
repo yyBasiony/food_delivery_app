@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../resources/app_colors.dart';
+import '../resources/app_theme.dart';
 import '../resources/routes.dart';
+import '../widgets/custom_app_bar.dart';
 import 'cubit/cubit_auth.dart';
-import 'widget/custom_icon_bottom_back.dart';
-import 'widget/divider_with_image.dart';
+import 'widgets/divider_with_image.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -22,12 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _rePasswordController = TextEditingController();
 
   @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    _rePasswordController.dispose();
-    super.dispose();
-  }
+  void dispose() => {_emailController.dispose(), _passwordController.dispose(), _rePasswordController.dispose(), super.dispose()};
 
   String? _validateEmail(String? value) {
     final RegExp emailRegExp = RegExp(r'^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+');
@@ -57,10 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void _submitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      BlocProvider.of<AuthCubit>(context).register(
-        _emailController.text,
-        _passwordController.text,
-      );
+      BlocProvider.of<AuthCubit>(context).register(_emailController.text, _passwordController.text);
     }
   }
 
@@ -71,42 +65,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
         if (state is AuthSuccess) {
           Navigator.pushReplacementNamed(context, Routes.mainView);
         } else if (state is AuthFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)),
-          );
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
         }
       },
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        appBar: AppBar(leading: const CustomIconButtonBack()),
+        appBar: const CustomAppBar(),
         body: SafeArea(
           child: LayoutBuilder(
-            builder: (context, constraints) {
+            builder: (_, constraints) {
               return Column(
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: constraints.maxWidth * 0.1,
-                      ),
+                      padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth * .1),
                       child: Form(
                         key: _formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Spacer(flex: 2),
-                            Text(
-                              'Register',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
+                            Text('Register', style: context.textTheme.titleLarge),
                             const Spacer(flex: 1),
                             TextFormField(
                               validator: _validateEmail,
                               controller: _emailController,
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Email',
-                                prefixIcon: Icon(Icons.email),
-                              ),
+                              decoration: const InputDecoration(hintText: 'Enter Email', prefixIcon: Icon(Icons.email)),
                             ),
                             const Spacer(),
                             TextFormField(
@@ -117,11 +101,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 hintText: 'Enter Password',
                                 prefixIcon: const Icon(Icons.lock_outline),
                                 suffixIcon: IconButton(
-                                  icon: Icon(_isPasswordVisible
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
-                                  onPressed: () => setState(() =>
-                                      _isPasswordVisible = !_isPasswordVisible),
+                                  icon: Icon(_isPasswordVisible ? Icons.visibility : Icons.visibility_off),
+                                  onPressed: () => setState(() => _isPasswordVisible = !_isPasswordVisible),
                                 ),
                               ),
                             ),
@@ -134,32 +115,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 hintText: 'Re-enter Password',
                                 prefixIcon: const Icon(Icons.lock_outline),
                                 suffixIcon: IconButton(
-                                  icon: Icon(_isRePasswordVisible
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
-                                  onPressed: () => setState(() =>
-                                      _isRePasswordVisible =
-                                          !_isRePasswordVisible),
+                                  icon: Icon(_isRePasswordVisible ? Icons.visibility : Icons.visibility_off),
+                                  onPressed: () => setState(() => _isRePasswordVisible = !_isRePasswordVisible),
                                 ),
                               ),
                             ),
                             const Spacer(),
-                            ElevatedButton(
-                              onPressed: () => _submitForm(context),
-                              child: const Text('Register'),
-                            ),
+                            ElevatedButton(child: const Text('Register'), onPressed: () => _submitForm(context)),
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
-                                onPressed: () => Navigator.pushNamed(
-                                    context, Routes.forgotPasswordScreen),
-                                child: Text(
-                                  'Forgot Password?',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .labelSmall
-                                      ?.copyWith(color: AppColors.divider),
-                                ),
+                                onPressed: () => Navigator.pushNamed(context, Routes.forgotPasswordScreen),
+                                child: Text('Forgot Password?', style: context.textTheme.labelSmall?.copyWith(color: AppColors.divider)),
                               ),
                             ),
                           ],

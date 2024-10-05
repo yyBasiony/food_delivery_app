@@ -1,46 +1,30 @@
 import 'package:flutter/material.dart';
-import '../../resources/assets_data.dart';
+import '../../resources/asset_data.dart';
 import 'prodect_screen.dart';
 
 const Map<String, Map<String, dynamic>> categoryData = {
   'Food': {
     'imagePath': AssetData.food,
-    'products': {
-      'Burger': 50,
-      'Pizza': 60,
-      'Pasta': 45,
-    }
+    'products': {'Burger': 50, 'Pizza': 60, 'Pasta': 45}
   },
   'Drinks': {
     'imagePath': AssetData.coffeeCup,
-    'products': {
-      'Water': 10,
-      'Juice': 15,
-      'Fresh Juice': 20,
-    }
+    'products': {'Water': 10, 'Juice': 15, 'Fresh Juice': 20}
   },
   'Cakes': {
     'imagePath': AssetData.cake,
-    'products': {
-      'Cake': 30,
-      'Chocolate Cake': 40,
-      'Fruit Cake': 50,
-    }
+    'products': {'Cake': 30, 'Fruit Cake': 50, 'Chocolate Cake': 40}
   },
   'Snacks': {
     'imagePath': 'assets/images/snacks.jpeg',
-    'products': {
-      'Chips': 10,
-      'Cookies': 15,
-      'Nuts': 20,
-    }
+    'products': {'Nuts': 20, 'Chips': 10, 'Cookies': 15}
   },
 };
 
 class CategoryScreen extends StatelessWidget {
   final String category;
 
-  const CategoryScreen({Key? key, required this.category}) : super(key: key);
+  const CategoryScreen({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +32,8 @@ class CategoryScreen extends StatelessWidget {
 
     if (categoryDetails == null) {
       return Scaffold(
-        appBar: AppBar(
-          title: const Text('Category Not Found'),
-        ),
-        body: const Center(
-          child: Text('No data available for this category.'),
-        ),
+        appBar: AppBar(title: const Text('Category Not Found')),
+        body: const Center(child: Text('No data available for this category.')),
       );
     }
 

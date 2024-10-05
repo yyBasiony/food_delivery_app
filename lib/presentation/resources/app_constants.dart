@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../domain/models/model_food_item.dart';
 import '../../domain/models/onboarding_model.dart';
-import 'assets_data.dart';
+import 'asset_data.dart';
 
 class AppConstants {
   AppConstants._();
@@ -37,11 +37,18 @@ class AppConstants {
     (label: 'Profile', icon: Icons.person_outline)
   ];
 
-  static final List<({String image, String label})> foodItems = [
+  static const List<({String image, String label})> foodItems = [
     (image: AssetData.coffeeCup, label: "Drink"),
     (image: AssetData.food, label: "Food"),
     (image: AssetData.cake, label: "Cake"),
     (image: AssetData.snack, label: "Snack")
+  ];
+
+  static const List<({String name, String imageUrl, double price})> foodItemsData = [
+    (price: 11.99, name: 'Hamburger', imageUrl: AssetData.burger),
+    (price: 7.99, name: 'Tuna Salad', imageUrl: AssetData.burger),
+    (price: 12.99, name: 'Chicken Fried', imageUrl: AssetData.burger),
+    (price: 12.99, name: 'Chicken Fried', imageUrl: AssetData.burger),
   ];
 
   static final List<FoodItem> foodMenu = [

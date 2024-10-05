@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/assets_data.dart';
 
-import '../../authentication/widget/custom_icon_bottom_back.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_text_theme.dart';
+import '../../resources/asset_data.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class ReviewScreenOrder extends StatefulWidget {
   const ReviewScreenOrder({super.key});
@@ -13,91 +13,57 @@ class ReviewScreenOrder extends StatefulWidget {
 }
 
 class _ReviewScreenOrderState extends State<ReviewScreenOrder> {
-  List<bool> liked = [false, false, false, false];
-  List<bool> disliked = [false, false, false, false];
+  static final List<({String name, String image, double price, bool? isLiked})> _reviewFoodData = [
+    (name: 'Hamburger Lover', image: AssetData.testImage, price: 15.50, isLiked: null),
+    (name: 'Fried Spicy Chicken Wings', image: AssetData.testImage, price: 27.99, isLiked: null),
+    (name: 'Tuna Salad', image: AssetData.testImage, price: 7.99, isLiked: null),
+    (name: 'Mushroom Pizza', image: AssetData.testImage, price: 14.99, isLiked: null),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text('Review Food',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(color: AppColors.black)),
-          leading: const CustomIconButtonBack()),
+      appBar: const CustomAppBar(title: 'Review Food'),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             Expanded(
-              child: ListView(
-                children: [
-                  buildFoodItem(context, 'Hamburger Lover', AssetData.testImage,
-                      15.50, 0),
-                  buildFoodItem(context, 'Fried Spicy Chicken Wings',
-                      AssetData.testImage, 27.99, 1),
-                  buildFoodItem(
-                      context, 'Tuna Salad', AssetData.testImage, 7.99, 2),
-                  buildFoodItem(
-                      context, 'Mushroom Pizza', AssetData.testImage, 14.99, 3),
-                ],
+              child: ListView.builder(
+                itemCount: _reviewFoodData.length,
+                itemBuilder: (_, index) => Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                        child: Image.asset(_reviewFoodData[index].image, width: 60, height: 60, fit: BoxFit.cover)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(_reviewFoodData[index].name, style: AppTextTheme.itemName.copyWith(color: AppColors.black)),
+                        Text('\$${_reviewFoodData[index].price}', style: AppTextTheme.itemColor.copyWith(color: AppColors.primaryColor)),
+                      ],
+                    ),
+                    const Spacer(),
+                    _buildReactButton(index),
+                    _buildReactButton(index, isLikeButton: false)
+                  ],
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child:
-                  ElevatedButton(child: const Text('Send'), onPressed: () {}),
-            ),
+            ElevatedButton(onPressed: () {}, child: const Text('Send')),
           ],
         ),
       ),
     );
   }
 
-  Widget buildFoodItem(BuildContext context, String name, String imagePath,
-      double price, int index) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-                child: Image.asset(imagePath,
-                    width: 60, height: 60, fit: BoxFit.cover)),
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(name,
-                    style: Correctly.itemName.copyWith(color: AppColors.black)),
-                Text('\$$price',
-                    style: Correctly.itemColor
-                        .copyWith(color: AppColors.primaryColor)),
-              ],
-            ),
-          ),
-          IconButton(
-            icon: Icon(Icons.thumb_up_alt_outlined,
-                color: liked[index] ? AppColors.primaryColor : Colors.grey),
-            onPressed: () => setState(() {
-              liked[index] = !liked[index];
-              if (liked[index]) disliked[index] = false;
-            }),
-          ),
-          IconButton(
-            icon: Icon(Icons.thumb_down_alt_outlined,
-                color: disliked[index] ? AppColors.primaryColor : Colors.grey),
-            onPressed: () => setState(() {
-              disliked[index] = !disliked[index];
-              if (disliked[index]) liked[index] = false;
-            }),
-          ),
-        ],
-      ),
+  IconButton _buildReactButton(int index, {bool isLikeButton = true}) {
+    return IconButton(
+      icon: Icon(isLikeButton ? Icons.thumb_up_alt_outlined : Icons.thumb_down_alt_outlined,
+          color: ((_reviewFoodData[index].isLiked ?? false) == isLikeButton) ? AppColors.primaryColor : Colors.grey),
+      onPressed: () => setState(() => _reviewFoodData[index] =
+          (name: _reviewFoodData[index].name, image: _reviewFoodData[index].image, price: _reviewFoodData[index].price, isLiked: isLikeButton)),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../resources/app_colors.dart';
-import '../../resources/assets_data.dart';
+import '../../resources/app_theme.dart';
+import '../../resources/asset_data.dart';
 
 class DividerWithImage extends StatelessWidget {
   const DividerWithImage({super.key});
@@ -17,11 +19,7 @@ class DividerWithImage extends StatelessWidget {
                 const Expanded(child: Divider(color: AppColors.divider)),
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: 8),
-                  child: Text('Or connect with',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: AppColors.divider)),
+                  child: Text('Or connect with', style: context.textTheme.titleMedium?.copyWith(color: AppColors.divider)),
                 ),
               ],
             ),
@@ -29,8 +27,7 @@ class DividerWithImage extends StatelessWidget {
           const Spacer(),
           Row(
             children: [
-              Image.asset(AssetData.pngItem,
-                  height: 75, width: 130, fit: BoxFit.cover),
+              Image.asset(AssetData.pngItem, height: 75, width: 130, fit: BoxFit.cover),
               const Spacer(flex: 3),
               IconButton(
                 onPressed: () {},
@@ -42,8 +39,7 @@ class DividerWithImage extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Image.asset(AssetData.google,
-                  fit: BoxFit.cover, width: 50, height: 50),
+              Image.asset(AssetData.google, fit: BoxFit.cover, width: 50, height: 50),
               const Spacer(flex: 2),
             ],
           )

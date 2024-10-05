@@ -9,7 +9,11 @@ import '../authentication/welcome_screen.dart';
 import '../main_view/home/location_screen.dart';
 import '../main_view/main_view.dart';
 import '../main_view/order/review_screen.dart';
-import '../main_view/profile/address_screen.dart';
+import '../main_view/profile/screens/address_screen.dart';
+import '../main_view/profile/screens/change_password_screen.dart';
+import '../main_view/profile/screens/my_profile_screen.dart';
+import '../main_view/profile/screens/my_voucher_screen.dart';
+import '../main_view/profile/screens/payment_settings_screen.dart';
 import '../onboarding/onboarding_screen.dart';
 import '../splash/splash_screen.dart';
 
@@ -28,6 +32,12 @@ class Routes {
   static const String addressScreen = "/addressScreen";
   static const String locationScreen = "/locationScreen";
 
+  // Profile
+  static const String myProfileScreen = '/myProfileScreen';
+  static const String myVoucherScreen = '/myVoucherScreen';
+  static const String changePasswordScreen = '/changePasswordScreen';
+  static const String paymentSettingsScreen = '/paymentSettingsScreen';
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splashScreen:
@@ -35,6 +45,7 @@ class Routes {
       case onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
 
+      // Authentication
       case welcomeScreen:
         return MaterialPageRoute(builder: (_) => const WelcomeScreen());
       case forgotPasswordScreen:
@@ -52,6 +63,16 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const AddressScreen());
       case reviewScreen:
         return MaterialPageRoute(builder: (_) => const ReviewScreenOrder());
+
+      // Profile
+      case myProfileScreen:
+        return MaterialPageRoute(builder: (_) => const MyProfileScreen());
+      case myVoucherScreen:
+        return MaterialPageRoute(builder: (_) => const MyVoucherScreen());
+      case changePasswordScreen:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
+      case paymentSettingsScreen:
+        return MaterialPageRoute(builder: (_) => const PaymentSettingsScreen());
 
       default:
         return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));

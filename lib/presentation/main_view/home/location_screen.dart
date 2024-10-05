@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
+
 import '../../resources/app_colors.dart';
-import '../../resources/assets_data.dart';
+import '../../resources/app_theme.dart';
+import '../../resources/asset_data.dart';
 import '../../resources/routes.dart';
-import '../custom_bottom_navigation_bar.dart';
 
-class LocationScreen extends StatefulWidget {
+class LocationScreen extends StatelessWidget {
   const LocationScreen({super.key});
-
-  @override
-  State<LocationScreen> createState() => _LocationScreenState();
-}
-
-class _LocationScreenState extends State<LocationScreen> {
-  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +22,7 @@ class _LocationScreenState extends State<LocationScreen> {
             Text(
                 textAlign: TextAlign.center,
                 'Set your location to start exploring restaurants around you',
-                style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.black)),
+                style: context.textTheme.labelSmall?.copyWith(color: AppColors.black)),
             const Spacer(flex: 3),
             ElevatedButton(onPressed: () {}, child: const Text('Enable Location')),
             const Spacer(),
@@ -41,7 +35,6 @@ class _LocationScreenState extends State<LocationScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(currentIndex: _currentIndex, onTap: (index) => setState(() => _currentIndex = index)),
     );
   }
 }

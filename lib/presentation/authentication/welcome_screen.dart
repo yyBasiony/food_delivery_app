@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../resources/app_colors.dart';
-import '../resources/assets_data.dart';
+import '../resources/asset_data.dart';
 import '../resources/routes.dart';
-import 'widget/divider_with_image.dart';
+import 'widgets/divider_with_image.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
