@@ -48,3 +48,7 @@ class Correctly {
   static const itemColor =
       TextStyle(fontSize: 10, color: Colors.black, fontWeight: FontWeight.w300);
 }
+
+extension BuildContextExtensions on BuildContext {
+  TextTheme get textTheme => Theme.of(this).textTheme;
+}

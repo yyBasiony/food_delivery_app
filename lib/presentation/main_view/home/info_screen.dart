@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/app_text_theme.dart';
 
 import '../../resources/app_colors.dart';
 
@@ -16,33 +17,25 @@ class RestaurantInfo extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.phone),
               title: Text('+1 123 987 765',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall
+                  style: context.textTheme.titleSmall
                       ?.copyWith(color: AppColors.grey)),
             ),
             ListTile(
               leading: const Icon(Icons.email),
               title: Text('foodorder@gmail.com',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall
+                  style: context.textTheme.titleSmall
                       ?.copyWith(color: AppColors.grey)),
             ),
             ListTile(
               leading: const Icon(Icons.location_on),
               title: Text('Custom Address',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall
+                  style: context.textTheme.titleSmall
                       ?.copyWith(color: AppColors.grey)),
             ),
             ListTile(
               leading: const Icon(Icons.attach_money),
               title: Text('Average Cost: \$10-50',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall
+                  style: context.textTheme.titleSmall
                       ?.copyWith(color: AppColors.grey)),
             ),
           ],

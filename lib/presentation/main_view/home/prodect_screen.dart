@@ -57,9 +57,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     }),
                   ),
                   Text('${itemCount[item]}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
+                      style: context.textTheme.bodyMedium
                           ?.copyWith(color: Colors.black)),
                   IconButton(
                     icon: const Icon(Icons.add),

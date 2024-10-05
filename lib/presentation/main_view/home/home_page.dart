@@ -39,16 +39,12 @@ class _HomePageState extends State<HomePage> {
               const CustomFoodItems(),
               Text('Food Menu',
                   textAlign: TextAlign.start,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium
+                  style: context.textTheme.headlineMedium
                       ?.copyWith(color: AppColors.black)),
               const CustomFoodMenu(),
               Text('Near Me',
                   textAlign: TextAlign.start,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium
+                  style: context.textTheme.headlineMedium
                       ?.copyWith(color: AppColors.black)),
               const CustomNearMe(),
               const CustomFoodPromotion(),
@@ -96,16 +92,12 @@ class CustomFoodPromotion extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('For Breakfast',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium
+                  style: context.textTheme.headlineMedium
                       ?.copyWith(color: AppColors.black)),
               GestureDetector(
                   onTap: () {},
                   child: Text('See all',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelSmall
+                      style: context.textTheme.labelSmall
                           ?.copyWith(color: AppColors.primaryColor))),
             ],
           ),

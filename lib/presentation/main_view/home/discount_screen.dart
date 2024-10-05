@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/app_text_theme.dart';
 import 'package:food_delivery/presentation/resources/assets_data.dart';
 
 import '../../authentication/widget/custom_icon_bottom_back.dart';
@@ -64,18 +65,14 @@ class DiscountScreen extends StatelessWidget {
                   leading: const CircleAvatar(
                       radius: 30, backgroundImage: AssetImage(AssetData.cake)),
                   title: Text(discounts[index]['title']!,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
+                      style: context.textTheme.headlineMedium
                           ?.copyWith(color: AppColors.black)),
                   subtitle: Row(
                     children: [
                       Text(discounts[index]['days']!),
                       const SizedBox(width: 10),
                       Text("\$${discounts[index]['discount'].toString()}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall
+                          style: context.textTheme.titleSmall
                               ?.copyWith(color: AppColors.grey)),
                     ],
                   ),

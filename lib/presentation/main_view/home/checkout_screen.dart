@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/resources/app_text_theme.dart';
 
 import '../../authentication/widget/custom_icon_bottom_back.dart';
 import '../../resources/app_colors.dart';
@@ -13,10 +14,8 @@ class CheckoutScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Checkout',
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge
-                ?.copyWith(color: AppColors.black)),
+            style:
+                context.textTheme.titleLarge?.copyWith(color: AppColors.black)),
         leading: const CustomIconButtonBack(),
       ),
       body: Padding(
@@ -25,21 +24,15 @@ class CheckoutScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Delivery Address:',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium
+                style: context.textTheme.headlineMedium
                     ?.copyWith(color: AppColors.black)),
             const SizedBox(height: 10),
             Text('1234 Main Street, New York City, NY',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall
+                style: context.textTheme.titleSmall
                     ?.copyWith(color: AppColors.grey)),
             const SizedBox(height: 20),
             Text('Order Items:',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium
+                style: context.textTheme.headlineMedium
                     ?.copyWith(color: AppColors.black)),
             const SizedBox(height: 10),
             _buildOrderItem(
@@ -48,9 +41,7 @@ class CheckoutScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text('Payment Method:',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium
+                style: context.textTheme.headlineMedium
                     ?.copyWith(color: AppColors.black)),
             RadioListTile(
                 value: 'PayPal',
@@ -81,9 +72,7 @@ class CheckoutScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               ),
               child: Text('Place Order',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium
+                  style: context.textTheme.headlineMedium
                       ?.copyWith(color: AppColors.secondary)),
             ),
           ],
