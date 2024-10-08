@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../resources/app_colors.dart';
-import '../../resources/app_theme.dart';
 import '../../resources/asset_data.dart';
 import '../widgets/custom_food_item.dart';
 import '../widgets/custom_food_menu.dart';
@@ -18,40 +17,109 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _searchController = TextEditingController();
+  bool _showGridView = false;
 
   @override
-  void dispose() => {_searchController.dispose(), super.dispose()};
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextFormField(
-                  controller: _searchController,
-                  decoration: const InputDecoration(
-                      hintText: 'Search', prefixIcon: Icon(Icons.search))),
-              const CustomIconAndText(),
-              const CustomFoodItems(),
-              Text('Food Menu',
-                  textAlign: TextAlign.start,
-                  style: context.textTheme.headlineMedium
-                      ?.copyWith(color: AppColors.black)),
-              const CustomFoodMenu(),
-              Text('Near Me',
-                  textAlign: TextAlign.start,
-                  style: context.textTheme.headlineMedium
-                      ?.copyWith(color: AppColors.black)),
-              const CustomNearMe(),
-              const CustomFoodPromotion(),
-            ],
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Focus(
+                      onFocusChange: (hasFocus) {
+                        setState(() {
+                          _showGridView = hasFocus;
+                        });
+                      },
+                      child: TextFormField(
+                        controller: _searchController,
+                        decoration: const InputDecoration(
+                          hintText: 'Search',
+                          prefixIcon: Icon(Icons.search),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const CustomIconAndText(),
+                  const CustomFoodItems(),
+                  Text('Food Menu',
+                      textAlign: TextAlign.start,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium
+                          ?.copyWith(color: AppColors.black)),
+                  const CustomFoodMenu(),
+                  Text('Near Me',
+                      textAlign: TextAlign.start,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium
+                          ?.copyWith(color: AppColors.black)),
+                  const CustomNearMe(),
+                  const CustomFoodPromotion(),
+                ],
+              ),
+            ),
           ),
-        ),
+          if (_showGridView)
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: SizedBox(
+                  height: 250,
+                  child: GridView.count(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    children: const [
+                      FoodItemWidget(
+                        imagePath: AssetData.burger,
+                        title: 'Hamburger',
+                      ),
+                      FoodItemWidget(
+                        imagePath: AssetData.burger,
+                        title: 'Tuna Salad',
+                      ),
+                      FoodItemWidget(
+                        imagePath: AssetData.burger,
+                        title: 'Chicken Fried',
+                      ),
+                      FoodItemWidget(
+                        imagePath: AssetData.burger,
+                        title: 'Spaghetti',
+                      ),
+                      FoodItemWidget(
+                        imagePath: AssetData.burger,
+                        title: 'Lamb Chops',
+                      ),
+                      FoodItemWidget(
+                        imagePath: AssetData.burger,
+                        title: 'Shrimp Pizza',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }
@@ -93,12 +161,16 @@ class CustomFoodPromotion extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('For Breakfast',
-                  style: context.textTheme.headlineMedium
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium
                       ?.copyWith(color: AppColors.black)),
               GestureDetector(
                   onTap: () {},
                   child: Text('See all',
-                      style: context.textTheme.labelSmall
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelSmall
                           ?.copyWith(color: AppColors.primaryColor))),
             ],
           ),
