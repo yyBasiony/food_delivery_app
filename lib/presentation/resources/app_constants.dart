@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../domain/models/model_food_item.dart';
 import '../../domain/models/onboarding_model.dart';
 import 'asset_data.dart';
@@ -16,17 +15,20 @@ class AppConstants {
     OnboardingModel(
       title: 'Fast Shipping',
       image: AssetData.onboarding2,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum rhoncus nulla.',
     ),
     OnboardingModel(
       title: 'Certificate Food',
       image: AssetData.onboarding3,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies mauris a id.',
     ),
     OnboardingModel(
       title: 'Payment Online',
       image: AssetData.onboarding4,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
     ),
   ];
 
@@ -44,7 +46,8 @@ class AppConstants {
     (image: AssetData.snack, label: "Snack")
   ];
 
-  static const List<({String name, String imageUrl, double price})> foodItemsData = [
+  static const List<({String name, String imageUrl, double price})>
+      foodItemsData = [
     (price: 11.99, name: 'Hamburger', imageUrl: AssetData.burger),
     (price: 7.99, name: 'Tuna Salad', imageUrl: AssetData.burger),
     (price: 12.99, name: 'Chicken Fried', imageUrl: AssetData.burger),
@@ -72,5 +75,13 @@ class AppConstants {
       distance: '1.8 km',
       price: 9.99,
     ),
+  ];
+  static const List<({String title, String image, int expiry})> voucherData = [
+    (title: '30% for Pizza', image: AssetData.testImage, expiry: 15),
+    (title: '50% Hamburger', image: AssetData.testImage, expiry: 20),
+    (title: '19% in Pizza Love', image: AssetData.testImage, expiry: 10),
+    (title: '70% Fast Food', image: AssetData.testImage, expiry: 5),
+    (title: '70% Fast Food', image: AssetData.testImage, expiry: 5),
+    (title: '70% Fast Food', image: AssetData.testImage, expiry: 5),
   ];
 }
