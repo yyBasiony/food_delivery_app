@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_text_theme.dart';
 import '../../resources/asset_data.dart';
-import '../../widgets/custom_app_bar.dart';
+import '../widgets/custom_app_bar.dart';
 import '../widgets/order_item.dart';
 
 class RestaurantDetails extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_constants.dart';
 import '../../resources/app_theme.dart';
-import '../../widgets/custom_app_bar.dart';
+import '../widgets/custom_app_bar.dart';
 import '../widgets/voucher_item.dart';
 import 'cart_screen.dart';
 

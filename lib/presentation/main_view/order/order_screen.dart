@@ -4,8 +4,8 @@ import '../../resources/app_colors.dart';
 import '../../resources/app_theme.dart';
 import '../../resources/asset_data.dart';
 import '../../resources/routes.dart';
-import '../../widgets/custom_app_bar.dart';
-import '../../widgets/scrollable_food_list.dart';
+import '../widgets/custom_app_bar.dart';
+import '../widgets/scrollable_food_list.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
@@ -17,7 +17,10 @@ class OrderScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Order Details',
-        actions: [IconButton(icon: const Icon(Icons.qr_code, size: 35), onPressed: () {})],
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.qr_code, size: 35), onPressed: () {})
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -28,16 +31,24 @@ class OrderScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildOrderHeader(context),
+                const SizedBox(height: 6),
                 _buildShipperInfo(context),
                 const ScrollableFoodList(),
                 _buildOrderSummary(context),
+                const SizedBox(height: 6),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Text('Order Again', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.secondary)),
+                  child: Text('Order Again',
+                      style: context.textTheme.headlineMedium
+                          ?.copyWith(color: AppColors.secondary)),
                 ),
+                const SizedBox(height: 12),
                 ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, Routes.reviewScreen),
-                  child: Text('Review', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.secondary)),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, Routes.reviewScreen),
+                  child: Text('Review',
+                      style: context.textTheme.headlineMedium
+                          ?.copyWith(color: AppColors.secondary)),
                 ),
               ],
             ),
@@ -51,10 +62,21 @@ class OrderScreen extends StatelessWidget {
     return Wrap(
       direction: Axis.vertical,
       children: [
-        Text('Pizza Lover Company Food Order', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
-        Text('Order Code: 1223546', style: context.textTheme.bodyMedium?.copyWith(color: Colors.grey)),
-        const Row(children: [Icon(Icons.location_on), Text('9 West 46th Street, New York City')]),
-        const Row(children: [Icon(Icons.calendar_today), Text('14:00 Today, Apr 14')]),
+        Text('Pizza Lover Company Food Order',
+            style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
+        const SizedBox(height: 6),
+        Text('Order Code: 1223546',
+            style: context.textTheme.bodyMedium?.copyWith(color: Colors.grey)),
+        const SizedBox(height: 6),
+        const Row(children: [
+          Icon(Icons.location_on),
+          Text('9 West 46th Street, New York City'),
+          SizedBox(height: 6),
+        ]),
+        const Row(children: [
+          Icon(Icons.calendar_today),
+          Text('14:00 Today, Apr 14')
+        ]),
       ],
     );
   }
@@ -62,12 +84,17 @@ class OrderScreen extends StatelessWidget {
   Widget _buildShipperInfo(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(radius: 25, backgroundImage: AssetImage(AssetData.splash)),
+        const CircleAvatar(
+            radius: 25, backgroundImage: AssetImage(AssetData.splash)),
         Wrap(
           direction: Axis.vertical,
           children: [
-            Text('Hank Harlow', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
-            Text('Shipper - Delivered', style: context.textTheme.bodyMedium?.copyWith(color: Colors.grey)),
+            Text('Hank Harlow',
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: Colors.black)),
+            Text('Shipper - Delivered',
+                style:
+                    context.textTheme.bodyMedium?.copyWith(color: Colors.grey)),
           ],
         ),
         const Spacer(),
@@ -83,22 +110,36 @@ class OrderScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Order Price', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
-            Text('\$40.95', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
+            Text('Order Price',
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: Colors.black)),
+            Text('\$40.95',
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: Colors.black)),
           ],
         ),
+        const SizedBox(height: 12),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Shipping Cost (3 items)', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
-            Text('\$0.99', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
+            Text('Shipping Cost (3 items)',
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: Colors.black)),
+            Text('\$0.99',
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: Colors.black)),
           ],
         ),
+        const SizedBox(height: 12),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Total', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
-            Text('\$88.98', style: context.textTheme.bodyMedium?.copyWith(color: AppColors.primaryColor)),
+            Text('Total',
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: Colors.black)),
+            Text('\$88.98',
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: AppColors.primaryColor)),
           ],
         ),
       ],

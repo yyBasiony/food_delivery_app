@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../resources/app_theme.dart';
-import '../widgets/custom_app_bar.dart';
+import '../main_view/widgets/custom_app_bar.dart';
 import 'cubit/cubit_auth.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -23,7 +23,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     if (value == null || value.isEmpty) {
       return 'Please enter your email';
     }
-    if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$').hasMatch(value)) {
+    if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+        .hasMatch(value)) {
       return 'Please enter a valid email address';
     }
     return null;
@@ -41,9 +42,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Reset link sent!')));
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('Reset link sent!')));
         } else if (state is AuthFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.message)));
         }
       },
       child: Scaffold(
@@ -60,15 +63,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Forgot\nPassword', textAlign: TextAlign.center, style: context.textTheme.titleLarge),
+                    Text('Forgot\nPassword',
+                        textAlign: TextAlign.center,
+                        style: context.textTheme.titleLarge),
                     const Spacer(),
                     TextFormField(
                       validator: _validateEmail,
                       controller: _emailController,
-                      decoration: const InputDecoration(hintText: 'Enter email'),
+                      decoration:
+                          const InputDecoration(hintText: 'Enter email'),
                     ),
                     const Spacer(),
-                    ElevatedButton(child: const Text('Reset password'), onPressed: () => _resetPassword(context)),
+                    ElevatedButton(
+                        child: const Text('Reset password'),
+                        onPressed: () => _resetPassword(context)),
                   ],
                 ),
               ),

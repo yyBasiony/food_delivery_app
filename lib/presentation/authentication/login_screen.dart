@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../resources/app_colors.dart';
 import '../resources/app_theme.dart';
 import '../resources/routes.dart';
-import '../widgets/custom_app_bar.dart';
+import '../main_view/widgets/custom_app_bar.dart';
 import 'cubit/cubit_auth.dart';
 import 'widgets/divider_with_image.dart';
 
@@ -21,7 +21,11 @@ class _LoginState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
 
   @override
-  void dispose() => {_usernameController.dispose(), _passwordController.dispose(), super.dispose()};
+  void dispose() => {
+        _usernameController.dispose(),
+        _passwordController.dispose(),
+        super.dispose()
+      };
 
   String? _validateUsername(String? value) {
     if (value == null || value.isEmpty) {
@@ -54,7 +58,8 @@ class _LoginState extends State<LoginScreen> {
         if (state is AuthSuccess) {
           Navigator.pushReplacementNamed(context, Routes.mainView);
         } else if (state is AuthFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.message)));
         }
       },
       child: Scaffold(
@@ -67,7 +72,8 @@ class _LoginState extends State<LoginScreen> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth * 0.1),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: constraints.maxWidth * 0.1),
                       child: Form(
                         key: _formKey,
                         child: Column(
@@ -79,22 +85,31 @@ class _LoginState extends State<LoginScreen> {
                             TextFormField(
                               validator: _validateUsername,
                               controller: _usernameController,
-                              decoration: const InputDecoration(hintText: 'Username', prefixIcon: Icon(Icons.person_outline)),
+                              decoration: const InputDecoration(
+                                  hintText: 'Username',
+                                  prefixIcon: Icon(Icons.person_outline)),
                             ),
                             const Spacer(),
                             TextFormField(
                               obscureText: true,
                               validator: _validatePassword,
                               controller: _passwordController,
-                              decoration: const InputDecoration(hintText: 'Password', prefixIcon: Icon(Icons.lock_outline)),
+                              decoration: const InputDecoration(
+                                  hintText: 'Password',
+                                  prefixIcon: Icon(Icons.lock_outline)),
                             ),
                             const Spacer(),
-                            ElevatedButton(child: const Text('Login'), onPressed: () => _submitForm(context)),
+                            ElevatedButton(
+                                child: const Text('Login'),
+                                onPressed: () => _submitForm(context)),
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
-                                onPressed: () => Navigator.pushNamed(context, Routes.forgotPasswordScreen),
-                                child: Text('Forgot Password?', style: context.textTheme.labelSmall?.copyWith(color: AppColors.divider)),
+                                onPressed: () => Navigator.pushNamed(
+                                    context, Routes.forgotPasswordScreen),
+                                child: Text('Forgot Password?',
+                                    style: context.textTheme.labelSmall
+                                        ?.copyWith(color: AppColors.divider)),
                               ),
                             ),
                           ],

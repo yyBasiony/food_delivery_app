@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../resources/app_colors.dart';
 import '../../../resources/app_theme.dart';
-import '../../../widgets/custom_app_bar.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
@@ -24,25 +24,38 @@ class ChangePasswordScreen extends StatelessWidget {
                 Flexible(
                     flex: 2,
                     child: TextFormField(
-                        obscureText: true, decoration: const InputDecoration(hintText: 'Enter Old Password', prefixIcon: Icon(Icons.lock_outline)))),
-                const Spacer(flex: 1),
-                Flexible(
-                    flex: 2,
-                    child: TextFormField(
-                        obscureText: true, decoration: const InputDecoration(hintText: 'Enter New Password', prefixIcon: Icon(Icons.lock_outline)))),
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                            hintText: 'Enter Old Password',
+                            prefixIcon: Icon(Icons.lock_outline)))),
                 const Spacer(flex: 1),
                 Flexible(
                     flex: 2,
                     child: TextFormField(
                         obscureText: true,
-                        decoration: const InputDecoration(hintText: 'Re-enter New Password', prefixIcon: Icon(Icons.lock_outline)))),
+                        decoration: const InputDecoration(
+                            hintText: 'Enter New Password',
+                            prefixIcon: Icon(Icons.lock_outline)))),
+                const Spacer(flex: 1),
+                Flexible(
+                    flex: 2,
+                    child: TextFormField(
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                            hintText: 'Re-enter New Password',
+                            prefixIcon: Icon(Icons.lock_outline)))),
                 const Spacer(flex: 1),
                 Flexible(
                   flex: 2,
                   child: ElevatedButton(
                     onPressed: () {},
-                    style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02, horizontal: screenWidth * 0.3)),
-                    child: Text('Save', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.secondary)),
+                    style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                            vertical: screenHeight * 0.02,
+                            horizontal: screenWidth * 0.3)),
+                    child: Text('Save',
+                        style: context.textTheme.headlineMedium
+                            ?.copyWith(color: AppColors.secondary)),
                   ),
                 ),
                 const Spacer(flex: 2),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../widgets/custom_app_bar.dart';
-import '../../widgets/scrollable_food_list.dart';
+import '../widgets/custom_app_bar.dart';
+import '../widgets/scrollable_food_list.dart';
 import '../widgets/custom_food_item.dart';
 import '../widgets/custom_near_me.dart';
 

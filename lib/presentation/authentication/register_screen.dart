@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../resources/app_colors.dart';
 import '../resources/app_theme.dart';
 import '../resources/routes.dart';
-import '../widgets/custom_app_bar.dart';
+import '../main_view/widgets/custom_app_bar.dart';
 import 'cubit/cubit_auth.dart';
 import 'widgets/divider_with_image.dart';
 
@@ -24,7 +24,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _rePasswordController = TextEditingController();
 
   @override
-  void dispose() => {_emailController.dispose(), _passwordController.dispose(), _rePasswordController.dispose(), super.dispose()};
+  void dispose() => {
+        _emailController.dispose(),
+        _passwordController.dispose(),
+        _rePasswordController.dispose(),
+        super.dispose()
+      };
 
   String? _validateEmail(String? value) {
     final RegExp emailRegExp = RegExp(r'^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+');
@@ -54,7 +59,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void _submitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      BlocProvider.of<AuthCubit>(context).register(_emailController.text, _passwordController.text);
+      BlocProvider.of<AuthCubit>(context)
+          .register(_emailController.text, _passwordController.text);
     }
   }
 
@@ -65,7 +71,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         if (state is AuthSuccess) {
           Navigator.pushReplacementNamed(context, Routes.mainView);
         } else if (state is AuthFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(state.message)));
         }
       },
       child: Scaffold(
@@ -78,19 +85,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth * .1),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: constraints.maxWidth * .1),
                       child: Form(
                         key: _formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Spacer(flex: 2),
-                            Text('Register', style: context.textTheme.titleLarge),
+                            Text('Register',
+                                style: context.textTheme.titleLarge),
                             const Spacer(flex: 1),
                             TextFormField(
                               validator: _validateEmail,
                               controller: _emailController,
-                              decoration: const InputDecoration(hintText: 'Enter Email', prefixIcon: Icon(Icons.email)),
+                              decoration: const InputDecoration(
+                                  hintText: 'Enter Email',
+                                  prefixIcon: Icon(Icons.email)),
                             ),
                             const Spacer(),
                             TextFormField(
@@ -101,8 +112,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 hintText: 'Enter Password',
                                 prefixIcon: const Icon(Icons.lock_outline),
                                 suffixIcon: IconButton(
-                                  icon: Icon(_isPasswordVisible ? Icons.visibility : Icons.visibility_off),
-                                  onPressed: () => setState(() => _isPasswordVisible = !_isPasswordVisible),
+                                  icon: Icon(_isPasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  onPressed: () => setState(() =>
+                                      _isPasswordVisible = !_isPasswordVisible),
                                 ),
                               ),
                             ),
@@ -115,18 +129,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 hintText: 'Re-enter Password',
                                 prefixIcon: const Icon(Icons.lock_outline),
                                 suffixIcon: IconButton(
-                                  icon: Icon(_isRePasswordVisible ? Icons.visibility : Icons.visibility_off),
-                                  onPressed: () => setState(() => _isRePasswordVisible = !_isRePasswordVisible),
+                                  icon: Icon(_isRePasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  onPressed: () => setState(() =>
+                                      _isRePasswordVisible =
+                                          !_isRePasswordVisible),
                                 ),
                               ),
                             ),
                             const Spacer(),
-                            ElevatedButton(child: const Text('Register'), onPressed: () => _submitForm(context)),
+                            ElevatedButton(
+                                child: const Text('Register'),
+                                onPressed: () => _submitForm(context)),
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
-                                onPressed: () => Navigator.pushNamed(context, Routes.forgotPasswordScreen),
-                                child: Text('Forgot Password?', style: context.textTheme.labelSmall?.copyWith(color: AppColors.divider)),
+                                onPressed: () => Navigator.pushNamed(
+                                    context, Routes.forgotPasswordScreen),
+                                child: Text('Forgot Password?',
+                                    style: context.textTheme.labelSmall
+                                        ?.copyWith(color: AppColors.divider)),
                               ),
                             ),
                           ],
