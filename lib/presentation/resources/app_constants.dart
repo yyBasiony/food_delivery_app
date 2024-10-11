@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../domain/models/category_model.dart';
 import '../../domain/models/model_food_item.dart';
 import '../../domain/models/onboarding_model.dart';
 import '../../domain/models/order_item_model.dart';
@@ -162,4 +163,22 @@ class AppConstants {
       openStatus: 'Closed',
     ),
   ];
+  static Map<String, CategoryModel> categoryData = {
+    'Food': CategoryModel(
+      imagePath: AssetData.food,
+      products: {'Burger': 50, 'Pizza': 60, 'Pasta': 45},
+    ),
+    'Drinks': CategoryModel(
+      imagePath: AssetData.coffeeCup,
+      products: {'Water': 10, 'Juice': 15, 'Fresh Juice': 20},
+    ),
+    'Cakes': CategoryModel(
+      imagePath: AssetData.cake,
+      products: {'Cake': 30, 'Fruit Cake': 50, 'Chocolate Cake': 40},
+    ),
+    'Snacks': CategoryModel(
+      imagePath: AssetData.snack,
+      products: {'Nuts': 20, 'Chips': 10, 'Cookies': 15},
+    ),
+  };
 }
