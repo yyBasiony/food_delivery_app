@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_text_theme.dart';
-import '../../resources/asset_data.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/order_item.dart';
+import '../../resources/app_constants.dart';
 
 class RestaurantDetails extends StatefulWidget {
   final String imageUrl;
@@ -132,42 +132,24 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
               children: [
                 ListView(
                   padding: const EdgeInsets.all(16),
-                  children: const [
-                    OrderItem(
-                        title: 'Hamburger Lover',
-                        price: 15.50,
-                        imageUrl: AssetData.burger),
-                    OrderItem(
-                        title: 'Fried Spicy Chicken Wings',
-                        price: 37.99,
-                        imageUrl: AssetData.burger),
-                    OrderItem(
-                        title: 'Tuna Salad',
-                        price: 7.99,
-                        imageUrl: AssetData.burger),
-                    OrderItem(
-                        title: 'Mushroom Pizza',
-                        price: 14.99,
-                        imageUrl: AssetData.burger),
-                  ],
+                  children: AppConstants.orderItems.map((orderItem) {
+                    return OrderItem(
+                      title: orderItem.title,
+                      price: orderItem.price,
+                      imageUrl: orderItem.imageUrl,
+                    );
+                  }).toList(),
                 ),
                 const RestaurantInfo(),
                 ListView(
                   padding: const EdgeInsets.all(16),
-                  children: const [
-                    ReviewItem(
-                      name: 'Garrett Bina',
-                      image: AssetData.burger,
-                      review:
-                          'I enjoyed the food of the restaurant. The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service. I will be back in the future.',
-                    ),
-                    ReviewItem(
-                      name: 'Sarina Kika',
-                      image: AssetData.burger,
-                      review:
-                          'The dishes are attractive and very beautiful. Good food, luxurious space and enthusiastic service.',
-                    ),
-                  ],
+                  children: AppConstants.reviewFoodData.map((review) {
+                    return ReviewItem(
+                      name: review.name,
+                      image: review.image,
+                      review: 'Your review here',
+                    );
+                  }).toList(),
                 ),
               ],
             ),
