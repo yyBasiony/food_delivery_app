@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../../resources/app_colors.dart';
 import '../../resources/app_text_theme.dart';
 
 class OrderItem extends StatefulWidget {
   final String title;
-  final String price;
+  final double price;
   final String imageUrl;
 
   const OrderItem({

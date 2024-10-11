@@ -135,19 +135,19 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
                   children: const [
                     OrderItem(
                         title: 'Hamburger Lover',
-                        price: '15.50',
+                        price: 15.50,
                         imageUrl: AssetData.burger),
                     OrderItem(
                         title: 'Fried Spicy Chicken Wings',
-                        price: '37.99',
+                        price: 37.99,
                         imageUrl: AssetData.burger),
                     OrderItem(
                         title: 'Tuna Salad',
-                        price: '7.99',
+                        price: 7.99,
                         imageUrl: AssetData.burger),
                     OrderItem(
                         title: 'Mushroom Pizza',
-                        price: '14.99',
+                        price: 14.99,
                         imageUrl: AssetData.burger),
                   ],
                 ),

@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-
+import '../../../domain/models/order_item_model.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_theme.dart';
 import '../../resources/asset_data.dart';
 import '../../resources/routes.dart';
 import '../widgets/custom_app_bar.dart';
-import '../widgets/scrollable_food_list.dart';
+import '../widgets/order_item.dart';
 
 class OrderScreen extends StatelessWidget {
-  const OrderScreen({super.key});
+  final List<OrderItemModel> orders;
+
+  const OrderScreen({
+    super.key,
+    required this.orders,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +31,25 @@ class OrderScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SizedBox.fromSize(
-            size: Size.fromHeight(size.height - kToolbarHeight), // TODO: Modify
+            size: Size.fromHeight(size.height - kToolbarHeight),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildOrderHeader(context),
                 const SizedBox(height: 6),
                 _buildShipperInfo(context),
-                const ScrollableFoodList(),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: orders.length,
+                    itemBuilder: (context, index) {
+                      final order = orders[index];
+                      return OrderItem(
+                          title: order.title,
+                          price: order.price,
+                          imageUrl: order.imageUrl);
+                    },
+                  ),
+                ),
                 _buildOrderSummary(context),
                 const SizedBox(height: 6),
                 ElevatedButton(

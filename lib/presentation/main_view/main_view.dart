@@ -16,7 +16,12 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   int _currentIndex = 0;
-  static const List<Widget> _pages = [HomePage(), OrderScreen(), MyListScreen(), ProfileScreen()];
+  static List<Widget> _pages = [
+    HomePage(),
+    OrderScreen(orders: AppConstants.orderItems),
+    MyListScreen(),
+    ProfileScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,10 @@ class _MainViewState extends State<MainView> {
           AppConstants.navigationData.length,
           (index) => BottomNavigationBarItem(
             label: AppConstants.navigationData[index].label,
-            icon: Icon(AppConstants.navigationData[index].icon, color: _currentIndex == index ? AppColors.primaryColor : Colors.grey),
+            icon: Icon(AppConstants.navigationData[index].icon,
+                color: _currentIndex == index
+                    ? AppColors.primaryColor
+                    : Colors.grey),
           ),
         ),
       ),

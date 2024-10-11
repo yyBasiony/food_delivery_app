@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../domain/models/model_food_item.dart';
 import '../../domain/models/onboarding_model.dart';
+import '../../domain/models/order_item_model.dart';
+import '../../domain/models/resturant_nodel.dart';
+import '../../domain/models/review_food_item_mpdel.dart';
 import 'asset_data.dart';
 
 class AppConstants {
@@ -83,5 +86,80 @@ class AppConstants {
     (title: '70% Fast Food', image: AssetData.testImage, expiry: 5),
     (title: '70% Fast Food', image: AssetData.testImage, expiry: 5),
     (title: '70% Fast Food', image: AssetData.testImage, expiry: 5),
+  ];
+  static final List<OrderItemModel> orderItems = [
+    OrderItemModel(
+      title: 'Hamburger',
+      price: 11.99,
+      imageUrl: AssetData.burger,
+    ),
+    OrderItemModel(
+      title: 'Tuna Salad',
+      price: 7.99,
+      imageUrl: AssetData.burger,
+    ),
+    OrderItemModel(
+      title: 'Chicken Fried',
+      price: 12.99,
+      imageUrl: AssetData.burger,
+    ),
+  ];
+  static List<ReviewFoodItemModel> reviewFoodData = [
+    ReviewFoodItemModel(
+      name: 'Hamburger Lover',
+      image: AssetData.testImage,
+      price: 15.50,
+      isLiked: null,
+    ),
+    ReviewFoodItemModel(
+      name: 'Fried Spicy Chicken Wings',
+      image: AssetData.testImage,
+      price: 27.99,
+      isLiked: null,
+    ),
+    ReviewFoodItemModel(
+      name: 'Tuna Salad',
+      image: AssetData.testImage,
+      price: 7.99,
+      isLiked: null,
+    ),
+    ReviewFoodItemModel(
+      name: 'Mushroom Pizza',
+      image: AssetData.testImage,
+      price: 14.99,
+      isLiked: null,
+    ),
+  ];
+  static List<RestaurantModel> restaurants = [
+    RestaurantModel(
+      image: AssetData.burger,
+      name: 'Awesome Fruit Restaurant',
+      address: '13th Street. 47 W 13th St, NY',
+      distance: '3 min • 1.1 km',
+      rating: '4.6',
+      reviews: '120',
+      imageUrl: AssetData.burger,
+      openStatus: 'Open Now',
+    ),
+    RestaurantModel(
+      image: AssetData.burger,
+      name: 'Pizza Lover Company',
+      address: '78th Street. 88 W 21th St, NY',
+      distance: '4 min • 1.5 km',
+      rating: '4.9',
+      reviews: '200',
+      imageUrl: AssetData.burger,
+      openStatus: 'Open Now',
+    ),
+    RestaurantModel(
+      image: AssetData.burger,
+      name: 'Chicken Fried Restaurant',
+      address: '132th Street. 41 W 10th St, NY',
+      distance: '5 min • 1.7 km',
+      rating: '4.9',
+      reviews: '250',
+      imageUrl: AssetData.burger,
+      openStatus: 'Closed',
+    ),
   ];
 }
