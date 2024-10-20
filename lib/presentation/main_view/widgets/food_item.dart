@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/presentation/resources/app_colors.dart';
-import 'package:food_delivery/presentation/resources/app_theme.dart';
+import 'package:food_delivery/presentation/resources/theme/app_theme.dart';
 
 class FoodItemWidget extends StatelessWidget {
   final String title;

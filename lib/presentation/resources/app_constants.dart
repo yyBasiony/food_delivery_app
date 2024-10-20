@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '../../domain/models/category_model.dart';
 import '../../domain/models/model_food_item.dart';
 import '../../domain/models/onboarding_model.dart';
 import '../../domain/models/order_item_model.dart';
-import '../../domain/models/resturant_nodel.dart';
-import '../../domain/models/review_food_item_mpdel.dart';
+import '../../domain/models/restaurant_model.dart';
+import '../../domain/models/review_food_item_model.dart';
 import 'asset_data.dart';
 
 class AppConstants {

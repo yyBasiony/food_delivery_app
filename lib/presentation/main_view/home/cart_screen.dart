@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/app_theme.dart';
+import 'package:food_delivery/presentation/resources/theme/app_theme.dart';
 import '../../resources/asset_data.dart';
 import '../widgets/order_item.dart';
 import 'checkout_screen.dart';

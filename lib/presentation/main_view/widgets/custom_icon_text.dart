@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/app_colors.dart';
-import '../../resources/app_theme.dart';
+import '../../resources/theme/app_theme.dart';
 
 class CustomIconAndText extends StatelessWidget {
   const CustomIconAndText({super.key});

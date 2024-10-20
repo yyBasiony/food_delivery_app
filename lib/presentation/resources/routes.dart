@@ -18,7 +18,7 @@ import '../onboarding/onboarding_screen.dart';
 import '../splash/splash_screen.dart';
 
 class Routes {
-  static const String splashScreen = "/";
+  static const String splashScreen = "/splashScreen";
 
   // Authentication
   static const String loginScreen = "/loginScreen";

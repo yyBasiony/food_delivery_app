@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../resources/app_colors.dart';
 import '../resources/app_constants.dart';
-import '../resources/app_theme.dart';
+import '../resources/theme/app_theme.dart';
 import '../resources/routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
