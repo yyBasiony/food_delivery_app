@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'app/localization.dart';
-import 'domain/shared_prefrance.dart';
+import 'app/app_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,10 +12,8 @@ void main() async {
   EasyLocalization.logger.enableLevels = [];
   await EasyLocalization.ensureInitialized();
 
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky,
-      overlays: [SystemUiOverlay.bottom]);
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: [SystemUiOverlay.bottom]);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   runApp(const AppLocalization());
 }

@@ -21,26 +21,18 @@ class AddressScreen extends StatelessWidget {
                 Flexible(
                     flex: 2,
                     child: TextFormField(
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                            hintText: 'Search Address',
-                            prefixIcon: Icon(Icons.search)))),
+                        obscureText: true, decoration: const InputDecoration(hintText: 'Search Address', prefixIcon: Icon(Icons.search)))),
                 const Spacer(flex: 1),
                 const CustomIconAndText(),
                 const Spacer(flex: 2),
-                Flexible(
-                    flex: 5, child: Center(child: Image.asset(AssetData.map))),
+                Flexible(flex: 5, child: Center(child: Image.asset(AssetData.map))),
                 const Spacer(flex: 2),
                 Flexible(
                   flex: 2,
                   child: ElevatedButton(
                     onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 16, horizontal: 32)),
-                    child: Text('Save',
-                        style: context.textTheme.headlineMedium
-                            ?.copyWith(color: AppColors.secondary)),
+                    style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32)),
+                    child: Text('Save', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.secondary)),
                   ),
                 ),
               ],

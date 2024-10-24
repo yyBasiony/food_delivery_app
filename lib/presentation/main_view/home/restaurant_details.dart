@@ -1,47 +1,29 @@
 import 'package:flutter/material.dart';
+
+import '../../../domain/models/restaurant.dart';
 import '../../resources/app_colors.dart';
+import '../../resources/app_constants.dart';
 import '../../resources/app_text_theme.dart';
 import '../widgets/custom_app_bar.dart';
-import '../widgets/order_item.dart';
-import '../../resources/app_constants.dart';
+import '../widgets/custom_order_item.dart';
 
 class RestaurantDetails extends StatefulWidget {
-  final String imageUrl;
-  final String name;
-  final String address;
-  final String rating;
-  final String reviews;
-  final String openStatus;
+  final Restaurant restaurant;
 
-  const RestaurantDetails({
-    super.key,
-    required this.name,
-    required this.rating,
-    required this.address,
-    required this.reviews,
-    required this.imageUrl,
-    required this.openStatus,
-  });
+  const RestaurantDetails({super.key, required this.restaurant});
 
   @override
   State<RestaurantDetails> createState() => _RestaurantDetailsState();
 }
 
-class _RestaurantDetailsState extends State<RestaurantDetails>
-    with SingleTickerProviderStateMixin {
+class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 3, vsync: this);
-  }
+  void dispose() => {_tabController.dispose(), super.dispose()};
 
   @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
+  void initState() => {_tabController = TabController(length: 3, vsync: this), super.initState()};
 
   @override
   Widget build(BuildContext context) {
@@ -49,82 +31,44 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
       appBar: AppBar(
         leading: const CustomAppBar(),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.favorite_border,
-                color: AppColors.primaryColor),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search, color: AppColors.primaryColor),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.share, color: AppColors.primaryColor),
-          ),
+          // TODO: Should be dynamic not repeated
+          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border, color: AppColors.primaryColor)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: AppColors.primaryColor)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: AppColors.primaryColor)),
         ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: Image.asset(
-                  widget.imageUrl,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
-          ),
+          Stack(children: [SizedBox(height: 300, width: double.infinity, child: Image.asset(widget.restaurant.imageUrl, fit: BoxFit.cover))]),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  widget.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelSmall
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                ),
+                Text(widget.restaurant.name, style: Theme.of(context).textTheme.labelSmall?.copyWith(fontWeight: FontWeight.bold)),
                 const SizedBox(height: 4),
-                Text(
-                  widget.address,
-                  style: const TextStyle(color: Colors.grey),
-                ),
+                Text(widget.restaurant.address, style: const TextStyle(color: Colors.grey)),
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    const Icon(Icons.star,
-                        color: AppColors.primaryColor, size: 16),
+                    const Icon(Icons.star, color: AppColors.primaryColor, size: 16),
                     const SizedBox(width: 4),
-                    Text(widget.rating),
+                    Text(widget.restaurant.rating),
                     const SizedBox(width: 4),
-                    Text('(${widget.reviews} reviews)',
-                        style: const TextStyle(color: Colors.grey)),
+                    Text('(${widget.restaurant.reviews} reviews)', style: const TextStyle(color: Colors.grey)),
                   ],
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  widget.openStatus,
-                  style: const TextStyle(color: Colors.green),
-                ),
+                Text(widget.restaurant.openStatus, style: const TextStyle(color: Colors.green)),
               ],
             ),
           ),
           TabBar(
+            labelColor: Colors.black,
             controller: _tabController,
             indicatorColor: AppColors.primaryColor,
-            labelColor: Colors.black,
-            tabs: const [
-              Tab(text: 'Order'),
-              Tab(text: 'Information'),
-              Tab(text: 'Reviews'),
-            ],
+            tabs: const [Tab(text: 'Order'), Tab(text: 'Information'), Tab(text: 'Reviews')],
           ),
           Expanded(
             child: TabBarView(
@@ -132,24 +76,14 @@ class _RestaurantDetailsState extends State<RestaurantDetails>
               children: [
                 ListView(
                   padding: const EdgeInsets.all(16),
-                  children: AppConstants.orderItems.map((orderItem) {
-                    return OrderItem(
-                      title: orderItem.title,
-                      price: orderItem.price,
-                      imageUrl: orderItem.imageUrl,
-                    );
-                  }).toList(),
+                  children: AppConstants.orderItems.map((orderItem) => CustomOrderItem(order: orderItem)).toList(),
                 ),
                 const RestaurantInfo(),
                 ListView(
                   padding: const EdgeInsets.all(16),
-                  children: AppConstants.reviewFoodData.map((review) {
-                    return ReviewItem(
-                      name: review.name,
-                      image: review.image,
-                      review: 'Your review here',
-                    );
-                  }).toList(),
+                  children: AppConstants.reviewFoodData
+                      .map((review) => ReviewItem(name: review.name, image: review.image, review: 'Your review here'))
+                      .toList(),
                 ),
               ],
             ),
@@ -172,24 +106,10 @@ class RestaurantInfo extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('+1 123 987 765', style: AppTextTheme.itemColor),
-            ),
-            ListTile(
-              leading: Icon(Icons.email),
-              title: Text('foodorder@gmail.com', style: AppTextTheme.itemColor),
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text('78th Street, 88 W 21th St, NY',
-                  style: AppTextTheme.itemColor),
-            ),
-            ListTile(
-              leading: Icon(Icons.attach_money),
-              title:
-                  Text('Average Cost: \$10-50', style: AppTextTheme.itemColor),
-            ),
+            ListTile(leading: Icon(Icons.phone), title: Text('+1 123 987 765', style: AppTextTheme.itemColor)),
+            ListTile(leading: Icon(Icons.email), title: Text('foodorder@gmail.com', style: AppTextTheme.itemColor)),
+            ListTile(leading: Icon(Icons.location_on), title: Text('78th Street, 88 W 21th St, NY', style: AppTextTheme.itemColor)),
+            ListTile(leading: Icon(Icons.attach_money), title: Text('Average Cost: \$10-50', style: AppTextTheme.itemColor)),
           ],
         ),
       ),
@@ -222,11 +142,7 @@ class ReviewItem extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(name, style: AppTextTheme.itemColor),
-                const SizedBox(height: 4),
-                Text(review, style: AppTextTheme.itemColor),
-              ],
+              children: [Text(name, style: AppTextTheme.itemColor), const SizedBox(height: 4), Text(review, style: AppTextTheme.itemColor)],
             ),
           ),
         ],

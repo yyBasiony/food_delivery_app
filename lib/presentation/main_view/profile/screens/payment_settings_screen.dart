@@ -18,17 +18,14 @@ class PaymentSettingsScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('This is the Payment Settings screen',
-                    textAlign: TextAlign.center,
-                    style: context.textTheme.titleMedium),
+                Text('This is the Payment Settings screen', textAlign: TextAlign.center, style: context.textTheme.titleMedium),
                 const Spacer(flex: 1),
                 Flexible(
                   child: SizedBox(
                     width: constraints.maxWidth * .8,
                     child: ElevatedButton(
                       onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 16)),
+                      style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),
                       child: const Text('Proceed to Payment'),
                     ),
                   ),

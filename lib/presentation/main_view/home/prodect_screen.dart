@@ -10,12 +10,7 @@ class ProductScreen extends StatefulWidget {
   final String imagePath;
   final Map<String, double> initialProducts;
 
-  const ProductScreen({
-    super.key,
-    required this.category,
-    required this.imagePath,
-    required this.initialProducts,
-  });
+  const ProductScreen({super.key, required this.category, required this.imagePath, required this.initialProducts});
 
   @override
   State<ProductScreen> createState() => _ProductScreenState();
@@ -28,9 +23,7 @@ class _ProductScreenState extends State<ProductScreen> {
   void initState() {
     super.initState();
     itemCount = {};
-    for (var item in widget.initialProducts.keys) {
-      itemCount[item] = 0;
-    }
+    for (var item in widget.initialProducts.keys) itemCount[item] = 0;
   }
 
   @override
@@ -44,9 +37,7 @@ class _ProductScreenState extends State<ProductScreen> {
             child: ListTile(
               leading: Image.asset(widget.imagePath),
               title: Text(item),
-              subtitle: Text('${getPrice(item)} LE',
-                  style: AppTextTheme.itemColor
-                      .copyWith(color: AppColors.primaryColor)),
+              subtitle: Text('${getPrice(item)} LE', style: AppTextTheme.itemColor.copyWith(color: AppColors.primaryColor)),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -58,15 +49,8 @@ class _ProductScreenState extends State<ProductScreen> {
                       }
                     }),
                   ),
-                  Text('${itemCount[item]}',
-                      style: context.textTheme.bodyMedium
-                          ?.copyWith(color: Colors.black)),
-                  IconButton(
-                    icon: const Icon(Icons.add),
-                    onPressed: () => setState(
-                      () => itemCount[item] = itemCount[item]! + 1,
-                    ),
-                  ),
+                  Text('${itemCount[item]}', style: context.textTheme.bodyMedium?.copyWith(color: Colors.black)),
+                  IconButton(icon: const Icon(Icons.add), onPressed: () => setState(() => itemCount[item] = itemCount[item]! + 1)),
                 ],
               ),
             ),
@@ -76,7 +60,5 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 
-  double getPrice(String item) {
-    return widget.initialProducts[item] ?? 0.0;
-  }
+  double getPrice(String item) => widget.initialProducts[item] ?? 0.0;
 }

@@ -6,6 +6,7 @@ import '../../resources/app_constants.dart';
 
 class ReviewScreenOrder extends StatefulWidget {
   const ReviewScreenOrder({super.key});
+
   @override
   State<ReviewScreenOrder> createState() => _ReviewScreenOrderState();
 }
@@ -27,26 +28,13 @@ class _ReviewScreenOrderState extends State<ReviewScreenOrder> {
                   children: [
                     ClipRRect(
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      child: Image.asset(
-                        AppConstants.reviewFoodData[index].image,
-                        width: 60,
-                        height: 60,
-                        fit: BoxFit.cover,
-                      ),
+                      child: Image.asset(AppConstants.reviewFoodData[index].image, width: 60, height: 60, fit: BoxFit.cover),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          AppConstants.reviewFoodData[index].name,
-                          style: AppTextTheme.itemName
-                              .copyWith(color: AppColors.black),
-                        ),
-                        Text(
-                          '\$${AppConstants.reviewFoodData[index].price}',
-                          style: AppTextTheme.itemColor
-                              .copyWith(color: AppColors.primaryColor),
-                        ),
+                        Text(AppConstants.reviewFoodData[index].name, style: AppTextTheme.itemName.copyWith(color: AppColors.black)),
+                        Text('\$${AppConstants.reviewFoodData[index].price}', style: AppTextTheme.itemColor.copyWith(color: AppColors.primaryColor)),
                       ],
                     ),
                     const Spacer(),
@@ -66,19 +54,11 @@ class _ReviewScreenOrderState extends State<ReviewScreenOrder> {
   IconButton _buildReactButton(int index, {bool isLikeButton = true}) {
     return IconButton(
       icon: Icon(
-        isLikeButton
-            ? Icons.thumb_up_alt_outlined
-            : Icons.thumb_down_alt_outlined,
-        color: ((AppConstants.reviewFoodData[index].isLiked ?? false) ==
-                isLikeButton)
-            ? AppColors.primaryColor
-            : Colors.grey,
+        isLikeButton ? Icons.thumb_up_alt_outlined : Icons.thumb_down_alt_outlined,
+        color: ((AppConstants.reviewFoodData[index].isLiked ?? false) == isLikeButton) ? AppColors.primaryColor : Colors.grey,
       ),
-      onPressed: () {
-        setState(() {
-          AppConstants.reviewFoodData[index].isLiked = isLikeButton;
-        });
-      },
+      // TODO: Do 'setState' in Helper Method cause rebuild for all screen, which is WRONG
+      onPressed: () => setState(() => AppConstants.reviewFoodData[index].isLiked = isLikeButton),
     );
   }
 }

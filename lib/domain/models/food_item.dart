@@ -1,21 +1,21 @@
 class FoodItem {
-  final String imageUrl;
   final String name;
-  final String restaurant;
-  final double rating;
-  final int reviewsCount;
-  final String deliveryTime;
-  final String distance;
   final double price;
+  final double rating;
+  final String distance;
+  final String imageUrl;
+  final int reviewsCount;
+  final String restaurant;
+  final String deliveryTime;
 
   FoodItem({
-    required this.imageUrl,
     required this.name,
-    required this.restaurant,
+    required this.price,
     required this.rating,
+    required this.distance,
+    required this.imageUrl,
+    required this.restaurant,
     required this.reviewsCount,
     required this.deliveryTime,
-    required this.distance,
-    required this.price,
   });
 }

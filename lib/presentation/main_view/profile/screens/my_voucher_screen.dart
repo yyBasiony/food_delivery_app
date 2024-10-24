@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/resources/app_constants.dart';
 
 import '../../../resources/app_colors.dart';
+import '../../../resources/app_constants.dart';
 import '../../../resources/theme/app_theme.dart';
 import '../../widgets/custom_app_bar.dart';
 import '../../widgets/voucher_item.dart';
@@ -19,6 +19,7 @@ class MyVoucherScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: AppConstants.voucherData.length,
               itemBuilder: (_, index) => VoucherItem(
+                  // TODO: Should be edited
                   title: AppConstants.voucherData[index].title,
                   expiry: AppConstants.voucherData[index].expiry,
                   imageUrl: AppConstants.voucherData[index].image),
@@ -28,9 +29,7 @@ class MyVoucherScreen extends StatelessWidget {
             padding: const EdgeInsets.all(32),
             child: ElevatedButton(
               onPressed: () {},
-              child: Text('Use Now',
-                  style: context.textTheme.headlineMedium
-                      ?.copyWith(color: AppColors.secondary)),
+              child: Text('Use Now', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.secondary)),
             ),
           ),
         ],

@@ -23,17 +23,11 @@ class ScrollableFoodList extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  child: Image.asset(AppConstants.foodItemsData[index].imageUrl,
-                      width: 80, height: 80, fit: BoxFit.cover),
+                  child: Image.asset(AppConstants.foodItemsData[index].imageUrl, width: 80, height: 80, fit: BoxFit.cover),
                 ),
-                Text(AppConstants.foodItemsData[index].name,
-                    style:
-                        AppTextTheme.itemName.copyWith(color: AppColors.black)),
-                Text(
-                  '\$${AppConstants.foodItemsData[index].price.toStringAsFixed(2)}',
-                  style: AppTextTheme.itemColor
-                      .copyWith(color: AppColors.primaryColor),
-                ),
+                Text(AppConstants.foodItemsData[index].name, style: AppTextTheme.itemName.copyWith(color: AppColors.black)),
+                Text('\$${AppConstants.foodItemsData[index].price.toStringAsFixed(2)}',
+                    style: AppTextTheme.itemColor.copyWith(color: AppColors.primaryColor)),
               ],
             ),
           ),

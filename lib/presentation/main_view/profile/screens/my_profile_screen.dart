@@ -21,36 +21,24 @@ class MyProfileScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const CircleAvatar(
-              radius: 50, backgroundImage: AssetImage(AssetData.sushi)),
-          Text('Jack Sparrow',
-              style: context.textTheme.headlineMedium
-                  ?.copyWith(color: AppColors.black)),
-          const Text('Change Photo',
-              style: TextStyle(color: AppColors.grey)), // TODO: TextButton
+          const CircleAvatar(radius: 50, backgroundImage: AssetImage(AssetData.sushi)),
+          Text('Jack Sparrow', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.black)),
+          const Text('Change Photo', style: TextStyle(color: AppColors.grey)), // TODO: TextButton
           //
           Expanded(
             child: ListView.builder(
               itemCount: _profileData.length,
               itemBuilder: (_, index) => ListTile(
                 onTap: () {},
-                title: Text(_profileData[index].title,
-                    style: context.textTheme.headlineMedium
-                        ?.copyWith(color: AppColors.black)),
-                trailing: Text(_profileData[index].data,
-                    style: context.textTheme.headlineSmall
-                        ?.copyWith(color: AppColors.grey)),
+                title: Text(_profileData[index].title, style: context.textTheme.headlineMedium?.copyWith(color: AppColors.black)),
+                trailing: Text(_profileData[index].data, style: context.textTheme.headlineSmall?.copyWith(color: AppColors.grey)),
               ),
             ),
           ),
           ElevatedButton(
             onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 32)),
-            child: Text('Save',
-                style: context.textTheme.headlineMedium
-                    ?.copyWith(color: AppColors.secondary)),
+            style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32)),
+            child: Text('Save', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.secondary)),
           ),
         ],
       ),

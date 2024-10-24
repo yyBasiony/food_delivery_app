@@ -19,6 +19,7 @@ class DiscountScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: AppConstants.voucherData.length,
               itemBuilder: (_, index) => VoucherItem(
+                // TODO: Should be edited
                 title: AppConstants.voucherData[index].title,
                 expiry: AppConstants.voucherData[index].expiry,
                 imageUrl: AppConstants.voucherData[index].image,
@@ -28,19 +29,8 @@ class DiscountScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(32),
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CartScreen(),
-                  ),
-                );
-              },
-              child: Text(
-                'Choose',
-                style: context.textTheme.headlineMedium
-                    ?.copyWith(color: AppColors.secondary),
-              ),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CartScreen())),
+              child: Text('Choose', style: context.textTheme.headlineMedium?.copyWith(color: AppColors.secondary)),
             ),
           ),
         ],
