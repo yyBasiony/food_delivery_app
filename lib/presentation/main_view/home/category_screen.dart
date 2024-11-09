@@ -21,7 +21,9 @@ class CategoryScreen extends StatelessWidget {
     return ProductScreen(
       category: category,
       imagePath: categoryDetails.imagePath,
-      initialProducts: categoryDetails.products,
+      initialProducts: categoryDetails.restaurants.isNotEmpty
+          ? categoryDetails.restaurants[0].location
+          : {},
     );
   }
 }

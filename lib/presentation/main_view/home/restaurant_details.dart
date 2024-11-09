@@ -16,14 +16,18 @@ class RestaurantDetails extends StatefulWidget {
   State<RestaurantDetails> createState() => _RestaurantDetailsState();
 }
 
-class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTickerProviderStateMixin {
+class _RestaurantDetailsState extends State<RestaurantDetails>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
   void dispose() => {_tabController.dispose(), super.dispose()};
 
   @override
-  void initState() => {_tabController = TabController(length: 3, vsync: this), super.initState()};
+  void initState() => {
+        _tabController = TabController(length: 3, vsync: this),
+        super.initState()
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -32,35 +36,56 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
         leading: const CustomAppBar(),
         actions: [
           // TODO: Should be dynamic not repeated
-          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border, color: AppColors.primaryColor)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: AppColors.primaryColor)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: AppColors.primaryColor)),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.favorite_border,
+                  color: AppColors.primaryColor)),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.search, color: AppColors.primaryColor)),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.share, color: AppColors.primaryColor)),
         ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(children: [SizedBox(height: 300, width: double.infinity, child: Image.asset(widget.restaurant.imageUrl, fit: BoxFit.cover))]),
+          Stack(children: [
+            SizedBox(
+                height: 300,
+                width: double.infinity,
+                child:
+                    Image.asset(widget.restaurant.imageUrl, fit: BoxFit.cover))
+          ]),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.restaurant.name, style: Theme.of(context).textTheme.labelSmall?.copyWith(fontWeight: FontWeight.bold)),
+                Text(widget.restaurant.name,
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelSmall
+                        ?.copyWith(fontWeight: FontWeight.bold)),
                 const SizedBox(height: 4),
-                Text(widget.restaurant.address, style: const TextStyle(color: Colors.grey)),
+                Text(widget.restaurant.address,
+                    style: const TextStyle(color: Colors.grey)),
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    const Icon(Icons.star, color: AppColors.primaryColor, size: 16),
+                    const Icon(Icons.star,
+                        color: AppColors.primaryColor, size: 16),
                     const SizedBox(width: 4),
                     Text(widget.restaurant.rating),
                     const SizedBox(width: 4),
-                    Text('(${widget.restaurant.reviews} reviews)', style: const TextStyle(color: Colors.grey)),
+                    Text('(${widget.restaurant.rating} stars)',
+                        style: const TextStyle(color: Colors.grey)),
                   ],
                 ),
                 const SizedBox(height: 8),
-                Text(widget.restaurant.openStatus, style: const TextStyle(color: Colors.green)),
+                Text(widget.restaurant.openStatus,
+                    style: const TextStyle(color: Colors.green)),
               ],
             ),
           ),
@@ -68,7 +93,11 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
             labelColor: Colors.black,
             controller: _tabController,
             indicatorColor: AppColors.primaryColor,
-            tabs: const [Tab(text: 'Order'), Tab(text: 'Information'), Tab(text: 'Reviews')],
+            tabs: const [
+              Tab(text: 'Order'),
+              Tab(text: 'Information'),
+              Tab(text: 'Reviews')
+            ],
           ),
           Expanded(
             child: TabBarView(
@@ -76,13 +105,18 @@ class _RestaurantDetailsState extends State<RestaurantDetails> with SingleTicker
               children: [
                 ListView(
                   padding: const EdgeInsets.all(16),
-                  children: AppConstants.orderItems.map((orderItem) => CustomOrderItem(order: orderItem)).toList(),
+                  children: AppConstants.orderItems
+                      .map((orderItem) => CustomOrderItem(order: orderItem))
+                      .toList(),
                 ),
                 const RestaurantInfo(),
                 ListView(
                   padding: const EdgeInsets.all(16),
                   children: AppConstants.reviewFoodData
-                      .map((review) => ReviewItem(name: review.name, image: review.image, review: 'Your review here'))
+                      .map((review) => ReviewItem(
+                          name: review.name,
+                          image: review.image,
+                          review: 'Your review here'))
                       .toList(),
                 ),
               ],
@@ -106,10 +140,21 @@ class RestaurantInfo extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(leading: Icon(Icons.phone), title: Text('+1 123 987 765', style: AppTextTheme.itemColor)),
-            ListTile(leading: Icon(Icons.email), title: Text('foodorder@gmail.com', style: AppTextTheme.itemColor)),
-            ListTile(leading: Icon(Icons.location_on), title: Text('78th Street, 88 W 21th St, NY', style: AppTextTheme.itemColor)),
-            ListTile(leading: Icon(Icons.attach_money), title: Text('Average Cost: \$10-50', style: AppTextTheme.itemColor)),
+            ListTile(
+                leading: Icon(Icons.phone),
+                title: Text('+1 123 987 765', style: AppTextTheme.itemColor)),
+            ListTile(
+                leading: Icon(Icons.email),
+                title:
+                    Text('foodorder@gmail.com', style: AppTextTheme.itemColor)),
+            ListTile(
+                leading: Icon(Icons.location_on),
+                title: Text('78th Street, 88 W 21th St, NY',
+                    style: AppTextTheme.itemColor)),
+            ListTile(
+                leading: Icon(Icons.attach_money),
+                title: Text('Average Cost: \$10-50',
+                    style: AppTextTheme.itemColor)),
           ],
         ),
       ),
@@ -142,7 +187,11 @@ class ReviewItem extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [Text(name, style: AppTextTheme.itemColor), const SizedBox(height: 4), Text(review, style: AppTextTheme.itemColor)],
+              children: [
+                Text(name, style: AppTextTheme.itemColor),
+                const SizedBox(height: 4),
+                Text(review, style: AppTextTheme.itemColor)
+              ],
             ),
           ),
         ],

@@ -25,21 +25,24 @@ class _OrderItemState extends State<CustomOrderItem> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.order.title, style: AppTextTheme.itemColor),
-      leading: Image.asset(widget.order.imageUrl, width: 50, height: 50),
-      subtitle: Text('\$${widget.order.price}', style: AppTextTheme.itemColor),
+      title: Text(widget.order.meal.name, style: AppTextTheme.itemColor),
+      leading: Image.asset(widget.order.meal.imageUrl, width: 50, height: 50),
+      subtitle:
+          Text('\$${widget.order.meal.price}', style: AppTextTheme.itemColor),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           if (quantity > 0)
             IconButton(
               onPressed: _decreaseQuantity,
-              icon: const Icon(Icons.remove_circle_outline, color: AppColors.primaryColor),
+              icon: const Icon(Icons.remove_circle_outline,
+                  color: AppColors.primaryColor),
             ),
           Text('$quantity'),
           IconButton(
             onPressed: _increaseQuantity,
-            icon: const Icon(Icons.add_circle_outline, color: AppColors.primaryColor),
+            icon: const Icon(Icons.add_circle_outline,
+                color: AppColors.primaryColor),
           ),
         ],
       ),

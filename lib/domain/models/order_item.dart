@@ -1,8 +1,11 @@
-class OrderItem {
-  int quantity;
-  final String title;
-  final double price;
-  final String imageUrl;
+import 'meal_model.dart';
 
-  OrderItem({this.quantity = 0, required this.title, required this.price, required this.imageUrl});
+class OrderItem {
+  final int quantity;
+  final Meal meal;
+
+  OrderItem({
+    required this.quantity,
+    required this.meal,
+  });
 }

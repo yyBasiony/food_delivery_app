@@ -1,6 +1,11 @@
+import 'restaurant.dart';
+
 class Category {
   final String imagePath;
-  final Map<String, double> products;
+  final List<Restaurant> restaurants;
 
-  Category({required this.products, required this.imagePath});
+  Category({
+    required this.imagePath,
+    required this.restaurants,
+  });
 }

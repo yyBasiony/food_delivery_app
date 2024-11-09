@@ -1,21 +1,21 @@
+import 'meal_model.dart';
+
 class Restaurant {
   final String name;
-  final String image;
   final String rating;
-  final String reviews;
   final String address;
-  final String distance;
   final String imageUrl;
   final String openStatus;
+  final List<Meal> meals;
+  final Map<String, double> location;
 
   Restaurant({
     required this.name,
-    required this.image,
     required this.rating,
-    required this.reviews,
     required this.address,
-    required this.distance,
     required this.imageUrl,
     required this.openStatus,
+    required this.meals,
+    required this.location,
   });
 }
