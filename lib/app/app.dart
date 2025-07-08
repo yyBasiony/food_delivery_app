@@ -20,7 +20,7 @@ class FoodDelivery extends StatelessWidget {
           themeMode: themeMode,
           theme: AppTheme.getLightTheme(),
 
-          initialRoute: Routes.mainView,
+          initialRoute: Routes.splashScreen,
           onGenerateRoute: Routes.generateRoute,
 
           locale: context.locale,
